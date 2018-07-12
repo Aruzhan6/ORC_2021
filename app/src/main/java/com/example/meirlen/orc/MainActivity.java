@@ -1,6 +1,5 @@
 package com.example.meirlen.orc;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +7,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.meirlen.orc.interactor.ChatInteractor;
-import com.example.meirlen.orc.interactor.ChatInteractorImpl;
-import com.example.meirlen.orc.model.Chat;
+import com.example.meirlen.orc.rest.model.Category;
 import com.example.meirlen.orc.presenter.ChatPresenter;
-import com.example.meirlen.orc.presenter.impl.ChatPresenterImpl;
 import com.example.meirlen.orc.view.ChatView;
 
 import java.util.List;
@@ -41,11 +38,11 @@ public class MainActivity extends AppCompatActivity implements ChatView {
 
         App.getInstance().createChatComponent().inject(this);
         chatPresenter.setView(this);
-        chatPresenter.getMessages("Token");
+        chatPresenter.getMessages("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODksInRpbWVzdGFtcCI6MTUzMTEzNzYwOC42MDI2MDh9.-XdJaLVB6xmwc0nbzm2_iXGlAKZXnrRgOvGy4b8D6-Q");
     }
 
     @Override
-    public void getChats(List<Chat> messages) {
+    public void getChats(List<Category> messages) {
         Toast.makeText(this, "Количество обьектов: " + String.valueOf(messages.size()), Toast.LENGTH_SHORT).show();
     }
 

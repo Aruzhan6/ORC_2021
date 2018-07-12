@@ -33,16 +33,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-
         instance = this;
-
         appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(instance))
+                .appModule(new AppModule(instance,"http://orc.workapp.kz"))
                 .build();
-
-
-
     }
 
     public static Context getAppContext() {

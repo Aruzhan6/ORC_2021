@@ -3,6 +3,8 @@ package com.example.meirlen.orc.di.components;
 import com.example.meirlen.orc.MainActivity;
 import com.example.meirlen.orc.di.modules.ChatModule;
 import com.example.meirlen.orc.di.scopes.ChatScope;
+import com.example.meirlen.orc.interactor.ChatInteractor;
+import com.example.meirlen.orc.interactor.ChatInteractorImpl;
 
 import dagger.Subcomponent;
 
@@ -18,4 +20,5 @@ public interface ChatComponent {
     }
 
     MainActivity inject(MainActivity mainActivity);
+    ChatInteractorImpl inject(ChatInteractorImpl chatInteractor);
 }

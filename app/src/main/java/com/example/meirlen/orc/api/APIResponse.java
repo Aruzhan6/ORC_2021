@@ -1,5 +1,9 @@
 package com.example.meirlen.orc.api;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 import java.util.concurrent.Callable;
 
 import io.reactivex.ObservableSource;
@@ -8,47 +12,75 @@ import io.reactivex.ObservableSource;
  * Created by aaskarov on 13.11.2017.
  */
 
-public class APIResponse<T> extends NetworkResponse implements Callable<ObservableSource<? extends T>> {
+public class APIResponse<T> {
 
-    public static final int ERROR_JSON = 1;
-    public static final int ERROR_API = 2;
 
-    public T object;
-    public APIError apiError;
+    @SerializedName("status")
+    @Expose
+    private Integer status;
 
-    public APIResponse(){}
+    @SerializedName("isSuccess")
+    @Expose
+    private Boolean isSuccess;
 
-    public APIResponse(NetworkResponse response) {
-        error = response.error;
-        code = response.code;
-        exception = response.exception;
-        responseString = response.responseString;
+    @SerializedName("message")
+    @Expose
+    private String message;
+
+    @SerializedName("data")
+    @Expose
+    private T data = null;
+
+    @SerializedName("errors")
+    @Expose
+    private List<Object> errors = null;
+
+    public Integer getStatus() {
+        return status;
     }
 
-    public APIResponse(APIResponse response) {
-        this((NetworkResponse)response);
-        apiError = response.apiError;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public boolean hasAPIError() {
-        return apiError != null;
+    public Boolean getIsSuccess() {
+        return isSuccess;
     }
 
-    public boolean isCorrectResponse() {
-        return error == NetworkResponse.NO_ERROR && code >= 200 && code < 300;
+    public void setIsSuccess(Boolean isSuccess) {
+        this.isSuccess = isSuccess;
     }
 
-    @Override
-    public String toString() {
-        return "APIResponse{" +
-                "object=" + object +
-                ", apiError=" + apiError +
-                '}';
+    public String getMessage() {
+        return message;
     }
 
-    @Override
-    public ObservableSource<? extends T> call() throws Exception {
-        return null;
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Boolean getSuccess() {
+        return isSuccess;
+    }
+
+    public void setSuccess(Boolean success) {
+        isSuccess = success;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public List<Object> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<Object> errors) {
+        this.errors = errors;
     }
 
 

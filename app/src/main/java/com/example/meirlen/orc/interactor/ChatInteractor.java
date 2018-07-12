@@ -2,12 +2,14 @@ package com.example.meirlen.orc.interactor;
 
 
 import com.example.meirlen.orc.api.APIResponse;
-import com.example.meirlen.orc.model.ResponseGetChat;
+import com.example.meirlen.orc.rest.model.Category;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
 public interface ChatInteractor {
 
-    Observable<APIResponse<ResponseGetChat>> getMessages(String authToken);
+    Observable<APIResponse<List<Category>>> getMessages(String authToken);
 
 }
