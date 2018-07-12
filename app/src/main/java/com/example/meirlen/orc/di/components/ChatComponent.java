@@ -5,6 +5,7 @@ import com.example.meirlen.orc.di.modules.ChatModule;
 import com.example.meirlen.orc.di.scopes.ChatScope;
 import com.example.meirlen.orc.interactor.ChatInteractor;
 import com.example.meirlen.orc.interactor.ChatInteractorImpl;
+import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 
 import dagger.Subcomponent;
 
@@ -19,6 +20,6 @@ public interface ChatComponent {
         ChatComponent build();
     }
 
-    MainActivity inject(MainActivity mainActivity);
+    CategoriesFragment inject(CategoriesFragment fragment);
     ChatInteractorImpl inject(ChatInteractorImpl chatInteractor);
 }

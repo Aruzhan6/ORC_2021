@@ -1,13 +1,11 @@
 package com.example.meirlen.orc.di.modules;
 
-import android.content.Context;
-
 import com.example.meirlen.orc.di.scopes.ChatScope;
 import com.example.meirlen.orc.interactor.ChatInteractor;
 import com.example.meirlen.orc.interactor.ChatInteractorImpl;
 import com.example.meirlen.orc.presenter.ChatPresenter;
 import com.example.meirlen.orc.presenter.impl.ChatPresenterImpl;
-import com.example.meirlen.orc.rest.api.ChatApi;
+import com.example.meirlen.orc.rest.api.CategoryApi;
 
 import dagger.Module;
 import dagger.Provides;
@@ -31,7 +29,7 @@ public class ChatModule {
 
     @ChatScope
     @Provides
-    ChatApi provideApiService(Retrofit retrofit) {
-        return retrofit.create(ChatApi.class);
+    CategoryApi provideApiService(Retrofit retrofit) {
+        return retrofit.create(CategoryApi.class);
     }
 }

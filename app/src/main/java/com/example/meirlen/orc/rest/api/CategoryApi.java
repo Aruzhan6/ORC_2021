@@ -13,7 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 
-public interface ChatApi {
+public interface CategoryApi {
 
 
     @GET (ApiMethods.CHAT_GET)

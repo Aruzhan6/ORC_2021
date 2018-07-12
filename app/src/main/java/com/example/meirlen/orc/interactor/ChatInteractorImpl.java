@@ -1,11 +1,9 @@
 package com.example.meirlen.orc.interactor;
 
-import android.content.Context;
-
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.rest.model.Category;
-import com.example.meirlen.orc.rest.api.ChatApi;
+import com.example.meirlen.orc.rest.api.CategoryApi;
 
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class ChatInteractorImpl implements ChatInteractor {
 
 
     @Inject
-    ChatApi chatApi;
+    CategoryApi categoryApi;
 
 
     public ChatInteractorImpl() {
@@ -30,7 +28,7 @@ public class ChatInteractorImpl implements ChatInteractor {
 
     @Override
     public Observable<APIResponse<List<Category>>> getMessages(String authToken) {
-        return chatApi.getChat(authToken);
+        return categoryApi.getChat(authToken);
     }
 
 

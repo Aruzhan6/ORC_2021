@@ -14,9 +14,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created by Bagdat on 1/3/2018.
- */
+
 
 public class ChatPresenterImpl implements ChatPresenter {
 
