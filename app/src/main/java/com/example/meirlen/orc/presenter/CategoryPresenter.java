@@ -1,0 +1,18 @@
+package com.example.meirlen.orc.presenter;
+
+
+import com.example.meirlen.orc.base.BasePresenter;
+import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.view.CategoryView;
+
+import java.util.List;
+
+public interface CategoryPresenter extends BasePresenter<CategoryView> {
+
+    void getCategories(String token);
+    void getCategoriesFromLocalDb();
+    void getCategoriesById(String id);
+    void insertLocalDb(List<Category> categories);
+
+
+}

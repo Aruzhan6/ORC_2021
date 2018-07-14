@@ -1,8 +1,11 @@
 package com.example.meirlen.orc.di.modules;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 
 
+import com.example.meirlen.orc.AppDatabase;
+import com.example.meirlen.orc.helper.DataGenerator;
 import com.google.gson.GsonBuilder;
 
 
@@ -29,6 +32,20 @@ public class AppModule {
     public AppModule(Context context, String baseUrl) {
         mContext = context;
         mBaseUrl = baseUrl;
+    }
+
+
+    @Provides
+    @Singleton
+    AppDatabase provideAppDatabase(Context context) {
+        return Room.databaseBuilder(context, AppDatabase.class, "database")
+                .build();
+    }
+
+    @Provides
+    @Singleton
+    DataGenerator provideDataGenerator(AppDatabase appDatabase) {
+        return DataGenerator.with(appDatabase);
     }
 
     @Singleton

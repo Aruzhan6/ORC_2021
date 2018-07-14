@@ -1,6 +1,7 @@
 package com.example.meirlen.orc.view.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -18,6 +19,7 @@ import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.rest.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
+import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
 import com.example.meirlen.orc.view.adapter.CategoryAdapter;
 
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class CategoriesFragment extends Fragment implements CategoryView {
+public class ChildCategoriesFragment extends Fragment implements CategoryView {
 
 
     @BindView(R.id.progressBar)
@@ -45,16 +47,18 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     CategoryInteractor categoryInteractor;
 
     private CategoryAdapter adapter;
-    List<Category> list=new ArrayList<>();
+    List<Category> list = new ArrayList<>();
 
 
-    public static CategoriesFragment newInstance() {
-        return new CategoriesFragment();
+    public static ChildCategoriesFragment newInstance() {
+        return new ChildCategoriesFragment();
     }
 
-    public static CategoriesFragment newInstance(String param1, String param2) {
-        CategoriesFragment fragment = new CategoriesFragment();
+    public static ChildCategoriesFragment newInstance(String param1, String param2) {
+        ChildCategoriesFragment fragment = new ChildCategoriesFragment();
         Bundle args = new Bundle();
+        args.putString(ChildCategoryActivity.EXTRA_NAME_PARENT_CATEGORY, param1);
+        args.putString(ChildCategoryActivity.EXTRA_ID_PARENT_CATEGORY, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -67,15 +71,14 @@ public class CategoriesFragment extends Fragment implements CategoryView {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, rootView);
         App.getInstance().createChatComponent().inject(this);
-
         init();
         categoryPresenter.setView(this);
-        //   categoryPresenter.getCategories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODksInRpbWVzdGFtcCI6MTUzMTEzNzYwOC42MDI2MDh9.-XdJaLVB6xmwc0nbzm2_iXGlAKZXnrRgOvGy4b8D6-Q");
-       categoryPresenter.getCategoriesFromLocalDb();
+        assert getArguments() != null;
+        categoryPresenter.getCategoriesById(getArguments().getString(ChildCategoryActivity.EXTRA_ID_PARENT_CATEGORY));
         return rootView;
     }
 
@@ -84,7 +87,7 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     public void getCategories(List<Category> categories) {
         list.addAll(categories);
         adapter.notifyDataSetChanged();
-        categoryPresenter.insertLocalDb(categories);
+
     }
 
 
@@ -120,14 +123,13 @@ public class CategoriesFragment extends Fragment implements CategoryView {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
-   private void init() {
+    private void init() {
 
         adapter = new CategoryAdapter(list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
 
 
     }

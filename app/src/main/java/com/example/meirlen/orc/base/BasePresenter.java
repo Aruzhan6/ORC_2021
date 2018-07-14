@@ -1,4 +1,4 @@
-package com.example.meirlen.orc.presenter;
+package com.example.meirlen.orc.base;
 
 public interface BasePresenter<T> {
 

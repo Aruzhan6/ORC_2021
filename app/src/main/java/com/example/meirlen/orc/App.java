@@ -1,12 +1,9 @@
 package com.example.meirlen.orc;
 
 import android.app.Application;
-import android.content.Context;
-import android.os.Handler;
-import android.support.v4.content.LocalBroadcastManager;
 
 import com.example.meirlen.orc.di.components.AppComponent;
-import com.example.meirlen.orc.di.components.ChatComponent;
+import com.example.meirlen.orc.di.components.CategoryComponent;
 import com.example.meirlen.orc.di.components.DaggerAppComponent;
 import com.example.meirlen.orc.di.modules.AppModule;
 
@@ -16,19 +13,12 @@ public class App extends Application {
     private static final String TAG = "App";
 
     public static App instance;
-
-    public static LocalBroadcastManager BROADCAST_MANAGER;
-    private static volatile boolean applicationInited = false;
-
     private AppComponent appComponent;
-    private ChatComponent chatComponent;
-
-
+    private CategoryComponent categoryComponent;
 
     public static App getInstance() {
         return instance;
     }
-
 
     @Override
     public void onCreate() {
@@ -37,30 +27,17 @@ public class App extends Application {
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(instance,"http://orc.workapp.kz"))
                 .build();
+
     }
 
-    public static Context getAppContext() {
-        return instance;
-    }
-
-
-
-    public AppComponent getAppComponent() {
-        return appComponent;
-    }
-
-
-    public ChatComponent createChatComponent() {
-        if (chatComponent == null) {
-            chatComponent = appComponent.chatBuilder().build();
+    public CategoryComponent createChatComponent() {
+        if (categoryComponent == null) {
+            categoryComponent = appComponent.chatBuilder().build();
         }
 
-        return chatComponent;
+        return categoryComponent;
     }
 
-    public void clearChatComponent() {
-        chatComponent = null;
-    }
 
 
 

@@ -12,7 +12,7 @@ import dagger.Component;
 public interface AppComponent {
 
 
-    ChatComponent.Builder chatBuilder();
+    CategoryComponent.Builder chatBuilder();
 
 
 }

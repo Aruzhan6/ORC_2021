@@ -8,29 +8,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.meirlen.orc.helper.BottomNavigationBehavior;
-import com.example.meirlen.orc.interactor.ChatInteractor;
-import com.example.meirlen.orc.rest.model.Category;
-import com.example.meirlen.orc.presenter.ChatPresenter;
-import com.example.meirlen.orc.view.ChatView;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
-
-import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity  {
 
-    private ActionBar toolbar;
-
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
 
@@ -40,15 +30,11 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        toolbar = getSupportActionBar();
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         // attaching bottom sheet behaviour - hide / show on scroll
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationBehavior());
-
         // load the store fragment by default
         toolbar.setTitle("Shop");
         loadFragment(new CategoriesFragment());
