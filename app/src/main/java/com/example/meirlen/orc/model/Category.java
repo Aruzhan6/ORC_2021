@@ -1,4 +1,4 @@
-package com.example.meirlen.orc.rest.model;
+package com.example.meirlen.orc.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
@@ -33,7 +33,10 @@ public class Category {
     private List<Category> children = null;
 
 
-
+    @Ignore
+    @SerializedName("fields")
+    @Expose
+    private List<Field> fields = null;
 
     public Integer getCategoryId() {
         return categoryId;
@@ -67,5 +70,13 @@ public class Category {
 
     public void setChildren(List<Category> children) {
         this.children = children;
+    }
+
+    public List<Field> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<Field> fields) {
+        this.fields = fields;
     }
 }

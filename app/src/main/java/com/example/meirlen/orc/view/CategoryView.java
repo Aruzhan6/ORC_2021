@@ -1,6 +1,6 @@
 package com.example.meirlen.orc.view;
 
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 
 import java.util.List;
 

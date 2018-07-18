@@ -4,7 +4,9 @@ package com.example.meirlen.orc.helper;
 import android.util.Log;
 
 import com.example.meirlen.orc.AppDatabase;
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
+import com.example.meirlen.orc.model.Field;
+import com.example.meirlen.orc.model.SearchValue;
 
 import java.util.List;
 
@@ -36,29 +38,72 @@ public class DataGenerator {
     public void generateChildCategory(List<Category> categories) {
         if (dataBase == null)
             return;
-
         for (Category item : categories) {
-            if(item.getChildren().size()>0)
-
+            if (item.getChildren().size() > 0)
                 mDisposable.add(updateChildCategories(item.getChildren())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(() -> Log.d(TAG,"Дочерние категорий успешно добавлены"),
+                        .subscribe(() -> {
+                                    Log.d(TAG, "Дочерние категорий успешно добавлены" + " " + String.valueOf(item.getFields().size()));
+                                    generateFields(item.getChildren());
+
+                                },
                                 throwable -> {
-                                    Log.d(TAG,throwable.getMessage());
+                                    Log.d(TAG, throwable.getMessage());
                                 }));
+        }
+    }
+
+    private void generateFields(List<Category> categories) {
+        if (dataBase == null)
+            return;
+        for (Category item : categories) {
+            mDisposable.add(updateFields(item.getFields())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(() -> {
+                                Log.d(TAG, "Fields  успешно добавлены");
+                                generateValueFields(item.getFields());
+                            },
+                            throwable -> {
+                                Log.d(TAG, throwable.getMessage());
+                            }));
 
         }
 
     }
+    private void generateValueFields(List<Field> fields) {
+        if (dataBase == null)
+            return;
+        for (Field item : fields) {
+            mDisposable.add(updateValueFields(item.getValues())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(() -> {
+                                Log.d(TAG, "ValueFields  успешно добавлены");
+                            },
+                            throwable -> {
+                                Log.d(TAG, throwable.getMessage());
+                            }));
 
+        }
 
-
+    }
     private Completable updateChildCategories(final List<Category> childCategories) {
         return Completable.fromAction(() -> {
             dataBase.categoryDao().insert(childCategories);
         });
     }
 
+    private Completable updateFields(final List<Field> fields) {
+        return Completable.fromAction(() -> {
+            dataBase.fieldDao().insert(fields);
+        });
+    }
 
+    private Completable updateValueFields(final List<SearchValue> fields) {
+        return Completable.fromAction(() -> {
+            dataBase.fieldValueDao().insert(fields);
+        });
+    }
 }

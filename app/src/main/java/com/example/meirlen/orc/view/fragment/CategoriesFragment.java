@@ -14,9 +14,8 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
 import com.example.meirlen.orc.view.adapter.CategoryAdapter;
 
@@ -41,11 +40,9 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     @Inject
     CategoryPresenter categoryPresenter;
 
-    @Inject
-    CategoryInteractor categoryInteractor;
 
     private CategoryAdapter adapter;
-    List<Category> list=new ArrayList<>();
+    List<Category> list = new ArrayList<>();
 
 
     public static CategoriesFragment newInstance() {
@@ -68,14 +65,14 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_category, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false);
         ButterKnife.bind(this, rootView);
-        App.getInstance().createChatComponent().inject(this);
+        App.getInstance().createCategoryComponent().inject(this);
 
         init();
         categoryPresenter.setView(this);
-        //   categoryPresenter.getCategories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODksInRpbWVzdGFtcCI6MTUzMTEzNzYwOC42MDI2MDh9.-XdJaLVB6xmwc0nbzm2_iXGlAKZXnrRgOvGy4b8D6-Q");
-       categoryPresenter.getCategoriesFromLocalDb();
+        categoryPresenter.getCategories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODksInRpbWVzdGFtcCI6MTUzMTEzNzYwOC42MDI2MDh9.-XdJaLVB6xmwc0nbzm2_iXGlAKZXnrRgOvGy4b8D6-Q");
+        //categoryPresenter.getCategoriesFromLocalDb();
         return rootView;
     }
 
@@ -86,8 +83,6 @@ public class CategoriesFragment extends Fragment implements CategoryView {
         adapter.notifyDataSetChanged();
         categoryPresenter.insertLocalDb(categories);
     }
-
-
 
 
     @Override
@@ -120,14 +115,13 @@ public class CategoriesFragment extends Fragment implements CategoryView {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
-   private void init() {
+    private void init() {
 
         adapter = new CategoryAdapter(list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
 
 
     }

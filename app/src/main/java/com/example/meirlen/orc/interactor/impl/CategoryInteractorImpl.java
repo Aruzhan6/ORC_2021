@@ -1,11 +1,14 @@
-package com.example.meirlen.orc.interactor;
+package com.example.meirlen.orc.interactor.impl;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.AppDatabase;
 import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.helper.DataGenerator;
-import com.example.meirlen.orc.rest.model.Category;
-import com.example.meirlen.orc.rest.api.CategoryApi;
+import com.example.meirlen.orc.interactor.CategoryInteractor;
+import com.example.meirlen.orc.model.Category;
+import com.example.meirlen.orc.model.Field;
+import com.example.meirlen.orc.model.SearchValue;
+import com.example.meirlen.orc.rest.CategoryApi;
 
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class CategoryInteractorImpl implements CategoryInteractor {
 
 
     public CategoryInteractorImpl() {
-        App.getInstance().createChatComponent().inject(this);
+        App.getInstance().createCategoryComponent().inject(this);
     }
 
 
@@ -47,6 +50,15 @@ public class CategoryInteractorImpl implements CategoryInteractor {
     @Override
     public Flowable<List<Category>> getChildCategories(String id) {
         return appDatabase.categoryDao().getById(id);
+    }
+
+    @Override
+    public Flowable<List<Field>> getFieldById(String id) {
+        return appDatabase.fieldDao().getAll();
+    }
+    @Override
+    public Flowable<List<SearchValue>> getFieldValueById(String id) {
+        return appDatabase.fieldValueDao().getById(id);
     }
 
     @Override

@@ -15,9 +15,8 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
 import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
 import com.example.meirlen.orc.view.adapter.CategoryAdapter;
@@ -42,9 +41,6 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView {
 
     @Inject
     CategoryPresenter categoryPresenter;
-
-    @Inject
-    CategoryInteractor categoryInteractor;
 
     private CategoryAdapter adapter;
     List<Category> list = new ArrayList<>();
@@ -72,9 +68,9 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_category, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false);
         ButterKnife.bind(this, rootView);
-        App.getInstance().createChatComponent().inject(this);
+        App.getInstance().createCategoryComponent().inject(this);
         init();
         categoryPresenter.setView(this);
         assert getArguments() != null;

@@ -9,5 +9,8 @@
     <color name="colorLine">#E0E0E0</color>
     <color name="colorBlack">#000000</color>
     <color name="white">#ffff</color>
+    <color name="primaryBackground">#F3F3F3</color>
+    <color name="red">#F23D4E</color>
+    <color name="black">#000000</color>
 
 </resources>

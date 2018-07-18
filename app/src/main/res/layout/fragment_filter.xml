@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout_filter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <View
+        android:id="@+id/toolbarSplitter"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/colorLine" />
+
+    <ScrollView
+        android:id="@+id/scrollView_filter"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+
+        <LinearLayout
+            android:id="@+id/mainFieldLayoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            />
+
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/acceptButton"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Принять"
+        android:textColor="@color/colorAccent" />
+
+</RelativeLayout>

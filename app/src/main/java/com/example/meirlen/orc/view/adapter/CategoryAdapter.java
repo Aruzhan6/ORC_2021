@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
 
 

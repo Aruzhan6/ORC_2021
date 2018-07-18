@@ -3,7 +3,7 @@ package com.example.meirlen.orc.presenter.impl;
 import com.example.meirlen.orc.api.NetworkResponse;
 import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
 
 import java.util.List;

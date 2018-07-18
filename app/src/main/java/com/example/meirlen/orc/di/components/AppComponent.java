@@ -1,6 +1,8 @@
 package com.example.meirlen.orc.di.components;
 
 import com.example.meirlen.orc.di.modules.AppModule;
+import com.example.meirlen.orc.model.Field;
+import com.example.meirlen.orc.model.Product;
 
 import javax.inject.Singleton;
 
@@ -12,7 +14,9 @@ import dagger.Component;
 public interface AppComponent {
 
 
-    CategoryComponent.Builder chatBuilder();
+    CategoryComponent.Builder categoryBuilder();
+    ProductComponent.Builder productBuilder();
+    FieldComponent.Builder  fieldBuilder();
 
 
 }

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/clientSortingBottomShet"
+    android:background="@color/white"
+
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sort"
+        android:layout_columnWeight="1"
+        android:paddingLeft="10dp"
+        android:layout_margin="5dp"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByDateInc"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortDateInc"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByDateDec"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortDateDec"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByPriceInc"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortPriceInc"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByPriceDec"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortPriceDec"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByRateInc"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortRaitingInc"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByRateDec"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortRaitingDec"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByAreaInc"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortAreaInc"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByAreDec"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortAreaDec"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByAddNear"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortLocationNear"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sortByAddFar"
+            android:background="@drawable/rectangle_border"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:id="@+id/tvSortLocationFar"
+            android:layout_weight="1"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

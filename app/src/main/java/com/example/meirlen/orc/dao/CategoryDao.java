@@ -1,4 +1,4 @@
-package com.example.meirlen.orc.room;
+package com.example.meirlen.orc.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -7,7 +7,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 
 import java.util.List;
 

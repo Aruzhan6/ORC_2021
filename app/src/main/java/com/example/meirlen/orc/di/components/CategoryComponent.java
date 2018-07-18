@@ -2,7 +2,7 @@ package com.example.meirlen.orc.di.components;
 
 import com.example.meirlen.orc.di.modules.CategoryModule;
 import com.example.meirlen.orc.di.scopes.CategoryScope;
-import com.example.meirlen.orc.interactor.CategoryInteractorImpl;
+import com.example.meirlen.orc.interactor.impl.CategoryInteractorImpl;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 import com.example.meirlen.orc.view.fragment.ChildCategoriesFragment;
 
@@ -15,11 +15,11 @@ public interface CategoryComponent {
 
     @Subcomponent.Builder
     interface Builder {
-        Builder chatComponent(CategoryModule module);
+        Builder categoryComponent(CategoryModule module);
         CategoryComponent build();
     }
 
     CategoriesFragment inject(CategoriesFragment fragment);
     ChildCategoriesFragment inject(ChildCategoriesFragment fragment);
-    CategoryInteractorImpl inject(CategoryInteractorImpl chatInteractor);
+    CategoryInteractorImpl inject(CategoryInteractorImpl interactor);
 }

@@ -2,7 +2,7 @@ package com.example.meirlen.orc.presenter;
 
 
 import com.example.meirlen.orc.base.BasePresenter;
-import com.example.meirlen.orc.rest.model.Category;
+import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
 
 import java.util.List;

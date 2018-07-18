@@ -4,21 +4,21 @@
     <item
         android:id="@+id/navigation_shop"
         android:icon="@drawable/ic_store_white_24dp"
-        android:title="@string/title_shop" />
+        android:title="@string/bottom_menu_1" />
 
     <item
         android:id="@+id/navigation_gifts"
         android:icon="@drawable/ic_card_giftcard_white_24dp"
-        android:title="@string/title_gifts" />
+        android:title="@string/bottom_menu_2" />
 
     <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/ic_shopping_cart_white_24dp"
-        android:title="@string/title_cart" />
+        android:title="@string/bottom_menu_3" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person_white_24dp"
-        android:title="@string/title_profile" />
+        android:title="@string/bottom_menu_4" />
 
 </menu>
