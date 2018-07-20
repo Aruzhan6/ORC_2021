@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".view.activity.ProductListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +22,10 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".view.activity.SignUpActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ChildCategoryActivity"
             android:screenOrientation="portrait" />
@@ -28,7 +33,16 @@
             android:name=".view.activity.FilterActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SplashActivity"
             android:screenOrientation="portrait" />
     </application>
 

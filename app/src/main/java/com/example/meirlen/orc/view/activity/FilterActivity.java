@@ -80,7 +80,7 @@ public class FilterActivity extends AppCompatActivity implements OnFieldItemSele
         if (state == 1) {
             ((OnValueClearIListener) fragment).onValueClear();
             changeState(false);
-            state=0;
+            state = 0;
         } else {
             super.onBackPressed();
         }

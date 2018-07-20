@@ -15,7 +15,7 @@ public class Product {
     private String productCategoryId;
     @SerializedName("product_producer_id")
     @Expose
-    private String productProducerId;
+    private Integer productProducerId;
     @SerializedName("product_name")
     @Expose
     private String productName;
@@ -24,7 +24,25 @@ public class Product {
     private String productDescription;
     @SerializedName("product_price")
     @Expose
-    private String productPrice;
+    private Integer productPrice;
+    @SerializedName("cart_id")
+    @Expose
+    private String cartId;
+    @SerializedName("cart_user_id")
+    @Expose
+    private String cartUserId;
+    @SerializedName("cart_product_id")
+    @Expose
+    private String cartProductId;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
+    @SerializedName("cart_count")
+    @Expose
+    private String cartCount;
 
 
     public Integer getProductId() {
@@ -43,11 +61,11 @@ public class Product {
         this.productCategoryId = productCategoryId;
     }
 
-    public String getProductProducerId() {
+    public Integer getProductProducerId() {
         return productProducerId;
     }
 
-    public void setProductProducerId(String productProducerId) {
+    public void setProductProducerId(Integer productProducerId) {
         this.productProducerId = productProducerId;
     }
 
@@ -67,13 +85,62 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public String getProductPrice() {
+    public Integer getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(Integer productPrice) {
         this.productPrice = productPrice;
     }
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
+    }
+
+    public String getCartUserId() {
+        return cartUserId;
+    }
+
+    public void setCartUserId(String cartUserId) {
+        this.cartUserId = cartUserId;
+    }
+
+    public String getCartProductId() {
+        return cartProductId;
+    }
+
+    public void setCartProductId(String cartProductId) {
+        this.cartProductId = cartProductId;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCartCount() {
+        return cartCount;
+    }
+
+    public void setCartCount(String cartCount) {
+        this.cartCount = cartCount;
+    }
+
 
 
 }

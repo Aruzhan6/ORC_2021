@@ -8,6 +8,7 @@ public class NetworkResponse {
     public static final int CODE_OK = 200;
     public static final int CREATED = 201;
 
+
     public static final int OBJECT_CODE_OK = 0;
 
     public static final int NO_ERROR = 0;

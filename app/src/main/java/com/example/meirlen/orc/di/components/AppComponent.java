@@ -17,6 +17,7 @@ public interface AppComponent {
     CategoryComponent.Builder categoryBuilder();
     ProductComponent.Builder productBuilder();
     FieldComponent.Builder  fieldBuilder();
+    SignUpComponent.Builder  signUpComponentBuilder();
 
 
 }

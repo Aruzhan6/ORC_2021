@@ -10,7 +10,7 @@ import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 import com.example.meirlen.orc.view.fragment.ChildCategoriesFragment;
 
 
-public class ChildCategoryActivity extends BaseFragmentManagerActivity {
+public class ChildCategoryActivity extends BaseFragmentManagerActivity  {
 
     public static final String EXTRA_ID_PARENT_CATEGORY = "extra:parent_id";
     public static final String EXTRA_NAME_PARENT_CATEGORY = "extra:login";

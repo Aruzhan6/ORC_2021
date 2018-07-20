@@ -1,10 +1,13 @@
 package com.example.meirlen.orc.presenter.impl;
 
+import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.api.NetworkResponse;
 import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.interactor.ProductInteractor;
+import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.model.Product;
+import com.example.meirlen.orc.model.ProductResponse;
 import com.example.meirlen.orc.model.request.Filter;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.presenter.ProductPresenter;
@@ -33,16 +36,16 @@ public class PoductPresenterImpl implements ProductPresenter {
 
 
     @Override
-    public void getList(Filter filter) {
+    public void getList(String token, Filter filter) {
         pView.showLoading();
-        getMessagesDisposable = interactor.getList(filter)
+        getMessagesDisposable = interactor.getList(token, filter)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(apiResponse -> {
+                .subscribe((APIResponse<ProductResponse> apiResponse) -> {
                     pView.hideLoading();
                     if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
                         if (PoductPresenterImpl.this.isViewAttached()) {
-                            pView.getList(apiResponse.getData());
+                            pView.getList(apiResponse.getData().getProduct());
                         }
                     } else {
                         if (PoductPresenterImpl.this.isViewAttached()) {
@@ -55,6 +58,33 @@ public class PoductPresenterImpl implements ProductPresenter {
                         pView.loadingFailed(throwable.getMessage());
                     }
                 });
+
+    }
+
+    @Override
+    public void addCart(String token, String id, String decrement) {
+        pView.showItemLoading();
+        getMessagesDisposable = interactor.addCart(token, id, decrement)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe((APIResponse<CardResponse> apiResponse) -> {
+                    pView.hideItemLoading();
+                    if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
+                        if (PoductPresenterImpl.this.isViewAttached()) {
+                            pView.addCartResponse(apiResponse.getData());
+                        }
+                    } else {
+                        if (PoductPresenterImpl.this.isViewAttached()) {
+                            pView.loadingFailed(String.valueOf(apiResponse.getMessage()));
+                        }
+                    }
+                }, throwable -> {
+                    if (isViewAttached()) {
+                        pView.hideItemLoading();
+                        pView.loadingFailed(throwable.getMessage());
+                    }
+                });
+
 
     }
 

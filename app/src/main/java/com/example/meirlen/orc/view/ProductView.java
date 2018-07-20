@@ -1,5 +1,6 @@
 package com.example.meirlen.orc.view;
 
+import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.model.Product;
 
@@ -10,4 +11,9 @@ public interface ProductView extends LoadingView {
 
     void getList(List<Product> products);
 
+    void addCartResponse(CardResponse response);
+
+    void showItemLoading();
+
+    void hideItemLoading();
 }

@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.example.meirlen.orc.AppDatabase;
 import com.example.meirlen.orc.helper.DataGenerator;
+import com.example.meirlen.orc.helper.SessionManager;
 import com.google.gson.GsonBuilder;
 
 
@@ -40,6 +41,11 @@ public class AppModule {
     AppDatabase provideAppDatabase(Context context) {
         return Room.databaseBuilder(context, AppDatabase.class, "database")
                 .build();
+    }
+    @Provides
+    @Singleton
+    SessionManager provideSessionManager(Context context) {
+        return new SessionManager(context);
     }
 
     @Provides

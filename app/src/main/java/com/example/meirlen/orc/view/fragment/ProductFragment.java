@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.SessionManager;
+import com.example.meirlen.orc.interfaces.OnAddCardListener;
+import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.filter.BooleanType;
 import com.example.meirlen.orc.model.filter.MultipleSelect;
@@ -41,7 +44,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class ProductFragment extends Fragment implements ProductView {
+public class ProductFragment extends Fragment implements ProductView, OnAddCardListener {
     BottomSheetDialog dialog;
 
 
@@ -54,9 +57,16 @@ public class ProductFragment extends Fragment implements ProductView {
     @Inject
     ProductPresenter presenter;
 
+    @Inject
+    SessionManager sessionManager;
+
 
     private ProductAdapter adapter;
     List<Product> list = new ArrayList<>();
+    private int posiition;
+
+
+    private static final String TAG = "ProductFragment";
 
 
     public static ProductFragment newInstance() {
@@ -83,6 +93,8 @@ public class ProductFragment extends Fragment implements ProductView {
         ButterKnife.bind(this, rootView);
         App.getInstance().createProductComponent().inject(this);
 
+        Log.d(TAG, "onCreateView: " + sessionManager.getAccessToken());
+
         init();
         presenter.setView(this);
         Filter filter = new Filter();
@@ -104,7 +116,8 @@ public class ProductFragment extends Fragment implements ProductView {
         Gson gson = new Gson();
         String modelClass = gson.toJson(filter);
         Log.d("jsonFilter", modelClass);
-        presenter.getList(filter);
+        presenter.getList(sessionManager.getAccessToken(), filter);
+
         return rootView;
     }
 
@@ -136,7 +149,7 @@ public class ProductFragment extends Fragment implements ProductView {
 
     private void init() {
 
-        adapter = new ProductAdapter(list, getActivity());
+        adapter = new ProductAdapter(this, list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -151,6 +164,32 @@ public class ProductFragment extends Fragment implements ProductView {
         list.clear();
         list.addAll(products);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void addCartResponse(CardResponse response) {
+
+        Product product=list.get(posiition);
+        product.setCartCount(String.valueOf(response.getCartCount()));
+        product.setCartId(String.valueOf(response.getCartId()));
+        product.setCartProductId(response.getCartProductId());
+        list.set(posiition, product);
+        adapter.notifyDataSetChanged();
+
+
+    }
+
+
+
+    @Override
+    public void showItemLoading() {
+        adapter.showLoading();
+    }
+
+    @Override
+    public void hideItemLoading() {
+        adapter.hideLoading();
+
     }
 
 
@@ -213,11 +252,14 @@ public class ProductFragment extends Fragment implements ProductView {
 
     private void sortItems() {
 
-
         if (dialog != null)
             dialog.cancel();
 
-        //   ((SearchListFragment) fragments[1]).setParamsAndSendRequest();
-        //   tvSortSearch.setText("Сначала " + tv.getText().toString().toLowerCase());
+    }
+
+    @Override
+    public void onAddCard(String id, String decrement, int position) {
+        this.posiition = position;
+        presenter.addCart(sessionManager.getAccessToken(), id, decrement);
     }
 }

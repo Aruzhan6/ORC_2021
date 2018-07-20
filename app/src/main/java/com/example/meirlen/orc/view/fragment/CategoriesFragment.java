@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
@@ -31,6 +33,8 @@ import butterknife.ButterKnife;
 public class CategoriesFragment extends Fragment implements CategoryView {
 
 
+    private static final String TAG = "CategoriesFragment";
+
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
@@ -40,6 +44,8 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     @Inject
     CategoryPresenter categoryPresenter;
 
+    @Inject
+    SessionManager sessionManager;
 
     private CategoryAdapter adapter;
     List<Category> list = new ArrayList<>();
@@ -68,6 +74,7 @@ public class CategoriesFragment extends Fragment implements CategoryView {
         View rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false);
         ButterKnife.bind(this, rootView);
         App.getInstance().createCategoryComponent().inject(this);
+        Log.d(TAG, "onCreateView: " + sessionManager.getAccessToken());
 
         init();
         categoryPresenter.setView(this);

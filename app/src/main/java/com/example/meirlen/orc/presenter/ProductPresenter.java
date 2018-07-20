@@ -12,8 +12,9 @@ import java.util.List;
 
 public interface ProductPresenter extends BasePresenter<ProductView> {
 
-    void getList(Filter filter);
+    void getList(String token,Filter filter);
 
+    void addCart(String token,String id,String decrement);
 
 
 }

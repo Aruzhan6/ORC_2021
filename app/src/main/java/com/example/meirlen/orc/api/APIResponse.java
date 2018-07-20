@@ -33,7 +33,7 @@ public class APIResponse<T> {
 
     @SerializedName("errors")
     @Expose
-    private List<Object> errors = null;
+    private Errors errors;
 
     public Integer getStatus() {
         return status;
@@ -75,13 +75,12 @@ public class APIResponse<T> {
         this.data = data;
     }
 
-    public List<Object> getErrors() {
+
+    public Errors getErrors() {
         return errors;
     }
 
-    public void setErrors(List<Object> errors) {
+    public void setErrors(Errors errors) {
         this.errors = errors;
     }
-
-
 }

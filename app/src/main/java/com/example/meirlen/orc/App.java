@@ -7,6 +7,7 @@ import com.example.meirlen.orc.di.components.CategoryComponent;
 import com.example.meirlen.orc.di.components.DaggerAppComponent;
 import com.example.meirlen.orc.di.components.FieldComponent;
 import com.example.meirlen.orc.di.components.ProductComponent;
+import com.example.meirlen.orc.di.components.SignUpComponent;
 import com.example.meirlen.orc.di.modules.AppModule;
 import com.example.meirlen.orc.model.Field;
 import com.example.meirlen.orc.model.Product;
@@ -21,6 +22,7 @@ public class App extends Application {
     private CategoryComponent categoryComponent;
     private ProductComponent productComponent;
     private FieldComponent fieldComponent;
+    private SignUpComponent signUpComponent;
 
     public static App getInstance() {
         return instance;
@@ -31,7 +33,7 @@ public class App extends Application {
         super.onCreate();
         instance = this;
         appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(instance,"http://orc.workapp.kz"))
+                .appModule(new AppModule(instance, "http://orc.workapp.kz"))
                 .build();
 
     }
@@ -43,6 +45,7 @@ public class App extends Application {
 
         return categoryComponent;
     }
+
     public ProductComponent createProductComponent() {
         if (productComponent == null) {
             productComponent = appComponent.productBuilder().build();
@@ -57,6 +60,14 @@ public class App extends Application {
         }
 
         return fieldComponent;
+    }
+
+    public SignUpComponent createSignUpComponent() {
+        if (signUpComponent == null) {
+            signUpComponent = appComponent.signUpComponentBuilder().build();
+        }
+
+        return signUpComponent;
     }
 
 }

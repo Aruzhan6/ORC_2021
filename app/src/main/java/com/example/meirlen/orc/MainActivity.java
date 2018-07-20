@@ -14,16 +14,19 @@ import com.example.meirlen.orc.helper.BottomNavigationBehavior;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 import com.example.meirlen.orc.view.fragment.FieldFragment;
 import com.example.meirlen.orc.view.fragment.ProductFragment;
+import com.example.meirlen.orc.view.fragment.ProfileFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity  {
         layoutParams.setBehavior(new BottomNavigationBehavior());
         // load the store fragment by default
         toolbar.setTitle("Shop");
-        loadFragment(new ProductFragment());
+        loadFragment(CategoriesFragment.newInstance());
 
     }
 
@@ -51,22 +54,22 @@ public class MainActivity extends AppCompatActivity  {
             switch (item.getItemId()) {
                 case R.id.navigation_shop:
                     toolbar.setTitle(getString(R.string.bottom_menu_1));
-                    fragment = new FieldFragment();
+                    fragment = CategoriesFragment.newInstance();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_gifts:
                     toolbar.setTitle(getString(R.string.bottom_menu_2));
-                    fragment = new CategoriesFragment();
+                    fragment = CategoriesFragment.newInstance();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_cart:
                     toolbar.setTitle(getString(R.string.bottom_menu_3));
-                    fragment = new ProductFragment();
+                    fragment = ProductFragment.newInstance();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_profile:
                     toolbar.setTitle(getString(R.string.bottom_menu_4));
-                    fragment = new CategoriesFragment();
+                    fragment = ProfileFragment.newInstance();
                     loadFragment(fragment);
                     return true;
             }
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity  {
             return false;
         }
     };
+
     /**
      * loading fragment into FrameLayout
      *
