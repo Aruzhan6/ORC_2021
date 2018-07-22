@@ -15,6 +15,6 @@ import retrofit2.http.Header;
 public interface CategoryApi {
 
     @GET (ApiMethods.CHAT_GET)
-    Observable<APIResponse<List<Category>>> getChat(@Header("auth-token") String token);
+    Observable<APIResponse<List<Category>>> getChat(@Header("Token") String token);
 
 }

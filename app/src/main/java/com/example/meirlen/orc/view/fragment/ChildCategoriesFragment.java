@@ -1,5 +1,6 @@
 package com.example.meirlen.orc.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,10 +16,12 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.interfaces.OnCategoryClickListener;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
 import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
+import com.example.meirlen.orc.view.activity.ProductListActivity;
 import com.example.meirlen.orc.view.adapter.CategoryAdapter;
 
 import java.util.ArrayList;
@@ -30,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class ChildCategoriesFragment extends Fragment implements CategoryView {
+public class ChildCategoriesFragment extends Fragment implements CategoryView,OnCategoryClickListener {
 
 
     @BindView(R.id.progressBar)
@@ -121,7 +124,7 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView {
 
     private void init() {
 
-        adapter = new CategoryAdapter(list, getActivity());
+        adapter = new CategoryAdapter(this,list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -131,4 +134,9 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView {
     }
 
 
+    @Override
+    public void onItemClick(int pos) {
+        Intent intent = new Intent(getContext(), ProductListActivity.class);
+        startActivity(intent);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.meirlen.orc.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,9 +17,11 @@ import android.widget.Toast;
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
 import com.example.meirlen.orc.helper.SessionManager;
+import com.example.meirlen.orc.interfaces.OnCategoryClickListener;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
+import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
 import com.example.meirlen.orc.view.adapter.CategoryAdapter;
 
 import java.util.ArrayList;
@@ -30,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class CategoriesFragment extends Fragment implements CategoryView {
+public class CategoriesFragment extends Fragment implements CategoryView,OnCategoryClickListener {
 
 
     private static final String TAG = "CategoriesFragment";
@@ -71,7 +74,7 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, rootView);
         App.getInstance().createCategoryComponent().inject(this);
         Log.d(TAG, "onCreateView: " + sessionManager.getAccessToken());
@@ -124,7 +127,7 @@ public class CategoriesFragment extends Fragment implements CategoryView {
 
     private void init() {
 
-        adapter = new CategoryAdapter(list, getActivity());
+        adapter = new CategoryAdapter(this,list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -134,4 +137,11 @@ public class CategoriesFragment extends Fragment implements CategoryView {
     }
 
 
+    @Override
+    public void onItemClick(int pos) {
+        Intent intent = new Intent(getContext(), ChildCategoryActivity.class);
+        intent.putExtra(ChildCategoryActivity.EXTRA_NAME_PARENT_CATEGORY, list.get(pos).getCategoryName());
+        intent.putExtra(ChildCategoryActivity.EXTRA_ID_PARENT_CATEGORY, String.valueOf(list.get(pos).getCategoryId()));
+        startActivity(intent);
+    }
 }

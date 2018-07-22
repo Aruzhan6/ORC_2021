@@ -25,21 +25,25 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         App.getInstance().createCategoryComponent().inject(this);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(sessionManager.getShowIntro()){
-                    Intent intent = new Intent(SplashActivity.this, IntroActivity.class);
+        new Handler().postDelayed(() -> {
+            if (sessionManager.getShowIntro()) {
+                Intent intent = new Intent(SplashActivity.this, IntroActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                if (sessionManager.getAccessToken() == null) {
+                    Intent intent = new Intent(SplashActivity.this, SignInActivity.class);
                     startActivity(intent);
                     finish();
-                }
-                else {
+                } else {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
 
+
             }
+
         }, 1000);
 
     }

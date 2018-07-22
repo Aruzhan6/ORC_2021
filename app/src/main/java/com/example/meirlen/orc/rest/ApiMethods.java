@@ -18,6 +18,8 @@ public class ApiMethods {
 
     public static final String CART_ADD = "/public/api/v1/cart/add";
 
+    public static final String BASKET_GET = "/public/api/v1/cart/get";
+
 
 
 

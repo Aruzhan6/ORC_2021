@@ -3,6 +3,7 @@ package com.example.meirlen.orc;
 import android.app.Application;
 
 import com.example.meirlen.orc.di.components.AppComponent;
+import com.example.meirlen.orc.di.components.BasketComponent;
 import com.example.meirlen.orc.di.components.CategoryComponent;
 import com.example.meirlen.orc.di.components.DaggerAppComponent;
 import com.example.meirlen.orc.di.components.FieldComponent;
@@ -11,6 +12,7 @@ import com.example.meirlen.orc.di.components.SignUpComponent;
 import com.example.meirlen.orc.di.modules.AppModule;
 import com.example.meirlen.orc.model.Field;
 import com.example.meirlen.orc.model.Product;
+import com.example.meirlen.orc.model.basket.Basket;
 
 
 public class App extends Application {
@@ -23,6 +25,7 @@ public class App extends Application {
     private ProductComponent productComponent;
     private FieldComponent fieldComponent;
     private SignUpComponent signUpComponent;
+    private BasketComponent basketComponent;
 
     public static App getInstance() {
         return instance;
@@ -68,6 +71,13 @@ public class App extends Application {
         }
 
         return signUpComponent;
+    }
+    public BasketComponent createBasketComponent() {
+        if (basketComponent == null) {
+            basketComponent = appComponent.basketComponentBuilder().build();
+        }
+
+        return basketComponent;
     }
 
 }
