@@ -34,19 +34,28 @@
             android:name=".view.activity.FilterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.SignInActivity"
+            android:name=".view.activity.ProductListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.ProductListActivity"
+            android:name=".view.activity.OrderActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.IntroActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activity.SignInActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.BasketActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ModalActivity"
             android:screenOrientation="portrait" />
     </application>
 

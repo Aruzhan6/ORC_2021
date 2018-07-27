@@ -20,6 +20,7 @@ public interface AppComponent {
     FieldComponent.Builder  fieldBuilder();
     SignUpComponent.Builder  signUpComponentBuilder();
     BasketComponent.Builder  basketComponentBuilder();
+    OrderComponent.Builder  orderComponentBuilder();
 
 
 }

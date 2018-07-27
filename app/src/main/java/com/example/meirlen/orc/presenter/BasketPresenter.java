@@ -13,4 +13,7 @@ public interface BasketPresenter extends BasePresenter<BasketView> {
 
     void addCart(String token,String id,String decrement);
 
+    void getHistory(String token);
+
+
 }

@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
 
-        android:background="#eee"
+        android:background="#F7F7F7"
         android:visibility="gone" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

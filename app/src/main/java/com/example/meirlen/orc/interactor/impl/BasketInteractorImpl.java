@@ -7,6 +7,7 @@ import com.example.meirlen.orc.interactor.ProductInteractor;
 import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.ProductResponse;
 import com.example.meirlen.orc.model.basket.BasketResponse;
+import com.example.meirlen.orc.model.history.HistoryResponse;
 import com.example.meirlen.orc.model.request.CartRequest;
 import com.example.meirlen.orc.model.request.Filter;
 import com.example.meirlen.orc.rest.BasketApi;
@@ -24,14 +25,9 @@ public class BasketInteractorImpl implements BasketInteractor {
     BasketApi restApi;
 
 
-
-
     public BasketInteractorImpl() {
         App.getInstance().createBasketComponent().inject(this);
     }
-
-
-
 
 
     @Override
@@ -40,10 +36,15 @@ public class BasketInteractorImpl implements BasketInteractor {
     }
 
     @Override
-    public Observable<APIResponse<CardResponse>> addCart(String token, String id, String decrement){
-        CartRequest cartRequest=new CartRequest();
+    public Observable<APIResponse<CardResponse>> addCart(String token, String id, String decrement) {
+        CartRequest cartRequest = new CartRequest();
         cartRequest.setProductId(Integer.valueOf(id));
         cartRequest.setDecrement(Integer.valueOf(decrement));
-        return restApi.addCart(token,cartRequest);
+        return restApi.addCart(token, cartRequest);
+    }
+
+    @Override
+    public Observable<APIResponse<HistoryResponse>> getHistory(String token) {
+        return restApi.getHistory(token);
     }
 }

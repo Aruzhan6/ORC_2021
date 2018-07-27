@@ -1,28 +1,42 @@
 package com.example.meirlen.orc.view.fragment;
 
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.Constans;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.model.signup.ConfirmResponse;
 import com.example.meirlen.orc.presenter.SignUpPresenter;
 import com.example.meirlen.orc.view.SignUpView;
+import com.example.meirlen.orc.view.activity.AboutActivity;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class ProfileFragment extends Fragment implements SignUpView {
@@ -46,6 +60,15 @@ public class ProfileFragment extends Fragment implements SignUpView {
     @BindView(R.id.textViewPhone)
     TextView textViewPhone;
 
+
+    @BindViews({R.id.i1, R.id.i2, R.id.i3, R.id.i6, R.id.i7, R.id.i8, R.id.i9, R.id.i10, R.id.i16, R.id.i11, R.id.i12, R.id.i13})
+    ImageView[] imageViews;
+
+    private int[] SETTINGS_ICONS_MENU ={R.drawable.s1,R.drawable.s2,R.drawable.s3,R.drawable.s4,
+            R.drawable.s5,R.drawable.s3,R.drawable.s7,R.drawable.s8,R.drawable.s9,R.drawable.s10,R.drawable.s11, R.drawable.s12};
+
+
+
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
     }
@@ -66,12 +89,22 @@ public class ProfileFragment extends Fragment implements SignUpView {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+        View rootView = inflater.inflate(R.layout.settings_layout, container, false);
         ButterKnife.bind(this, rootView);
         App.getInstance().createSignUpComponent().inject(this);
         assert getArguments() != null;
         presenter.setView(this);
 
+        for (int i = 0; i < imageViews.length; i++) {
+
+
+            Glide
+                    .with(getContext())
+                    .load(SETTINGS_ICONS_MENU[i])
+                    .into(imageViews[i]);
+
+
+        }
         Log.d(TAG, "onCreateView: " + sessionManager.getAccessToken());
         presenter.getProfile(sessionManager.getAccessToken());
         return rootView;
@@ -113,6 +146,99 @@ public class ProfileFragment extends Fragment implements SignUpView {
         textViewPhone.setText(response.getPhone());
         textViewUserName.setText(response.getName());
 
+    }
+
+
+    @OnClick(R.id.estimate)
+    public void estimate() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("market://details?id=com.umma.food.delivery"));
+        startActivity(intent);
+
+    }
+
+    @OnClick(R.id.share)
+    public void shareApp() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Приложение UmmaFood.САМОЕ БЫСТРОЕ И УДОБНОЕ  ПРИЛОЖЕНИЕ ПО ДОСТАВКЕ ХАЛАЛЬ ЕДЫ!https://play.google.com/store/apps/details?id=com.umma.food.delivery");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+
+    }
+
+    @OnClick(R.id.about)
+    public void aboutApp() {
+        Intent i = new Intent(getContext(), AboutActivity.class);
+        i.putExtra("name", "О нас");
+        startActivity(i);
+        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+
+    }
+
+    @OnClick(R.id.conf)
+    public void confApp() {
+        Intent i = new Intent(getContext(), AboutActivity.class);
+        i.putExtra("name", "Конфиденциа́льность");
+        startActivity(i);
+        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+
+    }
+
+    @OnClick(R.id.agree)
+    public void agreeApp() {
+        Intent i = new Intent(getContext(), AboutActivity.class);
+        i.putExtra("name", "Соглашение пользователя");
+        startActivity(i);
+        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+
+    }
+
+    @OnClick(R.id.whatsapp)
+    public void whatsapp() {
+        Uri uri = Uri.parse("https://chat.whatsapp.com/FYUSmXtYc3BBUgpzwJNuVd");
+        Intent i = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(Intent.createChooser(i, ""));
+
+    }
+
+    @OnClick(R.id.exit)
+    public void exitApp() {
+        //  Intent i = new Intent(getContext(),ClearAccountScreen.class);
+        // startActivity(i);
+        //  getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+    }
+
+    @OnClick(R.id.call_centre)
+    public void onCallCentre() {
+
+
+        String message = "Вы хотите позвонить по этому номеру?";
+        String button1String = "Ok";
+        String button2String = "Отменить";
+
+        AlertDialog.Builder ad = new AlertDialog.Builder(getContext());
+        ad.setMessage(message); // сообщение
+        ad.setPositiveButton(button1String, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int arg1) {
+
+                int permissionCheck = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE);
+
+                if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 123);
+
+                } else {
+                    startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:" + "+" + "77752632438")));
+                }
+            }
+        });
+        ad.setNegativeButton(button2String, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int arg1) {
+
+            }
+        });
+
+        ad.show();
     }
 
 

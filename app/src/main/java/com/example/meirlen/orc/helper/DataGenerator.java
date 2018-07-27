@@ -19,6 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 public class DataGenerator {
     private static final String TAG = "DataGenerator";
 
+
     private static DataGenerator instance;
     private static AppDatabase dataBase;
     private final CompositeDisposable mDisposable = new CompositeDisposable();

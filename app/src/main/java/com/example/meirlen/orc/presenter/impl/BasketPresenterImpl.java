@@ -8,6 +8,8 @@ import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.ProductResponse;
 import com.example.meirlen.orc.model.basket.Basket;
 import com.example.meirlen.orc.model.basket.BasketResponse;
+import com.example.meirlen.orc.model.history.History;
+import com.example.meirlen.orc.model.history.HistoryResponse;
 import com.example.meirlen.orc.model.request.Filter;
 import com.example.meirlen.orc.presenter.BasketPresenter;
 import com.example.meirlen.orc.presenter.ProductPresenter;
@@ -84,6 +86,35 @@ public class BasketPresenterImpl implements BasketPresenter {
 
 
     }
+
+    @Override
+    public void getHistory(String token) {
+
+
+        pView.showLoading();
+        getMessagesDisposable = interactor.getHistory(token)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe((APIResponse<HistoryResponse> apiResponse) -> {
+                    pView.hideLoading();
+                    if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
+                        if (BasketPresenterImpl.this.isViewAttached()) {
+                            pView.getHistory(apiResponse.getData().getData());
+                        }
+                    } else {
+                        if (BasketPresenterImpl.this.isViewAttached()) {
+                            pView.loadingFailed(String.valueOf(apiResponse.getMessage()));
+                        }
+                    }
+                }, throwable -> {
+                    if (isViewAttached()) {
+                        pView.hideLoading();
+                        pView.loadingFailed(throwable.getMessage());
+                    }
+                });
+
+    }
+
     private boolean isViewAttached() {
         return this.pView != null;
     }

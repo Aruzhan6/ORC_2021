@@ -6,16 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
@@ -23,22 +20,12 @@ import com.example.meirlen.orc.R;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.interfaces.OnAddCardListener;
 import com.example.meirlen.orc.model.CardResponse;
-import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.basket.Basket;
-import com.example.meirlen.orc.model.filter.BooleanType;
-import com.example.meirlen.orc.model.filter.MultipleSelect;
-import com.example.meirlen.orc.model.filter.RangeInt;
-import com.example.meirlen.orc.model.filter.StringType;
-import com.example.meirlen.orc.model.request.Filter;
+import com.example.meirlen.orc.model.history.History;
 import com.example.meirlen.orc.presenter.BasketPresenter;
-import com.example.meirlen.orc.presenter.ProductPresenter;
 import com.example.meirlen.orc.view.BasketView;
-import com.example.meirlen.orc.view.ProductView;
-import com.example.meirlen.orc.view.activity.BasketActivity;
-import com.example.meirlen.orc.view.activity.FilterActivity;
+import com.example.meirlen.orc.view.activity.OrderActivity;
 import com.example.meirlen.orc.view.adapter.BasketAdapter;
-import com.example.meirlen.orc.view.adapter.ProductAdapter;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -156,6 +143,11 @@ public class BasketFragment extends Fragment implements BasketView, OnAddCardLis
     }
 
     @Override
+    public void getHistory(List<History> histories) {
+
+    }
+
+    @Override
     public void onAddCard(String id, String decrement, int position) {
 
         this.posiition = position;
@@ -187,5 +179,14 @@ public class BasketFragment extends Fragment implements BasketView, OnAddCardLis
     public void hideItemLoading() {
         adapter.hideLoading();
 
+    }
+
+
+
+    @OnClick(R.id.sendButton)
+    public void onViewClicked() {
+
+        Intent intent = new Intent(getContext(), OrderActivity.class);
+        startActivity(intent);
     }
 }

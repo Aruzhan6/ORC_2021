@@ -1,6 +1,7 @@
 package com.example.meirlen.orc.di.modules;
 
 import com.example.meirlen.orc.di.scopes.CategoryScope;
+import com.example.meirlen.orc.di.scopes.FieldScope;
 import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.interactor.impl.CategoryInteractorImpl;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
@@ -17,19 +18,19 @@ import retrofit2.Retrofit;
 @Module
 public class FieldModule {
 
-    @CategoryScope
+    @FieldScope
     @Provides
     CategoryInteractor provideChatInteractor() {
         return new CategoryInteractorImpl();
     }
 
-    @CategoryScope
+    @FieldScope
     @Provides
     FieldPresenter provideChatPresenter(CategoryInteractor conversationInteractor) {
         return new FieldPresenterImpl(conversationInteractor);
     }
 
-    @CategoryScope
+    @FieldScope
     @Provides
     CategoryApi provideApiService(Retrofit retrofit) {
         return retrofit.create(CategoryApi.class);

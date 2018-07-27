@@ -1,0 +1,723 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/line1"
+
+
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp"
+                android:textColor="@color/colorHint"
+                android:text="Вы можете изменить Доставку на Самовывоз, но это может привести к изменениям в корзине"
+                android:textSize="14dp"
+                android:id="@+id/textView29" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#F1F1F1"
+                />
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+
+
+                android:background="#F1F1F1"
+                />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:text="Улица"
+                    android:textColor="@color/colorHint"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:text="*"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/holo_red_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:background="@null"
+                android:id="@+id/e1"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_marginLeft="10dp"
+
+                />
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F1F1"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:text="Дом"
+                            android:textColor="@color/colorHint"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            />
+
+                        <TextView
+                            android:text="*"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@android:color/holo_red_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            />
+
+
+                    </LinearLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:background="@null"
+                        android:id="@+id/e2"
+
+                        android:layout_margin="10dp"
+                        android:hint=""
+
+                        android:ems="10"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        android:background="#F1F1F1"
+                        />
+
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Корпус"
+                        android:textColor="@color/colorHint"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:background="@null"
+                        android:layout_margin="10dp"
+                        android:hint=""
+                        android:id="@+id/e3"
+
+                        android:ems="10"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        android:background="#F1F1F1"
+                        />
+
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Строения"
+                        android:textColor="@color/colorHint"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:background="@null"
+                        android:layout_margin="10dp"
+                        android:hint=""
+                        android:id="@+id/e4"
+
+                        android:ems="10"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        android:background="#F1F1F1"
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Квартира"
+                        android:textColor="@color/colorHint"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:background="@null"
+                        android:layout_margin="10dp"
+                        android:hint=""
+                        android:id="@+id/e5"
+
+
+                        android:ems="10"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        android:background="#F1F1F1"
+                        />
+
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Этаж"
+                        android:textColor="@color/colorHint"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:background="@null"
+                        android:layout_margin="10dp"
+                        android:hint=""
+                        android:id="@+id/e6"
+
+                        android:ems="10"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        android:background="#F1F1F1"
+                        />
+
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Подьезд"
+                        android:textColor="@color/colorHint"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:background="@null"
+                        android:layout_margin="10dp"
+                        android:hint=""
+                        android:id="@+id/e7"
+
+                        android:ems="10"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        android:background="#F1F1F1"
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:text="Примечание"
+                android:textColor="@color/colorHint"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:background="@null"
+                android:layout_margin="10dp"
+                android:hint=""
+                android:id="@+id/e8"
+
+                android:ems="10"
+                />
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+
+
+                android:background="#F1F1F1"
+                />
+
+
+
+
+
+
+
+            <TextView
+                android:text="Получатель"
+                android:textColor="@color/colorHint"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:text=""
+                android:id="@+id/edName"
+
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:inputType="textPersonName"
+                android:background="@null"
+                android:layout_margin="10dp"
+                android:hint=""
+
+                android:ems="10"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+
+                android:background="#F1F1F1"
+                />
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:text="Номер телефона"
+                    android:textColor="@color/colorHint"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:text="*"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/holo_red_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+            </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:text=""
+                android:id="@+id/edNumber"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:inputType="textPersonName"
+                android:background="@null"
+                android:layout_margin="10dp"
+                android:hint=""
+
+                android:ems="10"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+
+                android:background="#F1F1F1"
+                />
+
+
+
+
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+
+
+                android:background="#F1F1F1"
+                />
+
+
+
+
+
+
+
+
+
+            <CheckBox
+                android:text="Я согласен с правилами сервиса"
+                android:layout_margin="10dp"
+                android:checked="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox2" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+
+                android:background="#F1F1F1"
+                />
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="horizontal"
+      >
+
+                <TextView
+                    android:text="5 товаров нв сумму :"
+                    android:textColor="@color/colorHint"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:id="@+id/txt_total_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+              <TextView
+                    android:text="1200,00 Т"
+                    android:textSize="18dp"
+                    android:id="@+id/txt_total_price"
+
+                    android:textAlignment="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:text="Стоимость доставки :"
+                    android:textColor="@color/colorHint"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:text="400,00 Т"
+                    android:textSize="18dp"
+                    android:id="@+id/txt_total_delivery"
+
+                    android:textAlignment="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+
+            </LinearLayout>
+            <RelativeLayout
+                android:clickable="true"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:id="@+id/create"
+
+
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:text="ОФОРМИТЬ"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:textSize="16dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+              />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/loading_bar"
+            android:visibility="gone"
+            android:layout_below="@+id/line1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            >
+
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:theme="@style/LinearProgress"
+                android:layout_height="30dp"
+                android:id="@+id/progressBar"
+                android:indeterminate="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="Отправка на сервер..."
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:textStyle="italic"
+                android:layout_margin="10sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView30"
+                android:layout_below="@+id/progressBar"
+                android:layout_centerHorizontal="true" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>

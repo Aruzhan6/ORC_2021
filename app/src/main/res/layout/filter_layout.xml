@@ -8,37 +8,52 @@
     android:padding="10dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:id="@+id/filter"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_sort" />
+
         <TextView
+            style="@style/MediumText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:gravity="center_horizontal"
+            android:layout_marginStart="10dp"
+
             android:text="Фильтры"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:id="@+id/sorting"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_sort_2" />
+
         <TextView
+            style="@style/MediumText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:gravity="center_horizontal"
+            android:layout_marginStart="10dp"
             android:text="Сортировка"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 
 

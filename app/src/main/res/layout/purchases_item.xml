@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ru.rambler.libs.swipe_layout.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeOfferItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/statusTextView"
+            style="@style/SmallText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:text="Заявка не просмотрена"
+            android:textColor="@color/contentColor"
+            android:textSize="10sp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/imageViewMain"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10sp"
+
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/placeholder_good" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp">
+
+                <TextView
+                    android:id="@+id/textViewOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:paddingLeft="10sp"
+                    android:paddingRight="10sp"
+
+                    android:text="@string/dots"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/contentColor"
+                    android:textSize="15sp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+
+                    <TextView
+                        android:id="@+id/textViewTitleDesc"
+                        style="@style/MediumText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2sp"
+                        android:singleLine="true"
+                        android:text="Банан"
+                        android:textColor="#333333"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/textViewPrice"
+                        style="@style/MediumText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+
+                        android:layout_marginTop="3dp"
+                        android:text="25 гр сыра, 45 г мясо"
+                        android:textColor="@color/contentColor"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/txtDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fake_tenge"
+
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textEnded"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_clock"
+                            android:text="   25 июля в 17:00"
+                            android:textColor="#BDBDBD"
+                            android:textSize="10sp" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/layoutAuctionPeronal"
+                            android:layout_width="100dp"
+
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="20dp"
+                                android:lines="1"
+                                android:paddingBottom="2dp"
+                                android:singleLine="true"
+
+                                android:text="детали"
+                                android:textAlignment="textEnd"
+                                android:textColor="#FA533C"
+                                android:textSize="14sp" />
+
+
+                            <ImageView
+
+                                android:id="@+id/imgBargain"
+                                android:layout_width="10dp"
+                                android:layout_height="14dp"
+                                android:layout_alignParentRight="true"
+
+                                android:layout_centerVertical="true"
+
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_swipe" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginLeft="20sp"
+            android:background="@color/colorLine" />
+
+    </LinearLayout>
+
+
+    <!--RIGHT-->
+    <LinearLayout
+        android:id="@+id/right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:bring_to_clamp="150dp"
+        app:clamp="self"
+        app:gravity="right"
+        app:sticky="100dp">
+
+        <RelativeLayout
+            android:id="@+id/right_success_item"
+            android:layout_width="wrap_content"
+
+            android:layout_height="match_parent">
+
+            <include layout="@layout/item_purchase_right_slide" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!--LEFT-->
+    <LinearLayout
+        android:id="@+id/left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:bring_to_clamp="150dp"
+        app:clamp="self"
+        app:gravity="left"
+        app:sticky="100dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+
+            android:layout_height="match_parent">
+
+            <include layout="@layout/item_purchase_left_slide" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ru.rambler.libs.swipe_layout.SwipeLayout>

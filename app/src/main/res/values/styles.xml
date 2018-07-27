@@ -32,4 +32,9 @@
         <item name="android:paddingLeft">24dp</item>
         <item name="android:paddingRight">24dp</item>
     </style>
+
+    <style name="LinearProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#fff</item>
+        <item name="android:progressBackgroundTint">@color/colorPrimary</item>
+    </style>
 </resources>

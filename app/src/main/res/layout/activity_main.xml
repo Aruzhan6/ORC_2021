@@ -26,6 +26,38 @@
             app:popupTheme="@style/AppTheme">
 
 
+
+            <LinearLayout
+                android:id="@+id/action_bar_bt_trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_search" />
+
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:tint="@color/black"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_basket" />
+
+
+            </LinearLayout>
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

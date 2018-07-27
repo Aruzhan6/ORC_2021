@@ -3,6 +3,7 @@ package com.example.meirlen.orc.di.components;
 import com.example.meirlen.orc.di.modules.CategoryModule;
 import com.example.meirlen.orc.di.modules.FieldModule;
 import com.example.meirlen.orc.di.scopes.CategoryScope;
+import com.example.meirlen.orc.di.scopes.FieldScope;
 import com.example.meirlen.orc.interactor.impl.CategoryInteractorImpl;
 import com.example.meirlen.orc.model.Field;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
@@ -12,7 +13,7 @@ import com.example.meirlen.orc.view.fragment.FieldFragment;
 import dagger.Subcomponent;
 
 
-@CategoryScope
+@FieldScope
 @Subcomponent(modules = {FieldModule.class})
 public interface FieldComponent {
 

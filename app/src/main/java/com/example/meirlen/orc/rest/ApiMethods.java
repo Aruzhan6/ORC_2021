@@ -20,6 +20,10 @@ public class ApiMethods {
 
     public static final String BASKET_GET = "/public/api/v1/cart/get";
 
+    public static final String HISTORY_GET = "/public/api/v1/purchase/history";
+
+    public static final String SEND_ORDER = "/public/api/v1/purchase/buy";
+
 
 
 

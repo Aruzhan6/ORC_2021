@@ -1,6 +1,8 @@
 package com.example.meirlen.orc;
 
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
+import com.example.meirlen.orc.view.fragment.HistoryFragment;
 import com.example.meirlen.orc.view.fragment.ProductFragment;
 import com.example.meirlen.orc.view.fragment.ProfileFragment;
 
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
     Toolbar toolbar;
     @BindView(R.id.bottom_navigation)
     AHBottomNavigation bottomNavigation;
+    private FragmentTransaction transaction;
+    private Fragment[] fragments = new Fragment[4];
 
 
     @Override
@@ -27,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        fragments[0] = CategoriesFragment.newInstance();
+        fragments[1] = CategoriesFragment.newInstance();
+        fragments[2] = HistoryFragment.newInstance();
+        fragments[3] = ProfileFragment.newInstance();
+        addFragment(fragments);
 
         bottomNavigation.setOnTabSelectedListener(this);
         this.createNavItems();
@@ -61,19 +71,35 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
     public boolean onTabSelected(int position, boolean wasSelected) {
         //show fragment
         if (position == 0) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, CategoriesFragment.newInstance()).commit();
             toolbar.setTitle(R.string.bottom_menu_1);
         } else if (position == 1) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, CategoriesFragment.newInstance()).commit();
             toolbar.setTitle(R.string.bottom_menu_2);
         } else if (position == 2) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, ProductFragment.newInstance()).commit();
             toolbar.setTitle(R.string.bottom_menu_3);
         } else if (position == 3) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, ProfileFragment.newInstance()).commit();
             toolbar.setTitle(R.string.bottom_menu_4);
         }
+        replaceFragment(fragments[position]);
         return true;
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        //transaction.replace(R.id.tab_container, fragment, "").commit();
+        for (Fragment f : fragments) {
+            transaction = getSupportFragmentManager().beginTransaction();
+            if (f.equals(fragment))
+                transaction.show(f).commit();
+            else
+                transaction.hide(f).commit();
+        }
+    }
+    private void addFragment(Fragment[] fragments) {
+
+        for (Fragment fragment : fragments) {
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.frame_container, fragment, "").commit();
+        }
+
     }
 
 

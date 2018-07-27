@@ -6,6 +6,8 @@ import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.model.basket.BasketResponse;
+import com.example.meirlen.orc.model.history.History;
+import com.example.meirlen.orc.model.history.HistoryResponse;
 import com.example.meirlen.orc.model.request.CartRequest;
 
 import java.util.List;
@@ -26,5 +28,12 @@ public interface BasketApi {
     @Headers("Content-Type: application/json")
     @POST(ApiMethods.CART_ADD)
     Observable<APIResponse<CardResponse>> addCart(@Header("Token") String token, @Body CartRequest cartRequest);
+
+
+
+    @Headers("Content-Type: application/json")
+    @GET(ApiMethods.HISTORY_GET)
+    Observable<APIResponse<HistoryResponse>> getHistory(@Header("Token") String token);
+
 
 }

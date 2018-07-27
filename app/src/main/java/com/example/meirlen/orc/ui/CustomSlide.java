@@ -1,4 +1,4 @@
-package com.example.meirlen.orc.view.activity;
+package com.example.meirlen.orc.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

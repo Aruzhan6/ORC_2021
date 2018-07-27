@@ -60,8 +60,8 @@ public abstract class BaseFragmentManagerActivity extends AppCompatActivity {
 
 
 
-    protected abstract Fragment fragment();
-    protected abstract String title();
+    protected abstract Fragment fragment();// Factory method
+    protected abstract String title();// Factory method
 
 
 

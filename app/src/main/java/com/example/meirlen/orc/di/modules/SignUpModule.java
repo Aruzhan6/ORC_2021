@@ -1,6 +1,7 @@
 package com.example.meirlen.orc.di.modules;
 
 import com.example.meirlen.orc.di.scopes.CategoryScope;
+import com.example.meirlen.orc.di.scopes.SignUpScope;
 import com.example.meirlen.orc.interactor.ProductInteractor;
 import com.example.meirlen.orc.interactor.SignUpInteractor;
 import com.example.meirlen.orc.interactor.impl.ProductInteractorImpl;
@@ -20,19 +21,19 @@ import retrofit2.Retrofit;
 @Module
 public class SignUpModule {
 
-    @CategoryScope
+    @SignUpScope
     @Provides
     SignUpInteractor provideInteractor() {
         return new SignUpInteractorImpl();
     }
 
-    @CategoryScope
+    @SignUpScope
     @Provides
     SignUpPresenter providePresenter(SignUpInteractor interactor) {
         return new SignUpPresenterImpl(interactor);
     }
 
-    @CategoryScope
+    @SignUpScope
     @Provides
     SignApi provideApiService(Retrofit retrofit) {
         return retrofit.create(SignApi.class);
