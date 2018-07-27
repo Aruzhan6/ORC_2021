@@ -4,6 +4,7 @@ import com.example.meirlen.orc.di.modules.AppModule;
 import com.example.meirlen.orc.model.Field;
 import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.basket.Basket;
+import com.example.meirlen.orc.model.discount.Discount;
 
 import javax.inject.Singleton;
 
@@ -21,6 +22,7 @@ public interface AppComponent {
     SignUpComponent.Builder  signUpComponentBuilder();
     BasketComponent.Builder  basketComponentBuilder();
     OrderComponent.Builder  orderComponentBuilder();
+    DiscountComponent.Builder  discountComponentBuilder();
 
 
 }

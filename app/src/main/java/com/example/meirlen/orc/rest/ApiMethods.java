@@ -25,6 +25,9 @@ public class ApiMethods {
     public static final String SEND_ORDER = "/public/api/v1/purchase/buy";
 
 
+    public static final String GET_DISCOUNTS = "/public/api/v1/discounts";
+
+
 
 
 

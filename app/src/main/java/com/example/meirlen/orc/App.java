@@ -6,14 +6,13 @@ import com.example.meirlen.orc.di.components.AppComponent;
 import com.example.meirlen.orc.di.components.BasketComponent;
 import com.example.meirlen.orc.di.components.CategoryComponent;
 import com.example.meirlen.orc.di.components.DaggerAppComponent;
+import com.example.meirlen.orc.di.components.DiscountComponent;
 import com.example.meirlen.orc.di.components.FieldComponent;
 import com.example.meirlen.orc.di.components.OrderComponent;
 import com.example.meirlen.orc.di.components.ProductComponent;
 import com.example.meirlen.orc.di.components.SignUpComponent;
 import com.example.meirlen.orc.di.modules.AppModule;
-import com.example.meirlen.orc.model.Field;
-import com.example.meirlen.orc.model.Product;
-import com.example.meirlen.orc.model.basket.Basket;
+import com.example.meirlen.orc.helper.ImageLoader;
 
 
 public class App extends Application {
@@ -28,6 +27,7 @@ public class App extends Application {
     private SignUpComponent signUpComponent;
     private BasketComponent basketComponent;
     private OrderComponent orderComponent;
+    private DiscountComponent discountComponent;
 
     public static App getInstance() {
         return instance;
@@ -40,6 +40,8 @@ public class App extends Application {
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(instance, "http://orc.workapp.kz"))
                 .build();
+
+        ImageLoader.initInstance();
 
     }
 
@@ -74,18 +76,26 @@ public class App extends Application {
 
         return signUpComponent;
     }
+
     public BasketComponent createBasketComponent() {
         if (basketComponent == null) {
             basketComponent = appComponent.basketComponentBuilder().build();
         }
-
         return basketComponent;
     }
+
     public OrderComponent createOrderComponent() {
         if (orderComponent == null) {
             orderComponent = appComponent.orderComponentBuilder().build();
+        }
+        return orderComponent;
+
     }
 
-        return orderComponent;
+    public DiscountComponent createDiscountComponent() {
+        if (discountComponent == null) {
+            discountComponent = appComponent.discountComponentBuilder().build();
+        }
+        return discountComponent;
     }
 }

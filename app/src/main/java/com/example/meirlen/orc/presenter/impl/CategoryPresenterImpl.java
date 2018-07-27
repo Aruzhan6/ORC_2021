@@ -1,5 +1,6 @@
 package com.example.meirlen.orc.presenter.impl;
 
+import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.api.NetworkResponse;
 import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
@@ -34,7 +35,7 @@ public class CategoryPresenterImpl implements CategoryPresenter {
         getMessagesDisposable = categoryInteractor.getMessages(token)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(apiResponse -> {
+                .subscribe((APIResponse<List<Category>> apiResponse) -> {
                     categoryView.hideLoading();
                     if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
                         if (CategoryPresenterImpl.this.isViewAttached()) {

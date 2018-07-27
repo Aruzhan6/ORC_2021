@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.R;
 import com.example.meirlen.orc.interfaces.OnAddCardListener;
-import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.basket.Basket;
 
 import java.util.List;
@@ -100,6 +99,8 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
             this.viewHolder = holder;
             listener.onAddCard(String.valueOf(basket.getProductId()), "1", position);
         });
+
+      //  ImageLoader.getInstance().initAvatar(context,basket.getProduct();
 
     }
 

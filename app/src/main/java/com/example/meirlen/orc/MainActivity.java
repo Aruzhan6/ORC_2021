@@ -9,7 +9,9 @@ import android.support.v7.widget.Toolbar;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.example.meirlen.orc.model.discount.Discount;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
+import com.example.meirlen.orc.view.fragment.DiscountFragment;
 import com.example.meirlen.orc.view.fragment.HistoryFragment;
 import com.example.meirlen.orc.view.fragment.ProductFragment;
 import com.example.meirlen.orc.view.fragment.ProfileFragment;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        fragments[0] = CategoriesFragment.newInstance();
+        fragments[0] = DiscountFragment.newInstance();
         fragments[1] = CategoriesFragment.newInstance();
         fragments[2] = HistoryFragment.newInstance();
         fragments[3] = ProfileFragment.newInstance();

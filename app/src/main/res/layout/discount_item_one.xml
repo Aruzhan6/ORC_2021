@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/imageView"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/discount_placeholder" />
+
+    <TextView
+        style="@style/BoldText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Когда хочется большего"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp" />
+
+    <TextView
+        style="@style/MediumText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Когда хочется большего"
+        android:textAlignment="center"
+        android:layout_marginBottom="40sp"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+</LinearLayout>

@@ -7,26 +7,24 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.meirlen.orc.R;
 
-public class GlideManager {
+public class ImageLoader {
 
-    private static volatile GlideManager glideManager;
+    private static volatile ImageLoader imageLoader;
 
-    private GlideManager() {
-        /**
-            Гарантия то что этот обьект будет в одном экземпляре
-         */
+    private ImageLoader() {
+
     }
 
-    public static GlideManager instance() {
-
-        if (glideManager == null) {
-            synchronized (GlideManager.class) {
-                return new GlideManager();
+    public static void initInstance() {
+        if (imageLoader == null) {
+            synchronized (ImageLoader.class) {
+                imageLoader = new ImageLoader();
             }
-
         }
-        return glideManager;
+    }
 
+    public static ImageLoader getInstance() {
+        return imageLoader;
     }
 
 
@@ -36,7 +34,7 @@ public class GlideManager {
      * @param widthPx  ширина в пикселях
      * @param heightPx высота в пикселях
      */
-    public void initAvatar(Context context, String url, ImageView imageView, int widthPx, int heightPx) {
+    public void load(Context context, String url, ImageView imageView, int widthPx, int heightPx) {
         Glide.with(context)
                 .load(url)
                 .apply(new RequestOptions()
@@ -45,5 +43,12 @@ public class GlideManager {
                 .into(imageView);
     }
 
+    public void load(Context context, String url, ImageView imageView) {
+        Glide.with(context)
+                .load(url)
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.placeholder))
+                .into(imageView);
+    }
 
 }
