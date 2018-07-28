@@ -47,7 +47,7 @@
 
             <TextView
                 android:id="@+id/product_name"
-                style="@style/MediumText"
+                style="@style/LightText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/product_img"

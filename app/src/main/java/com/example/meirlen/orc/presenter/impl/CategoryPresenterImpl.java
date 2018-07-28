@@ -3,6 +3,7 @@ package com.example.meirlen.orc.presenter.impl;
 import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.api.NetworkResponse;
 import com.example.meirlen.orc.interactor.CategoryInteractor;
+import com.example.meirlen.orc.model.CartCount;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
@@ -54,6 +55,30 @@ public class CategoryPresenterImpl implements CategoryPresenter {
                 });
 
 
+    }
+
+    @Override
+    public void getCartCount(String token) {
+        getMessagesDisposable = categoryInteractor.getCartCount(token)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe((APIResponse<CartCount> apiResponse) -> {
+                    categoryView.hideLoading();
+                    if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
+                        if (CategoryPresenterImpl.this.isViewAttached()) {
+                            categoryView.getCardCount(apiResponse.getData().getCount());
+                        }
+                    } else {
+                        if (CategoryPresenterImpl.this.isViewAttached()) {
+                            categoryView.loadingFailed(String.valueOf(apiResponse.getMessage()));
+                        }
+                    }
+                }, throwable -> {
+                    if (isViewAttached()) {
+                        categoryView.hideLoading();
+                        categoryView.loadingFailed(throwable.getMessage());
+                    }
+                });
     }
 
     @Override

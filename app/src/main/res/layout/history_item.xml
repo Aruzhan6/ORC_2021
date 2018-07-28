@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:text="Подкатегории"
         android:textColor="@color/colorBlack"
-        style="@style/MediumText"/>
+        style="@style/LightText"/>
 
     <View
         android:layout_width="match_parent"

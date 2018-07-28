@@ -54,7 +54,7 @@
 
                 <TextView
                     android:id="@+id/textViewTitleDesc"
-                    style="@style/MediumText"
+                    style="@style/LightText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="2sp"
@@ -67,7 +67,7 @@
 
                 <TextView
                     android:id="@+id/textViewPrice"
-                    style="@style/MediumText"
+                    style="@style/LightText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="3dp"

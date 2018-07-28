@@ -5,6 +5,7 @@ import com.example.meirlen.orc.AppDatabase;
 import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.helper.DataGenerator;
 import com.example.meirlen.orc.interactor.CategoryInteractor;
+import com.example.meirlen.orc.model.CartCount;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.model.Field;
 import com.example.meirlen.orc.model.SearchValue;
@@ -40,6 +41,11 @@ public class CategoryInteractorImpl implements CategoryInteractor {
     @Override
     public Observable<APIResponse<List<Category>>> getMessages(String authToken) {
         return categoryApi.getChat(authToken);
+    }
+
+    @Override
+    public Observable<APIResponse<CartCount>> getCartCount(String authToken) {
+        return categoryApi.getCartCount(authToken);
     }
 
     @Override

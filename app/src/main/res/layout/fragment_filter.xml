@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout_filter"
     android:layout_width="match_parent"
+    android:paddingBottom="20dp"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
@@ -21,7 +22,10 @@
         android:layout_width="match_parent"
 
         android:layout_height="match_parent"
+        android:layout_above="@+id/line"
         android:layout_below="@id/toolbar"
+
+
         android:focusable="true"
         android:focusableInTouchMode="true">
 
@@ -30,23 +34,31 @@
             android:id="@+id/mainFieldLayoutSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            />
+            android:orientation="vertical" />
 
 
     </ScrollView>
 
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/acceptButton"
+        android:background="@color/colorLine" />
 
     <Button
         android:id="@+id/acceptButton"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
+        android:textSize="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="20dp"
-        android:text="Принять"
-        android:textColor="@color/colorAccent" />
+        android:background="@color/colorPrimary"
+        android:text="@string/show_all_products"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

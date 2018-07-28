@@ -1,8 +1,8 @@
 package com.example.meirlen.orc.rest;
 
 
-
 import com.example.meirlen.orc.api.APIResponse;
+import com.example.meirlen.orc.model.CartCount;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.rest.ApiMethods;
 
@@ -14,7 +14,11 @@ import retrofit2.http.Header;
 
 public interface CategoryApi {
 
-    @GET (ApiMethods.CHAT_GET)
+    @GET(ApiMethods.CHAT_GET)
     Observable<APIResponse<List<Category>>> getChat(@Header("Token") String token);
+
+
+    @GET(ApiMethods.CART_COUNT)
+    Observable<APIResponse<CartCount>> getCartCount(@Header("Token") String token);
 
 }

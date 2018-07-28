@@ -1,5 +1,7 @@
 package com.example.meirlen.orc.view.fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.GlobalVariables;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.interfaces.OnCategoryClickListener;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
@@ -33,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class CategoriesFragment extends Fragment implements CategoryView,OnCategoryClickListener {
+public class CategoriesFragment extends Fragment implements CategoryView, OnCategoryClickListener {
 
 
     private static final String TAG = "CategoriesFragment";
@@ -53,6 +56,7 @@ public class CategoriesFragment extends Fragment implements CategoryView,OnCateg
     private CategoryAdapter adapter;
     List<Category> list = new ArrayList<>();
 
+    private Activity activity;
 
     public static CategoriesFragment newInstance() {
         return new CategoriesFragment();
@@ -81,9 +85,19 @@ public class CategoriesFragment extends Fragment implements CategoryView,OnCateg
 
         init();
         categoryPresenter.setView(this);
-        categoryPresenter.getCategories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODksInRpbWVzdGFtcCI6MTUzMTEzNzYwOC42MDI2MDh9.-XdJaLVB6xmwc0nbzm2_iXGlAKZXnrRgOvGy4b8D6-Q");
+        categoryPresenter.getCategories(sessionManager.getAccessToken());
         //categoryPresenter.getCategoriesFromLocalDb();
+
+
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Activity) {
+            activity = (Activity) context;
+        }
     }
 
 
@@ -92,6 +106,13 @@ public class CategoriesFragment extends Fragment implements CategoryView,OnCateg
         list.addAll(categories);
         adapter.notifyDataSetChanged();
         categoryPresenter.insertLocalDb(categories);
+        categoryPresenter.getCartCount(sessionManager.getAccessToken());
+    }
+
+    @Override
+    public void getCardCount(String count) {
+        GlobalVariables.COUNT_CART = Integer.parseInt(count);
+        GlobalVariables.basketManager.update();
     }
 
 
@@ -127,7 +148,7 @@ public class CategoriesFragment extends Fragment implements CategoryView,OnCateg
 
     private void init() {
 
-        adapter = new CategoryAdapter(this,list, getActivity());
+        adapter = new CategoryAdapter(this, list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

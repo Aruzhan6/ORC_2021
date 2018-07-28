@@ -2,6 +2,7 @@ package com.example.meirlen.orc.view.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,31 +10,30 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.helper.Constans;
 import com.example.meirlen.orc.interfaces.OnFieldItemSelectedListener;
 import com.example.meirlen.orc.interfaces.OnValueClearIListener;
 import com.example.meirlen.orc.model.Field;
-
 import com.example.meirlen.orc.model.SearchValue;
 import com.example.meirlen.orc.presenter.FieldPresenter;
 import com.example.meirlen.orc.view.FieldView;
-
+import com.example.meirlen.orc.view.activity.ProductListActivity;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 
 public class FieldFragment extends Fragment implements FieldView, OnValueClearIListener {
@@ -48,11 +48,17 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
 
     @BindView(R.id.mainFieldLayoutSearch)
     LinearLayout mainFieldLayout;
+    @BindView(R.id.acceptButton)
+    Button acceptButton;
 
     private String fieldType;
     private String fieldName;
 
     Activity activity;
+    private Unbinder unbinder;
+
+
+    private boolean isCategoryField;
 
     public static FieldFragment newInstance() {
         return new FieldFragment();
@@ -75,7 +81,7 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_filter, container, false);
-        ButterKnife.bind(this, rootView);
+        unbinder = ButterKnife.bind(this, rootView);
         App.getInstance().createFieldComponent().inject(this);
         presenter.setView(this);
         init();
@@ -143,6 +149,9 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     }
 
     public void drawCategoryFields(List<Field> searchFields) {
+        acceptButton.setText(R.string.show_all_products);
+        isCategoryField = true;
+
         mainFieldLayout.removeAllViews();
         for (Field searchField : searchFields) {
             View child = null;
@@ -182,30 +191,30 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     }
 
     public void drawFieldsValue(List<SearchValue> searchFields) {
+        acceptButton.setText(R.string.apply_filter);
+        isCategoryField = false;
+
         for (SearchValue searchValue : searchFields) {
-            View child;
+            View child = null;
             TextView textViewTitle;
             switch (fieldType) {
                 case "MULTIPLE_SELECT":
                     child = getLayoutInflater().inflate(R.layout.item_checkbox, null);
-                    mainFieldLayout.addView(child);
                     break;
                 case "STRING":
                     child = getLayoutInflater().inflate(R.layout.item_string_field, null);
-                    mainFieldLayout.addView(child);
                     break;
                 case "BOOLEAN":
                     child = getLayoutInflater().inflate(R.layout.item_boolean_field, null);
-                    Toast.makeText(getContext(), "213", Toast.LENGTH_SHORT).show();
-                    mainFieldLayout.addView(child);
                     break;
                 case "RANGE_INT":
                     child = getLayoutInflater().inflate(R.layout.item_range_field, null);
-                    mainFieldLayout.addView(child);
                     break;
             }
 
-
+            mainFieldLayout.addView(child);
+            textViewTitle = child.findViewById(R.id.headerTitle);
+            textViewTitle.setText(searchValue.getValue());
         }
 
     }
@@ -214,5 +223,26 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     @Override
     public void onValueClear() {
         init();
+    }
+
+
+    @OnClick(R.id.acceptButton)
+    public void onViewClicked() {
+        if (isCategoryField) {
+            Intent intent = new Intent(getContext(), ProductListActivity.class);
+            startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+        } else {
+            init();
+
+        }
+
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

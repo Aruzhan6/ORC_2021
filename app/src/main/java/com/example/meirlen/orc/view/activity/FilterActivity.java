@@ -41,7 +41,7 @@ public class FilterActivity extends AppCompatActivity implements OnFieldItemSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.base_fm_activity);
         ButterKnife.bind(this);
-        mToolbar.setTitle("Фильтры");
+        mToolbar.setTitle(R.string.filter);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(v -> {
             onBackPressed();
@@ -81,6 +81,7 @@ public class FilterActivity extends AppCompatActivity implements OnFieldItemSele
             ((OnValueClearIListener) fragment).onValueClear();
             changeState(false);
             state = 0;
+            mToolbar.setTitle(R.string.filter);
         } else {
             super.onBackPressed();
         }

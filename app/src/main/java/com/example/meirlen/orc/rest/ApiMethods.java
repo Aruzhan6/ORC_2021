@@ -28,7 +28,7 @@ public class ApiMethods {
     public static final String GET_DISCOUNTS = "/public/api/v1/discounts";
 
 
-
+    public static final String CART_COUNT = "/public/api/v1/cart/count";
 
 
 }

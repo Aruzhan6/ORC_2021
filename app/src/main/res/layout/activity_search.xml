@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:foo="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="5dp"
+            android:minHeight="?attr/actionBarSize"
+            android:titleTextColor="@color/colorBlack"
+            app:popupTheme="@style/AppTheme">
+
+
+            <RelativeLayout
+                android:id="@+id/r1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5sp"
+                android:paddingTop="5sp">
+
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:fitsSystemWindows="true"
+                    android:padding="7dp"
+
+                    android:scaleType="centerCrop"
+                    android:tint="@color/colorPrimary"
+                    foo:layout_collapseMode="parallax"
+
+                    foo:srcCompat="@drawable/ic_search" />
+
+                <EditText
+                    style="@style/LightText"
+                    android:id="@+id/editText13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+
+                    android:background="@null"
+                    android:hint="Поиск"
+                    android:inputType="text"
+                    android:maxLength="16"
+                    android:padding="12dp"
+
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/colorHint" />
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/containerView"
+        android:background="#fefefe">
+
+    </FrameLayout>
+</LinearLayout>

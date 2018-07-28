@@ -6,17 +6,24 @@
     android:padding="10dp">
 
     <TextView
+        style="@style/LightText"
 
         android:id="@+id/headerTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="#DE000000"
+        android:text="Размеры"
+        android:textColor="@color/colorBlack"
         android:textSize="16sp" />
 
-    <View
+    <TextView
+        android:id="@+id/txtValue"
+        style="@style/SmallText"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine" />
+        android:layout_height="wrap_content"
+        android:text="Все размеры"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
 
 </LinearLayout>

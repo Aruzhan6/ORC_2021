@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.GlobalVariables;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.interfaces.OnAddCardListener;
 import com.example.meirlen.orc.model.CardResponse;
@@ -29,8 +30,8 @@ import com.example.meirlen.orc.model.filter.StringType;
 import com.example.meirlen.orc.model.request.Filter;
 import com.example.meirlen.orc.presenter.ProductPresenter;
 import com.example.meirlen.orc.view.ProductView;
-import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
 import com.example.meirlen.orc.view.activity.FilterActivity;
+import com.example.meirlen.orc.view.activity.ProductListActivity;
 import com.example.meirlen.orc.view.adapter.ProductAdapter;
 import com.google.gson.Gson;
 
@@ -118,6 +119,7 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
         Log.d("jsonFilter", modelClass);
         presenter.getList(sessionManager.getAccessToken(), filter);
 
+
         return rootView;
     }
 
@@ -169,7 +171,7 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
     @Override
     public void addCartResponse(CardResponse response) {
 
-        Product product=list.get(posiition);
+        Product product = list.get(posiition);
         product.setCartCount(String.valueOf(response.getCartCount()));
         product.setCartId(String.valueOf(response.getCartId()));
         product.setCartProductId(response.getCartProductId());
@@ -178,7 +180,6 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
 
     }
-
 
 
     @Override
@@ -261,5 +262,10 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
     public void onAddCard(String id, String decrement, int position) {
         this.posiition = position;
         presenter.addCart(sessionManager.getAccessToken(), id, decrement);
+        GlobalVariables.basketManager.update();
+        if (decrement.equals("0"))
+            GlobalVariables.COUNT_CART++;
+        else
+            GlobalVariables.COUNT_CART--;
     }
 }

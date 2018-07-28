@@ -7,19 +7,21 @@
     android:padding="10dp">
 
     <TextView
+        style="@style/LightText"
 
         android:id="@+id/headerTitle"
-        android:text="BooleanType"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="#DE000000"
+        android:layout_marginTop="5dp"
+        android:text="Размеры"
+        android:textColor="@color/colorBlack"
         android:textSize="16sp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_gravity="center_vertical"
+
         android:layout_height="wrap_content"
         android:id="@+id/itemCheckBox"
 

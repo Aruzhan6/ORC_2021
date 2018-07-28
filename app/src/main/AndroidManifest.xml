@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.activity.SplashActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +34,7 @@
             android:name=".view.activity.FilterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.ProductListActivity"
+            android:name=".view.activity.SplashActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.OrderActivity"
@@ -52,10 +52,13 @@
             android:name=".view.activity.AboutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activity.ProductListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ModalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SearchActivity"
             android:screenOrientation="portrait" />
     </application>
 

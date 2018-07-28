@@ -78,6 +78,7 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
         categoryPresenter.setView(this);
         assert getArguments() != null;
         categoryPresenter.getCategoriesById(getArguments().getString(ChildCategoryActivity.EXTRA_ID_PARENT_CATEGORY));
+
         return rootView;
     }
 
@@ -89,7 +90,10 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
 
     }
 
+    @Override
+    public void getCardCount(String count) {
 
+    }
 
 
     @Override

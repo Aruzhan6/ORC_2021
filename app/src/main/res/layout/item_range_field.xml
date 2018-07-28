@@ -6,13 +6,14 @@
     android:orientation="vertical"
     android:padding="10dp">
     <TextView
+        style="@style/LightText"
 
         android:id="@+id/headerTitle"
-        android:text="RangeType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="#DE000000"
+        android:text="Размеры"
+        android:textColor="@color/colorBlack"
         android:textSize="16sp" />
     <LinearLayout
         android:layout_width="match_parent"

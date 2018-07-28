@@ -1,30 +1,44 @@
 package com.example.meirlen.orc;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
-import com.example.meirlen.orc.model.discount.Discount;
+import com.example.meirlen.orc.basket.Publisher;
+import com.example.meirlen.orc.helper.GlobalVariables;
+import com.example.meirlen.orc.view.activity.BasketActivity;
+import com.example.meirlen.orc.view.activity.SearchActivity;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 import com.example.meirlen.orc.view.fragment.DiscountFragment;
 import com.example.meirlen.orc.view.fragment.HistoryFragment;
-import com.example.meirlen.orc.view.fragment.ProductFragment;
 import com.example.meirlen.orc.view.fragment.ProfileFragment;
+
+import java.util.Observable;
+import java.util.Observer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener {
+public class MainActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener, Observer {
+
+    private static final String TAG = "MainActivity";
+
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.bottom_navigation)
     AHBottomNavigation bottomNavigation;
+    @BindView(R.id.txt_trash_count)
+    TextView txtTrashCount;
     private FragmentTransaction transaction;
     private Fragment[] fragments = new Fragment[4];
 
@@ -33,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        GlobalVariables.basketManager.register(this);
         ButterKnife.bind(this);
         fragments[0] = DiscountFragment.newInstance();
         fragments[1] = CategoriesFragment.newInstance();
@@ -95,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
                 transaction.hide(f).commit();
         }
     }
+
     private void addFragment(Fragment[] fragments) {
 
         for (Fragment fragment : fragments) {
@@ -102,6 +118,40 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
             transaction.add(R.id.frame_container, fragment, "").commit();
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setTxtTrashCount();
+
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof Publisher) {
+            setTxtTrashCount();
+        }
+    }
+
+    private void setTxtTrashCount() {
+        txtTrashCount.setText(String.valueOf(GlobalVariables.COUNT_CART));
+
+    }
+
+    @OnClick({R.id.ic_search, R.id.action_bar_bt_trash})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+
+            case R.id.ic_search:
+                Intent intent1 = new Intent(this, SearchActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.action_bar_bt_trash:
+                Intent intent = new Intent(this, BasketActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
 

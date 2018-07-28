@@ -24,7 +24,7 @@
         android:textSize="18sp" />
 
     <TextView
-        style="@style/MediumText"
+        style="@style/LightText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Когда хочется большего"
