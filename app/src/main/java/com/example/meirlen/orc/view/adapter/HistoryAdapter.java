@@ -46,14 +46,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         Log.d(TAG, "onBindViewHolder: "+history.getPurchases().size());
 
 
-        holder.listText.setText(history.getCreatedAt());
+        holder.listText.setText("Заявка оформлена в "+history.getCreatedAt());
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < history.getPurchases().size(); i++) {
 
             View child = inflater.inflate(R.layout.purchases_item, null);
-
-
+            TextView product_name=(TextView)child.findViewById(R.id.textViewTitle);
+            TextView txt_total_price=(TextView)child.findViewById(R.id.txt_total_price);
+            TextView txtDescr=(TextView)child.findViewById(R.id.textDescr);
+            TextView txtDate=(TextView)child.findViewById(R.id.textDate);
+            product_name.setText(history.getPurchases().get(i).getProduct().getProductName());
+            txtDescr.setText(history.getPurchases().get(i).getProduct().getProductDescription());
+          //  txtDate.setText(history.getPurchases().get(i).getProduct().getD);
+            txt_total_price.setText(String.valueOf(history.getPurchases().get(i).getProduct().getProductPrice())+context.getString(R.string.tenge));
             holder.linearLayoutItems.addView(child);
         }
 

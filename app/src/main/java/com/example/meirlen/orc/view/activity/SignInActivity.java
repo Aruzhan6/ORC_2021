@@ -16,6 +16,7 @@ public class SignInActivity extends BaseFragmentManagerActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.base_fm_activity);
+        getSupportActionBar().setElevation(0);
     }
 
     @Override

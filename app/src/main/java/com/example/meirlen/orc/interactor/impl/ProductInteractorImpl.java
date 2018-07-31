@@ -24,26 +24,32 @@ public class ProductInteractorImpl implements ProductInteractor {
     ProductApi restApi;
 
 
-
-
     public ProductInteractorImpl() {
         App.getInstance().createProductComponent().inject(this);
     }
 
 
-
-
     @Override
     public Observable<APIResponse<ProductResponse>> getList(String token, Filter filter) {
-        return restApi.getProducts(token,filter);
+        return restApi.getProducts(token, filter);
     }
 
     @Override
-    public Observable<APIResponse<CardResponse>> addCart(String token, String id, String decrement){
-        CartRequest cartRequest=new CartRequest();
+    public Observable<APIResponse<ProductResponse>> getFavourities(String token) {
+        return restApi.getFavourities(token);
+    }
+
+    @Override
+    public Observable<APIResponse<CardResponse>> addCart(String token, String id, String decrement) {
+        CartRequest cartRequest = new CartRequest();
         cartRequest.setProductId(Integer.valueOf(id));
         cartRequest.setDecrement(Integer.valueOf(decrement));
-        return restApi.addCart(token,cartRequest);
+        return restApi.addCart(token, cartRequest);
+    }
+
+    @Override
+    public Observable<APIResponse<Product>> markFavourite(String token, Integer product_id) {
+        return restApi.markFavourite(token, product_id);
     }
 
 

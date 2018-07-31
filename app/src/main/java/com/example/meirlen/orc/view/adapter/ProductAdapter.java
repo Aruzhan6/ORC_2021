@@ -12,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.interfaces.FavouriteMethodCaller;
 import com.example.meirlen.orc.interfaces.OnAddCardListener;
 import com.example.meirlen.orc.model.Product;
 
@@ -34,10 +36,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     private Context context;
     private ViewHolder viewHolder;
 
-    public ProductAdapter(OnAddCardListener listener, List<Product> mList, Context context) {
+    FavouriteMethodCaller favMarkCallback;
+
+
+    public ProductAdapter(OnAddCardListener listener, List<Product> mList, Context context,FavouriteMethodCaller favMarkCallback) {
         this.mList = mList;
         this.context = context;
         this.listener = listener;
+        this.favMarkCallback = favMarkCallback;
     }
 
 
@@ -79,6 +85,31 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             listener.onAddCard(String.valueOf(product.getProductId()), "1", position);
         });
 
+
+
+        if (product.getFavourite())
+            holder.imgViewFav.setImageDrawable(
+                    context.getDrawable(R.drawable.ic_like));
+        else
+            holder.imgViewFav.setImageDrawable(
+                    context.getDrawable(R.drawable.ic_dislike));
+
+
+        holder.imgViewFav.setOnClickListener(view -> {
+
+
+            if (product.getFavourite()) {
+                holder.imgViewFav.setImageDrawable(context.getDrawable(R.drawable.ic_dislike));
+                favMarkCallback.markSpaceFavourie(product.getProductId());
+                product.setFavourite(false);
+            } else {
+                holder.imgViewFav.setImageDrawable(context.getDrawable(R.drawable.ic_like));
+                favMarkCallback.markSpaceFavourie(product.getProductId());
+                product.setFavourite(true);
+
+            }
+        });
+
     }
 
     @Override
@@ -116,6 +147,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         @BindView(R.id.ic_increase)
         ImageView icIncrease;
+
+        @BindView(R.id.imgViewFav)
+        ImageView imgViewFav;
 
         @BindView(R.id.progressBar)
         ProgressBar progressBar;

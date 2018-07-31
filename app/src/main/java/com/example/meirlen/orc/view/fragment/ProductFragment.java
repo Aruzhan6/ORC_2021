@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
 import com.example.meirlen.orc.helper.GlobalVariables;
 import com.example.meirlen.orc.helper.SessionManager;
+import com.example.meirlen.orc.interfaces.FavouriteMethodCaller;
 import com.example.meirlen.orc.interfaces.OnAddCardListener;
 import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.Product;
@@ -45,12 +47,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class ProductFragment extends Fragment implements ProductView, OnAddCardListener {
+public class ProductFragment extends Fragment implements ProductView, OnAddCardListener, FavouriteMethodCaller {
+    public static final String EXTRA_FAVOURITES = "extra:fav";
     BottomSheetDialog dialog;
 
 
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+
+    @BindView(R.id.filterLayout)
+    LinearLayout filterLayout;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -69,14 +75,17 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
     private static final String TAG = "ProductFragment";
 
+    private boolean isFavourities = false;
+
 
     public static ProductFragment newInstance() {
         return new ProductFragment();
     }
 
-    public static ProductFragment newInstance(String param1, String param2) {
+    public static ProductFragment newInstance(boolean param1, String param2) {
         ProductFragment fragment = new ProductFragment();
         Bundle args = new Bundle();
+        args.putBoolean(EXTRA_FAVOURITES, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -117,7 +126,15 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
         Gson gson = new Gson();
         String modelClass = gson.toJson(filter);
         Log.d("jsonFilter", modelClass);
-        presenter.getList(sessionManager.getAccessToken(), filter);
+
+        assert getArguments() != null;
+        isFavourities = getArguments().getBoolean(EXTRA_FAVOURITES);
+
+        if (isFavourities) {
+            filterLayout.setVisibility(View.GONE);
+            presenter.getFavourities(sessionManager.getAccessToken());
+        } else
+            presenter.getList(sessionManager.getAccessToken(), filter);
 
 
         return rootView;
@@ -151,7 +168,7 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
     private void init() {
 
-        adapter = new ProductAdapter(this, list, getActivity());
+        adapter = new ProductAdapter(this, list, getActivity(), this);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -191,6 +208,11 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
     public void hideItemLoading() {
         adapter.hideLoading();
 
+    }
+
+    @Override
+    public void markFavourite(Product response) {
+        Log.d(TAG, "markFavourite: " + response.getProductId());
     }
 
 
@@ -267,5 +289,11 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
             GlobalVariables.COUNT_CART++;
         else
             GlobalVariables.COUNT_CART--;
+    }
+
+    @Override
+    public void markSpaceFavourie(int space_id) {
+        presenter.markFavourite(sessionManager.getAccessToken(), space_id);
+
     }
 }

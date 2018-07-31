@@ -44,6 +44,9 @@ public class Product {
     @Expose
     private String cartCount;
 
+    @SerializedName("isFavourite")
+    @Expose
+    private Boolean isFavourite;
 
     public Integer getProductId() {
         return productId;
@@ -142,5 +145,11 @@ public class Product {
     }
 
 
+    public Boolean getFavourite() {
+        return isFavourite;
+    }
 
+    public void setFavourite(Boolean favourite) {
+        isFavourite = favourite;
+    }
 }

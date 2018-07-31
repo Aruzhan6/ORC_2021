@@ -26,12 +26,12 @@
                 <TextView
 
                     android:id="@+id/infoTextView"
+                    style="@style/LightText"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:text="Находите жилье без посредников вместе с Pillowz.
-Для начала нужно пройти регистрацию. Это займет не больше минуты.
-"
+                    android:text="@string/reg_desc"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_sm" />
@@ -64,6 +64,8 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/nameEditText"
+                            style="@style/LightText"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/colorLine"
@@ -91,6 +93,8 @@
 
                             <android.support.design.widget.TextInputEditText
                                 android:id="@+id/phoneCodeEditText"
+                                style="@style/LightText"
+
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@color/colorLine"
@@ -115,6 +119,8 @@
 
                             <br.com.sapereaude.maskedEditText.MaskedEditText
                                 android:id="@+id/phoneEditText"
+                                style="@style/LightText"
+
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@color/colorLine"

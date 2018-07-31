@@ -14,7 +14,11 @@ public interface ProductPresenter extends BasePresenter<ProductView> {
 
     void getList(String token,Filter filter);
 
+    void getFavourities(String token);
+
     void addCart(String token,String id,String decrement);
+
+    void markFavourite(String token, Integer product_id);
 
 
 }

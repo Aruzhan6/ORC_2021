@@ -8,6 +8,10 @@ public class ApiMethods {
 
     public static final String PRODUCT_GET = "/public/api/v1/product/filter";
 
+    public static final String PRODUCT_ADD_FAV = "/public/api/v1/fav";
+
+    public static final String PRODUCT_GET_FAV = "/public/api/v1/favs";
+
     public static final String SIGNUP = "/public/api/v1/customer/signup";
 
     public static final String SIGNIN = "/public/api/v1/customer/signin";

@@ -32,32 +32,23 @@ public class IntroActivity extends MaterialIntroActivity {
         App.getInstance().createCategoryComponent().inject(this);
         sessionManager.setShowIntro(false);
         getBackButtonTranslationWrapper()
-                .setEnterTranslation(new IViewTranslation() {
-                    @Override
-                    public void translate(View view, @FloatRange(from = 0, to = 1.0) float percentage) {
-                        view.setAlpha(percentage);
-                    }
-                });
+                .setEnterTranslation(View::setAlpha);
 
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.first_slide_background)
-                        .buttonsColor(R.color.first_slide_buttons)
-                        .image(R.drawable.img_office)
-                        .title("Organize your time with us")
-                        .description("Would you try?")
-                        .build(),
-                new MessageButtonBehaviour(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showMessage("We provide solutions to make you love your work");
-                    }
-                }, "Work with love"));
+                .backgroundColor(R.color.first_slide_background)
+                .buttonsColor(R.color.first_slide_buttons)
+                .image(R.drawable.img_slide_one)
+                .title("ОРЦ")
+                .description("Сервис доставки продуктов")
+                .build());
+
 
         addSlide(new SlideFragmentBuilder()
                 .backgroundColor(R.color.second_slide_background)
                 .buttonsColor(R.color.second_slide_buttons)
-                .title("Want more?")
-                .description("Go on")
+                .image(R.drawable.img_slide_two)
+                .title("Доставка продуктов ")
+                .description("из METRO, MAGNUM ")
                 .build());
 
         //  addSlide(new CustomSlide());
@@ -66,8 +57,9 @@ public class IntroActivity extends MaterialIntroActivity {
         addSlide(new SlideFragmentBuilder()
                 .backgroundColor(R.color.fourth_slide_background)
                 .buttonsColor(R.color.fourth_slide_buttons)
-                .title("That's it")
-                .description("Would you join us?")
+                .image(R.drawable.img_slide_one)
+                .title("Огромный выбор товаров")
+                .description("Более 80 000 товаров из 60 гипермаркетов Караганды!")
                 .build());
     }
 

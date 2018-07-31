@@ -14,11 +14,13 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.meirlen.orc.basket.Publisher;
 import com.example.meirlen.orc.helper.GlobalVariables;
+import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.view.activity.BasketActivity;
 import com.example.meirlen.orc.view.activity.SearchActivity;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 import com.example.meirlen.orc.view.fragment.DiscountFragment;
 import com.example.meirlen.orc.view.fragment.HistoryFragment;
+import com.example.meirlen.orc.view.fragment.ProductFragment;
 import com.example.meirlen.orc.view.fragment.ProfileFragment;
 
 import java.util.Observable;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
     @BindView(R.id.txt_trash_count)
     TextView txtTrashCount;
     private FragmentTransaction transaction;
-    private Fragment[] fragments = new Fragment[4];
+    private Fragment[] fragments = new Fragment[5];
 
 
     @Override
@@ -52,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         fragments[0] = DiscountFragment.newInstance();
         fragments[1] = CategoriesFragment.newInstance();
         fragments[2] = HistoryFragment.newInstance();
-        fragments[3] = ProfileFragment.newInstance();
+        fragments[3] = ProductFragment.newInstance(true,"");
+        fragments[4] = ProfileFragment.newInstance();
         addFragment(fragments);
 
         bottomNavigation.setOnTabSelectedListener(this);
@@ -64,14 +67,16 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         //CREATE ITEMS
         AHBottomNavigationItem menu1 = new AHBottomNavigationItem(getString(R.string.bottom_menu_1), R.drawable.ic_search);
         AHBottomNavigationItem menu2 = new AHBottomNavigationItem(getString(R.string.bottom_menu_2), R.drawable.ic_conversation);
-        AHBottomNavigationItem menu3 = new AHBottomNavigationItem(getString(R.string.bottom_menu_3), R.drawable.ic_like);
-        AHBottomNavigationItem menu4 = new AHBottomNavigationItem(getString(R.string.bottom_menu_4), R.drawable.ic_profile);
+        AHBottomNavigationItem menu3 = new AHBottomNavigationItem(getString(R.string.bottom_menu_3), R.drawable.ic_search);
+        AHBottomNavigationItem menu4 = new AHBottomNavigationItem(getString(R.string.bottom_menu_4), R.drawable.ic_like);
+        AHBottomNavigationItem menu5 = new AHBottomNavigationItem(getString(R.string.bottom_menu_5), R.drawable.ic_profile);
 
         //ADD THEM to bar
         bottomNavigation.addItem(menu1);
         bottomNavigation.addItem(menu2);
         bottomNavigation.addItem(menu3);
         bottomNavigation.addItem(menu4);
+        bottomNavigation.addItem(menu5);
 
         //set properties
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
@@ -95,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
             toolbar.setTitle(R.string.bottom_menu_3);
         } else if (position == 3) {
             toolbar.setTitle(R.string.bottom_menu_4);
+        } else if (position == 4) {
+            toolbar.setTitle(R.string.bottom_menu_5);
         }
         replaceFragment(fragments[position]);
         return true;

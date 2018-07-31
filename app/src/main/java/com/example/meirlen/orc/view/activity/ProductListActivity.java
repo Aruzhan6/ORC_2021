@@ -39,7 +39,7 @@ public class ProductListActivity extends BaseFragmentManagerActivity implements 
 
     @Override
     protected Fragment fragment() {
-        return ProductFragment.newInstance();
+        return ProductFragment.newInstance(false,"");
     }
 
     @Override

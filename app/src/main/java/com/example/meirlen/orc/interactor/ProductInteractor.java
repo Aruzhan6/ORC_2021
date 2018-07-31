@@ -20,7 +20,11 @@ public interface ProductInteractor {
 
     Observable<APIResponse<ProductResponse>> getList(String token, Filter filter);
 
+    Observable<APIResponse<ProductResponse>> getFavourities(String token);
+
     Observable<APIResponse<CardResponse>> addCart(String token, String id, String decrement);
+
+    Observable<APIResponse<Product>> markFavourite(String token, Integer product_id);
 
 
 }

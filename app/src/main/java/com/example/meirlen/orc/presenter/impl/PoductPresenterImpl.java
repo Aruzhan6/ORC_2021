@@ -62,6 +62,31 @@ public class PoductPresenterImpl implements ProductPresenter {
     }
 
     @Override
+    public void getFavourities(String token) {
+        pView.showLoading();
+        getMessagesDisposable = interactor.getFavourities(token)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe((APIResponse<ProductResponse> apiResponse) -> {
+                    pView.hideLoading();
+                    if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
+                        if (PoductPresenterImpl.this.isViewAttached()) {
+                            pView.getList(apiResponse.getData().getProduct());
+                        }
+                    } else {
+                        if (PoductPresenterImpl.this.isViewAttached()) {
+                            pView.loadingFailed(String.valueOf(apiResponse.getMessage()));
+                        }
+                    }
+                }, throwable -> {
+                    if (isViewAttached()) {
+                        pView.hideLoading();
+                        pView.loadingFailed(throwable.getMessage());
+                    }
+                });
+    }
+
+    @Override
     public void addCart(String token, String id, String decrement) {
         pView.showItemLoading();
         getMessagesDisposable = interactor.addCart(token, id, decrement)
@@ -86,6 +111,31 @@ public class PoductPresenterImpl implements ProductPresenter {
                 });
 
 
+    }
+
+    @Override
+    public void markFavourite(String token, Integer product_id) {
+       // pView.showItemLoading();
+        getMessagesDisposable = interactor.markFavourite(token, product_id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe((APIResponse<Product> apiResponse) -> {
+                   // pView.hideItemLoading();
+                    if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
+                        if (PoductPresenterImpl.this.isViewAttached()) {
+                            pView.markFavourite(apiResponse.getData());
+                        }
+                    } else {
+                        if (PoductPresenterImpl.this.isViewAttached()) {
+                            pView.loadingFailed(String.valueOf(apiResponse.getMessage()));
+                        }
+                    }
+                }, throwable -> {
+                    if (isViewAttached()) {
+                     //   pView.hideItemLoading();
+                        pView.loadingFailed(throwable.getMessage());
+                    }
+                });
     }
 
 

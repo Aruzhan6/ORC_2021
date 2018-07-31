@@ -3,7 +3,8 @@
     <string name="bottom_menu_1">Скидки</string>
     <string name="bottom_menu_2">Категории</string>
     <string name="bottom_menu_3">История</string>
-    <string name="bottom_menu_4">Профиль</string>
+    <string name="bottom_menu_4">Избранные</string>
+    <string name="bottom_menu_5">Профиль</string>
 
     <string name="tenge">\u20B8</string>
     <string name="dots">⋮</string>
@@ -40,7 +41,7 @@
 
 
     <string name="settings_1">Город</string>
-    <string name="settings_2">Язык программы</string>
+    <string name="settings_2">Ваше имя</string>
     <string name="settings_3">Номер телефона</string>
     <string name="settings_4">Новости</string>
     <string name="settings_5">Акции</string>
@@ -112,6 +113,8 @@
     </string>
     <string name="filter">Фильтры</string>
     <string name="search">Поиск</string>
+    <string name="app_desc">Ввести свой адрес, подобрать удобный магазин рядом с домом, набрать товаров в корзину и получить их через 90 минут!</string>
+    <string name="reg_desc">Чтобы заказать товар вместе с ОРЦ. Для начала нужно пройти регистрацию. Это займет не больше минуты.</string>
 
 
 </resources>

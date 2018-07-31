@@ -30,6 +30,7 @@ import com.example.meirlen.orc.model.signup.ConfirmResponse;
 import com.example.meirlen.orc.presenter.SignUpPresenter;
 import com.example.meirlen.orc.view.SignUpView;
 import com.example.meirlen.orc.view.activity.AboutActivity;
+import com.example.meirlen.orc.view.activity.SignInActivity;
 
 import javax.inject.Inject;
 
@@ -204,9 +205,9 @@ public class ProfileFragment extends Fragment implements SignUpView {
 
     @OnClick(R.id.exit)
     public void exitApp() {
-        //  Intent i = new Intent(getContext(),ClearAccountScreen.class);
-        // startActivity(i);
-        //  getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+         Intent i = new Intent(getContext(),SignInActivity.class);
+         startActivity(i);
+         getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
     }
 
     @OnClick(R.id.call_centre)

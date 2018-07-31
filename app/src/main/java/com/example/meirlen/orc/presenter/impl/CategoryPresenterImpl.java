@@ -134,7 +134,7 @@ public class CategoryPresenterImpl implements CategoryPresenter {
                                @Override
                                public void run() throws Exception {
                                    categoryView.hideLoading();
-                                   categoryView.successLocalDb("Элементы успешно добавлены в локальную бд");
+                                   //categoryView.successLocalDb("Элементы успешно добавлены в локальную бд");
                                }
                            },
                         throwable -> {

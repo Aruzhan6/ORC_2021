@@ -16,4 +16,6 @@ public interface ProductView extends LoadingView {
     void showItemLoading();
 
     void hideItemLoading();
+
+    void markFavourite(Product response);
 }

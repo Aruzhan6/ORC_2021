@@ -5,42 +5,37 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    >
-
+        android:layout_height="wrap_content">
 
 
         <LinearLayout
+            android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/line1"
 
 
-            android:orientation="vertical"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-
-
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
 
 
             <TextView
+                android:id="@+id/textView29"
+
+                style="@style/LightText"
                 android:layout_width="fill_parent"
+
                 android:layout_height="wrap_content"
-
                 android:layout_margin="10dp"
-                android:textColor="@color/colorHint"
                 android:text="Вы можете изменить Доставку на Самовывоз, но это может привести к изменениям в корзине"
-                android:textSize="14dp"
-                android:id="@+id/textView29" />
+                android:textColor="@color/colorHint"
+                android:textSize="14dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:background="#F1F1F1"
-                />
-
+                android:background="#F1F1F1" />
 
 
             <View
@@ -48,20 +43,7 @@
                 android:layout_height="5dp"
 
 
-                android:background="#F1F1F1"
-                />
-
-
-
-
-
-
-
-
-
-
-
-
+                android:background="#F1F1F1" />
 
 
             <LinearLayout
@@ -71,67 +53,55 @@
 
 
                 <TextView
-                    android:text="Улица"
-                    android:textColor="@color/colorHint"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
+                    style="@style/LightText"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Улица"
+                    android:textColor="@color/colorHint" />
 
                 <TextView
-                    android:text="*"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@android:color/holo_red_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginTop="8dp"
+                    android:text="*"
+                    android:textColor="@android:color/holo_red_light" />
 
 
             </LinearLayout>
 
 
-
-
-
-
             <EditText
-                android:layout_width="wrap_content"
-                android:background="@null"
                 android:id="@+id/e1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
                 android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:ems="10"
+                android:inputType="textPersonName"
 
                 />
-
 
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#F1F1F1"
-                />
+                android:background="#F1F1F1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-
-
-
-
-
-
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -140,36 +110,41 @@
 
 
                         <TextView
-                            android:text="Дом"
-                            android:textColor="@color/colorHint"
+                            style="@style/LightText"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            />
+                            android:text="Дом"
+                            android:textColor="@color/colorHint" />
 
                         <TextView
-                            android:text="*"
-                            android:layout_marginTop="8dp"
-                            android:textColor="@android:color/holo_red_light"
+                            style="@style/LightText"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            />
+                            android:layout_marginTop="8dp"
+                            android:text="*"
+                            android:textColor="@android:color/holo_red_light" />
 
 
                     </LinearLayout>
+
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@null"
                         android:id="@+id/e2"
 
+                        style="@style/LightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:hint=""
+                        android:background="@null"
 
                         android:ems="10"
-                        />
+                        android:hint=""
+
+                        android:inputType="textPersonName" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -177,43 +152,41 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
 
-                        android:background="#F1F1F1"
-                        />
+                        android:background="#F1F1F1" />
 
 
                 </LinearLayout>
 
 
-
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:text="Корпус"
-                        android:textColor="@color/colorHint"
+                        style="@style/LightText"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:text="Корпус"
+                        android:textColor="@color/colorHint" />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@null"
-                        android:layout_margin="10dp"
-                        android:hint=""
                         android:id="@+id/e3"
 
+                        style="@style/LightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@null"
                         android:ems="10"
-                        />
+                        android:hint=""
+
+                        android:inputType="textPersonName" />
 
                     <View
                         android:layout_width="match_parent"
@@ -222,43 +195,42 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
 
-                        android:background="#F1F1F1"
-                        />
+                        android:background="#F1F1F1" />
 
 
                 </LinearLayout>
 
 
-
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:text="Строения"
-                        android:textColor="@color/colorHint"
+                        style="@style/LightText"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:text="Строения"
+                        android:textColor="@color/colorHint" />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@null"
-                        android:layout_margin="10dp"
-                        android:hint=""
                         android:id="@+id/e4"
 
+                        style="@style/LightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@null"
                         android:ems="10"
-                        />
+                        android:hint=""
+
+                        android:inputType="textPersonName" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -266,8 +238,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
 
-                        android:background="#F1F1F1"
-                        />
+                        android:background="#F1F1F1" />
 
 
                 </LinearLayout>
@@ -276,39 +247,42 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:text="Квартира"
-                        android:textColor="@color/colorHint"
+                        style="@style/LightText"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:text="Квартира"
+                        android:textColor="@color/colorHint" />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@null"
-                        android:layout_margin="10dp"
-                        android:hint=""
                         android:id="@+id/e5"
 
-
+                        style="@style/LightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@null"
                         android:ems="10"
-                        />
+                        android:hint=""
+
+
+                        android:inputType="textPersonName" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -316,43 +290,42 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
 
-                        android:background="#F1F1F1"
-                        />
+                        android:background="#F1F1F1" />
 
 
                 </LinearLayout>
 
 
-
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:text="Этаж"
-                        android:textColor="@color/colorHint"
+                        style="@style/LightText"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:text="Этаж"
+                        android:textColor="@color/colorHint" />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@null"
-                        android:layout_margin="10dp"
-                        android:hint=""
                         android:id="@+id/e6"
 
+                        style="@style/LightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@null"
                         android:ems="10"
-                        />
+                        android:hint=""
+
+                        android:inputType="textPersonName" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -360,44 +333,43 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
 
-                        android:background="#F1F1F1"
-                        />
+                        android:background="#F1F1F1" />
 
 
                 </LinearLayout>
 
 
-
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:text="Подьезд"
-                        android:textColor="@color/colorHint"
+                        style="@style/LightText"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:text="Подьезд"
+                        android:textColor="@color/colorHint" />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@null"
-                        android:layout_margin="10dp"
-                        android:hint=""
                         android:id="@+id/e7"
 
+                        style="@style/LightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@null"
                         android:ems="10"
-                        />
+                        android:hint=""
+
+                        android:inputType="textPersonName" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -405,8 +377,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
 
-                        android:background="#F1F1F1"
-                        />
+                        android:background="#F1F1F1" />
 
 
                 </LinearLayout>
@@ -416,27 +387,26 @@
 
 
             <TextView
-                android:text="Примечание"
-                android:textColor="@color/colorHint"
+                style="@style/LightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:text="Примечание"
+                android:textColor="@color/colorHint" />
+
             <EditText
+                android:id="@+id/e8"
+                style="@style/LightText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:background="@null"
                 android:layout_margin="10dp"
-                android:hint=""
-                android:id="@+id/e8"
-
+                android:background="@null"
                 android:ems="10"
-                />
+                android:hint=""
 
-
+                android:inputType="textPersonName" />
 
 
             <View
@@ -444,52 +414,42 @@
                 android:layout_height="5dp"
 
 
-                android:background="#F1F1F1"
-                />
-
-
-
-
-
+                android:background="#F1F1F1" />
 
 
             <TextView
-                android:text="Получатель"
-                android:textColor="@color/colorHint"
+                style="@style/LightText"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:text="Получатель"
+                android:textColor="@color/colorHint" />
+
             <EditText
-                android:layout_width="match_parent"
-                android:text=""
                 android:id="@+id/edName"
-
-                android:textSize="16sp"
+                style="@style/LightText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:inputType="textPersonName"
-                android:background="@null"
-                android:layout_margin="10dp"
-                android:hint=""
 
+                android:layout_margin="10dp"
+                android:background="@null"
                 android:ems="10"
-                />
+                android:hint=""
+                android:inputType="textPersonName"
+                android:text=""
+                android:textColor="@color/colorBlack"
+
+                android:textSize="16sp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
 
 
-                android:background="#F1F1F1"
-                />
-
-
-
-
-
-
+                android:background="#F1F1F1" />
 
 
             <LinearLayout
@@ -499,52 +459,50 @@
 
 
                 <TextView
-                    android:text="Номер телефона"
-                    android:textColor="@color/colorHint"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
+                    style="@style/LightText"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Номер телефона"
+                    android:textColor="@color/colorHint" />
 
                 <TextView
-                    android:text="*"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@android:color/holo_red_light"
+                    style="@style/LightText"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginTop="8dp"
+                    android:text="*"
+                    android:textColor="@android:color/holo_red_light" />
 
 
             </LinearLayout>
-            <EditText
-                android:layout_width="match_parent"
-                android:text=""
-                android:id="@+id/edNumber"
-                android:textSize="16sp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:inputType="textPersonName"
-                android:background="@null"
-                android:layout_margin="10dp"
-                android:hint=""
 
+            <EditText
+                android:id="@+id/edNumber"
+
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@null"
                 android:ems="10"
-                />
+                android:hint=""
+                android:inputType="textPersonName"
+                android:text=""
+                android:textColor="@color/colorBlack"
+
+                android:textSize="16sp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
 
 
-                android:background="#F1F1F1"
-                />
-
-
-
-
-
-
+                android:background="#F1F1F1" />
 
 
             <View
@@ -552,168 +510,160 @@
                 android:layout_height="5dp"
 
 
-                android:background="#F1F1F1"
-                />
-
-
-
-
-
-
-
+                android:background="#F1F1F1" />
 
 
             <CheckBox
-                android:text="Я согласен с правилами сервиса"
-                android:layout_margin="10dp"
-                android:checked="true"
+                android:id="@+id/checkBox2"
+
+                style="@style/LightText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/checkBox2" />
+                android:layout_margin="10dp"
+                android:checked="true"
+                android:text="Я согласен с правилами сервиса" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
 
 
-                android:background="#F1F1F1"
-                />
-
-
-
-
-
+                android:background="#F1F1F1" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
                 android:orientation="horizontal"
-      >
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
 
                 <TextView
-                    android:text="5 товаров нв сумму :"
-                    android:textColor="@color/colorHint"
+                    android:id="@+id/txt_total_count"
+
+                    style="@style/LightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/txt_total_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:text="5 товаров нв сумму :"
+                    android:textColor="@color/colorHint" />
 
-              <TextView
-                    android:text="1200,00 Т"
-                    android:textSize="18dp"
+                <TextView
                     android:id="@+id/txt_total_price"
 
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    android:textColor="@color/colorBlack"
+                    style="@style/LightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
+                    android:layout_weight="1"
+                    android:text="1200,00 Т"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp" />
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
                 android:orientation="horizontal"
-                >
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
 
                 <TextView
-                    android:text="Стоимость доставки :"
-                    android:textColor="@color/colorHint"
+                    style="@style/LightText"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:text="Стоимость доставки :"
+                    android:textColor="@color/colorHint" />
 
                 <TextView
-                    android:text="400,00 Т"
-                    android:textSize="18dp"
                     android:id="@+id/txt_total_delivery"
 
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    android:textColor="@color/colorBlack"
+                    style="@style/LightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
+                    android:layout_weight="1"
+                    android:text="400,00 Т"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp" />
 
 
             </LinearLayout>
+
             <RelativeLayout
-                android:clickable="true"
-                android:background="@color/colorPrimary"
-                android:layout_width="match_parent"
                 android:id="@+id/create"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
 
 
-                android:layout_height="match_parent">
+                android:clickable="true">
 
 
                 <TextView
-                    android:text="ОФОРМИТЬ"
-                    android:layout_margin="10dp"
+                    style="@style/LightText"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#fff"
-                    android:textSize="16dp"
-                    android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-              />
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="ОФОРМИТЬ"
+                    android:textColor="#fff"
+                    android:textSize="16dp" />
 
             </RelativeLayout>
 
         </LinearLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
             android:id="@+id/loading_bar"
-            android:visibility="gone"
-            android:layout_below="@+id/line1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/line1"
             android:background="@color/colorPrimary"
-            >
+            android:visibility="gone">
 
 
             <ProgressBar
+                android:id="@+id/progressBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
-                android:theme="@style/LinearProgress"
                 android:layout_height="30dp"
-                android:id="@+id/progressBar"
-                android:indeterminate="true"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:indeterminate="true"
+                android:theme="@style/LinearProgress" />
+
             <TextView
+                android:id="@+id/textView30"
+                style="@style/LightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/progressBar"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10sp"
                 android:text="Отправка на сервер..."
                 android:textColor="#fff"
-                android:layout_width="wrap_content"
-                android:textStyle="italic"
-                android:layout_margin="10sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView30"
-                android:layout_below="@+id/progressBar"
-                android:layout_centerHorizontal="true" />
+                android:textStyle="italic" />
 
 
         </RelativeLayout>
