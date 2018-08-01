@@ -10,6 +10,7 @@ import com.example.meirlen.orc.R;
 import com.example.meirlen.orc.base.BaseFragmentManagerActivity;
 import com.example.meirlen.orc.basket.Publisher;
 import com.example.meirlen.orc.helper.GlobalVariables;
+import com.example.meirlen.orc.helper.ProductViewEnum;
 import com.example.meirlen.orc.view.fragment.ProductFragment;
 
 import java.util.Observable;
@@ -39,7 +40,7 @@ public class ProductListActivity extends BaseFragmentManagerActivity implements 
 
     @Override
     protected Fragment fragment() {
-        return ProductFragment.newInstance(false,"");
+        return ProductFragment.newInstance(ProductViewEnum.PUBLIC);
     }
 
     @Override

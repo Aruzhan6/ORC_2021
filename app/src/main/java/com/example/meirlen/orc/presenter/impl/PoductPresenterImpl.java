@@ -163,7 +163,7 @@ public class PoductPresenterImpl implements ProductPresenter {
 
     @Override
     public void destroy() {
-        this.pView = null;
+      //  this.pView = null;
 
     }
 

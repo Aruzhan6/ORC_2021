@@ -22,6 +22,12 @@ public class Filter {
     @Expose
     private StringType string;
 
+
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+
     public MultipleSelect getMultipleSelect() {
         return multipleSelect;
     }
@@ -53,5 +59,13 @@ public class Filter {
 
     public void setString(StringType string) {
         this.string = string;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

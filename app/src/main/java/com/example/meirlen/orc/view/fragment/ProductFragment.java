@@ -19,10 +19,13 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.FilterFactory;
 import com.example.meirlen.orc.helper.GlobalVariables;
+import com.example.meirlen.orc.helper.ProductViewEnum;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.interfaces.FavouriteMethodCaller;
 import com.example.meirlen.orc.interfaces.OnAddCardListener;
+import com.example.meirlen.orc.interfaces.OnSearchListener;
 import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.filter.BooleanType;
@@ -47,7 +50,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class ProductFragment extends Fragment implements ProductView, OnAddCardListener, FavouriteMethodCaller {
+public class ProductFragment extends Fragment implements ProductView, OnAddCardListener, FavouriteMethodCaller, OnSearchListener {
     public static final String EXTRA_FAVOURITES = "extra:fav";
     BottomSheetDialog dialog;
 
@@ -75,17 +78,17 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
     private static final String TAG = "ProductFragment";
 
-    private boolean isFavourities = false;
+    private int viewType = 0;
 
 
     public static ProductFragment newInstance() {
         return new ProductFragment();
     }
 
-    public static ProductFragment newInstance(boolean param1, String param2) {
+    public static ProductFragment newInstance(int param1) {
         ProductFragment fragment = new ProductFragment();
         Bundle args = new Bundle();
-        args.putBoolean(EXTRA_FAVOURITES, param1);
+        args.putInt(EXTRA_FAVOURITES, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -107,35 +110,24 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
         init();
         presenter.setView(this);
-        Filter filter = new Filter();
 
-
-        BooleanType booleanType = new BooleanType();
-
-        MultipleSelect multipleSelect = new MultipleSelect();
-
-
-        RangeInt rangeInt = new RangeInt();
-
-        StringType stringType = new StringType();
-
-        filter.setMultipleSelect(multipleSelect);
-        filter.setRangeInt(rangeInt);
-        filter.set_boolean(booleanType);
-        filter.setString(stringType);
-        Gson gson = new Gson();
-        String modelClass = gson.toJson(filter);
-        Log.d("jsonFilter", modelClass);
 
         assert getArguments() != null;
-        isFavourities = getArguments().getBoolean(EXTRA_FAVOURITES);
+        viewType = getArguments().getInt(EXTRA_FAVOURITES);
 
-        if (isFavourities) {
-            filterLayout.setVisibility(View.GONE);
-            presenter.getFavourities(sessionManager.getAccessToken());
-        } else
-            presenter.getList(sessionManager.getAccessToken(), filter);
+        switch (viewType) {
+            case ProductViewEnum.PUBLIC:
+                presenter.getList(sessionManager.getAccessToken(), FilterFactory.createFilter());
+                break;
+            case ProductViewEnum.FAVOURITE:
+                filterLayout.setVisibility(View.GONE);
+                presenter.getFavourities(sessionManager.getAccessToken());
+                break;
 
+            default:
+                filterLayout.setVisibility(View.GONE);
+
+        }
 
         return rootView;
     }
@@ -295,5 +287,10 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
     public void markSpaceFavourie(int space_id) {
         presenter.markFavourite(sessionManager.getAccessToken(), space_id);
 
+    }
+
+    @Override
+    public void onSearchByName(String key) {
+        presenter.getList(sessionManager.getAccessToken(), FilterFactory.createFilter(key));
     }
 }

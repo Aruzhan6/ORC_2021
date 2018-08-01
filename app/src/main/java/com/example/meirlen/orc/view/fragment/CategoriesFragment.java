@@ -56,7 +56,6 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
     private CategoryAdapter adapter;
     List<Category> list = new ArrayList<>();
 
-    private Activity activity;
 
     public static CategoriesFragment newInstance() {
         return new CategoriesFragment();
@@ -92,13 +91,6 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
         return rootView;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof Activity) {
-            activity = (Activity) context;
-        }
-    }
 
 
     @Override

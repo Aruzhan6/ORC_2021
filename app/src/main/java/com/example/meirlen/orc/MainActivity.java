@@ -14,6 +14,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.meirlen.orc.basket.Publisher;
 import com.example.meirlen.orc.helper.GlobalVariables;
+import com.example.meirlen.orc.helper.ProductViewEnum;
 import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.view.activity.BasketActivity;
 import com.example.meirlen.orc.view.activity.SearchActivity;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         fragments[0] = DiscountFragment.newInstance();
         fragments[1] = CategoriesFragment.newInstance();
         fragments[2] = HistoryFragment.newInstance();
-        fragments[3] = ProductFragment.newInstance(true,"");
+        fragments[3] = ProductFragment.newInstance(ProductViewEnum.FAVOURITE);
         fragments[4] = ProfileFragment.newInstance();
         addFragment(fragments);
 

@@ -13,6 +13,9 @@ import android.view.View;
 
 import com.example.meirlen.orc.R;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 
 public abstract class BaseFragmentManagerActivity extends AppCompatActivity {
 
@@ -20,6 +23,7 @@ public abstract class BaseFragmentManagerActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +34,18 @@ public abstract class BaseFragmentManagerActivity extends AppCompatActivity {
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
+        templateMethod();
+    }
+    final void templateMethod() {
         initToolbar();
         initmFragmentManager();
-
     }
 
-    private void initToolbar() {
+    final void initToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         mToolbar.setTitle(title());
-     //   mToolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.colorHint));
+        //   mToolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.colorHint));
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -52,17 +58,16 @@ public abstract class BaseFragmentManagerActivity extends AppCompatActivity {
         });
     }
 
-    private void initmFragmentManager() {
+    final void initmFragmentManager() {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView,fragment()).commit();
+        mFragmentTransaction.replace(R.id.containerView, fragment()).commit();
     }
 
 
-
     protected abstract Fragment fragment();// Factory method
-    protected abstract String title();// Factory method
 
+    protected abstract String title();// Factory method
 
 
 }
