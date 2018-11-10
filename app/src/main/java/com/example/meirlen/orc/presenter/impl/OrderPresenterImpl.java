@@ -31,9 +31,9 @@ public class OrderPresenterImpl implements OrderPresenter {
 
 
     @Override
-    public void sendOrder(String token, String lat, String lng) {
+    public void sendOrder(String token, String lat, String lng,String address) {
         pView.showLoading();
-        getMessagesDisposable = interactor.sendOrder(token, lat, lng)
+        getMessagesDisposable = interactor.sendOrder(token, lat, lng,address)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe((APIResponse apiResponse) -> {
@@ -78,7 +78,6 @@ public class OrderPresenterImpl implements OrderPresenter {
 
     @Override
     public void destroy() {
-        this.pView = null;
 
     }
 

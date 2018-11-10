@@ -7,6 +7,7 @@ import android.content.Context;
 import com.example.meirlen.orc.AppDatabase;
 import com.example.meirlen.orc.helper.DataGenerator;
 import com.example.meirlen.orc.helper.SessionManager;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 
@@ -42,6 +43,7 @@ public class AppModule {
         return Room.databaseBuilder(context, AppDatabase.class, "database")
                 .build();
     }
+
     @Provides
     @Singleton
     SessionManager provideSessionManager(Context context) {
@@ -59,7 +61,7 @@ public class AppModule {
     GsonConverterFactory provideGsonConverterFactory() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setLenient();
-        gsonBuilder.excludeFieldsWithoutExposeAnnotation();
+        gsonBuilder.excludeFieldsWithoutExposeAnnotation();//
         return GsonConverterFactory.create(gsonBuilder.create());
     }
 
@@ -117,5 +119,9 @@ public class AppModule {
         return mContext;
     }
 
-
+    @Provides
+    @Singleton
+    Gson provideGson() {
+        return new Gson();
+    }
 }

@@ -30,10 +30,11 @@ public class OrderInteractorImpl implements OrderInteractor {
 
 
     @Override
-    public Observable<APIResponse> sendOrder(String token, String lat, String lng) {
+    public Observable<APIResponse> sendOrder(String token, String lat, String lng,String address) {
         OrderRequest orderRequest = new OrderRequest();
         orderRequest.setLat(lat);
         orderRequest.setLng(lng);
+        orderRequest.setInformation(address);
         return restApi.sendOrder(token, orderRequest);
     }
 }

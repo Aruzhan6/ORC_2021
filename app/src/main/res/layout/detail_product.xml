@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/priceLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/viewLine">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/slider_pager"
+                android:layout_width="match_parent"
+                android:layout_height="230dp" />
+
+            <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+                android:id="@+id/slide_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+
+
+            <TextView
+                android:id="@+id/txtPrice"
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sofia_light"
+                android:text="@string/fake_tenge2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+
+
+                />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/sofia"
+                android:text="Мягкоть бедра говяжья"
+                android:textColor="#464646"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+
+                android:paddingBottom="5sp"
+                android:paddingTop="5sp">
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/ratingbar_space"
+                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="2sp"
+                    android:clickable="false"
+                    android:contextClickable="false"
+                    android:isIndicator="true"
+                    android:paddingBottom="5sp"
+
+                    android:rating="5" />
+
+                <TextView
+                    style="@style/MediumText"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/sofia"
+                    android:text="(1)"
+                    android:textColor="@color/contentColor"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/newOffersTextView"
+                        style="@style/LightText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/sofia"
+                        android:text="@string/tr"
+                        android:textAlignment="textEnd"
+
+                        android:textColor="@color/contentColor"
+                        android:textSize="@dimen/text_xs" />
+
+                    <ImageView
+                        android:id="@+id/open_offer_btn"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:padding="3dp"
+
+                        android:src="@drawable/arrow_left"
+                        android:tint="@color/contentColor" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+
+                android:background="#ECECEC" />
+
+            <TextView
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/sofia"
+                android:text="ХАРАКТЕРИСТИКИ"
+                android:textColor="#464646"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="15dp"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:id="@+id/mainFieldLayoutSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
+
+                android:background="#ECECEC" />
+
+            <TextView
+                style="@style/MediumText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/sofia"
+                android:text="ОПИСАНИЕ"
+                android:textColor="#464646"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="15dp"
+                android:background="@color/colorLine" />
+            <TextView
+                android:id="@+id/txtDesc"
+                style="@style/LightText"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Choice"
+                android:textColor="@color/contentColor"
+                android:textSize="16sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+
+                android:background="#ECECEC" />
+
+            <include layout="@layout/list_reandom_products" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
+
+                android:background="#ECECEC" />
+
+            <include layout="@layout/list_similar_products" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="match_parent"
+
+        android:layout_height="2sp"
+        android:layout_above="@+id/bottom_navigation"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:layout_alignParentBottom="true"
+
+
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/container_added"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:visibility="gone">
+
+            <include layout="@layout/bottom_product" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/product_bt_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ripple_effect"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="-40dp"
+                android:layout_weight="1"
+                android:text="@string/addCard"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/basket"
+                android:tint="@color/white" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

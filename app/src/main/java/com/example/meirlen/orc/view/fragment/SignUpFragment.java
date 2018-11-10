@@ -13,15 +13,9 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.model.signup.ConfirmResponse;
-import com.example.meirlen.orc.model.signup.SignupRequest;
 import com.example.meirlen.orc.presenter.SignUpPresenter;
 import com.example.meirlen.orc.view.SignUpView;
-import com.example.meirlen.orc.view.adapter.CategoryAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -105,9 +99,9 @@ public class SignUpFragment extends Fragment implements SignUpView {
 
     @Override
     public void response(boolean state) {
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        ConfirmFragment fragment = ConfirmFragment.newInstance("7" + phoneEditText.getRawText());
-        transaction.replace(R.id.containerView, fragment).addToBackStack(null).commit();
+        //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+       // SmSFragment fragment = SmSFragment.newInstance("7" + phoneEditText.getRawText(),Ap);
+        //transaction.replace(R.id.containerView, fragment).addToBackStack(null).commit();
     }
 
     @Override

@@ -14,7 +14,6 @@ import io.reactivex.ObservableSource;
 
 public class APIResponse<T> {
 
-
     @SerializedName("status")
     @Expose
     private Integer status;

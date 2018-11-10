@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5081FA</color>
+    <color name="colorPrimary">#457FFF</color>
+    <color name="colorPrimary2">#60457FFF</color>
     <color name="colorPrimaryDark">#5081FA</color>
     <color name="colorAccent">#5081FA</color>
     <color name="bgBottomNavigation">#fe485a</color>
@@ -31,6 +32,7 @@
     <color name="custom_slide_buttons">#1A237E</color>
 
 
+    <color name="colorGray">#9B9B9B</color>
 
 
     <color name="contentColor">#BDBDBD</color>
@@ -39,5 +41,14 @@
     <!--Splash Screen-->
     <item name="splash_background" type="color">@color/colorPrimary</item>
     <color name="colorHint">#C7C7C7</color>
+    <color name="colorTextPrimary">#464646</color>
+    <color name="textAccentColor">#7A7A7A</color>
+
+    <color name="whiteish">#FAFAFA</color>
+
+    <color name="grey">#BBB</color>
+    <color name="blue">#3897F0</color>
+    <color name="green">#64C77A</color>
+    <color name="color_btn_pressed">#BDBDBD</color>
 
 </resources>

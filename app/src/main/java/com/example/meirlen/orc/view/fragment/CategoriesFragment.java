@@ -1,7 +1,5 @@
 package com.example.meirlen.orc.view.fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,13 +16,15 @@ import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.helper.GlobalVariables;
+import com.example.meirlen.orc.basket.BasketManager;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.interfaces.OnCategoryClickListener;
 import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.model.Category;
 import com.example.meirlen.orc.view.CategoryView;
 import com.example.meirlen.orc.view.activity.ChildCategoryActivity;
+import com.example.meirlen.orc.view.activity.ProductListActivity;
+import com.example.meirlen.orc.view.adapter.CategoriesAdapter;
 import com.example.meirlen.orc.view.adapter.CategoryAdapter;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class CategoriesFragment extends Fragment implements CategoryView, OnCategoryClickListener {
+public class CategoriesFragment extends Fragment implements CategoryView, OnCategoryClickListener,CategoriesAdapter.OnOrderItemClickListener {
 
 
     private static final String TAG = "CategoriesFragment";
@@ -53,7 +53,11 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
     @Inject
     SessionManager sessionManager;
 
-    private CategoryAdapter adapter;
+    @Inject
+    BasketManager basketManager;
+
+
+    private CategoriesAdapter adapter;
     List<Category> list = new ArrayList<>();
 
 
@@ -84,27 +88,40 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
 
         init();
         categoryPresenter.setView(this);
-        categoryPresenter.getCategories(sessionManager.getAccessToken());
-        //categoryPresenter.getCategoriesFromLocalDb();
+       // if (sessionManager.getLocalCat() == null) {
+            categoryPresenter.getCategories(sessionManager.getAccessToken());
+       // } else {
+       //     categoryPresenter.getCategoriesFromLocalDb();
+       // }
 
 
         return rootView;
     }
 
 
-
     @Override
     public void getCategories(List<Category> categories) {
-        list.addAll(categories);
-        adapter.notifyDataSetChanged();
-        categoryPresenter.insertLocalDb(categories);
+        if (sessionManager.getLocalCat() == null) {
+            if (categories.size() > 0) {
+                sessionManager.setLocalCat("true");
+                list.clear();
+                list.addAll(categories);
+                adapter.notifyDataSetChanged();
+                categoryPresenter.insertLocalDb(categories);
+            }
+        } else {
+            list.clear();
+            list.addAll(categories);
+            adapter.notifyDataSetChanged();
+        }
+
         categoryPresenter.getCartCount(sessionManager.getAccessToken());
+
     }
 
     @Override
     public void getCardCount(String count) {
-        GlobalVariables.COUNT_CART = Integer.parseInt(count);
-        GlobalVariables.basketManager.update();
+       basketManager.update(Integer.valueOf(count));
     }
 
 
@@ -139,14 +156,11 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
     }
 
     private void init() {
-
-        adapter = new CategoryAdapter(this, list, getActivity());
+        adapter = new CategoriesAdapter(list,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
-
     }
 
 
@@ -156,5 +170,26 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
         intent.putExtra(ChildCategoryActivity.EXTRA_NAME_PARENT_CATEGORY, list.get(pos).getCategoryName());
         intent.putExtra(ChildCategoryActivity.EXTRA_ID_PARENT_CATEGORY, String.valueOf(list.get(pos).getCategoryId()));
         startActivity(intent);
+    }
+
+    @Override
+    public void onProductVariantClicked(Category category) {
+        ProductListActivity.productListIntent(getContext(),category);
+
+    }
+
+    @Override
+    public void onItemClicked(int position) {
+
+    }
+
+    @Override
+    public void onHeaderClicked() {
+
+    }
+
+    @Override
+    public void onFooterClicked() {
+
     }
 }

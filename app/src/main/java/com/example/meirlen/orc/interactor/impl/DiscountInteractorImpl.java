@@ -5,6 +5,7 @@ import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.interactor.DiscountInteractor;
 import com.example.meirlen.orc.interactor.ProductInteractor;
 import com.example.meirlen.orc.model.CardResponse;
+import com.example.meirlen.orc.model.DiscontResponse;
 import com.example.meirlen.orc.model.ProductResponse;
 import com.example.meirlen.orc.model.discount.Discount;
 import com.example.meirlen.orc.model.request.CartRequest;
@@ -32,7 +33,7 @@ public class DiscountInteractorImpl implements DiscountInteractor {
 
 
     @Override
-    public Observable<APIResponse<List<Discount>>> getList() {
+    public Observable<APIResponse<DiscontResponse>> getList() {
 
         return restApi.getDisconts();
 

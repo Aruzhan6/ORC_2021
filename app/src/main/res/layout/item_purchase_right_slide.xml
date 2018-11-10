@@ -1,104 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:id="@+id/layout_right"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="#808DFF"
-    android:padding="10dp"
-    android:orientation="horizontal">
+    android:background="@drawable/bottom_menu_selector"
 
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/linearStatusItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="3dp"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:id="@+id/reviewAdd"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/white"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/newOffersTextView"
+            style="@style/LightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:fontFamily="@font/sofia"
+            android:text="Оцените сервис:"
+            android:textColor="@color/textAccentColor"
+            android:textSize="@dimen/text_xs" />
 
-        <ImageView
-            android:id="@+id/imageViewMain"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10sp"
-
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/placeholder_good" />
-
-        <RelativeLayout
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp" />
+        <Button
+            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp">
-
-            <TextView
-                android:id="@+id/textViewOptions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:paddingLeft="10sp"
-                android:paddingRight="10sp"
-
-                android:text="@string/dots"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/contentColor"
-                android:textSize="15sp" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="5dp"
-                android:orientation="vertical"
-                android:paddingBottom="10dp">
-
-
-                <TextView
-                    android:id="@+id/textViewTitleDesc"
-                    style="@style/LightText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="2sp"
-                    android:singleLine="true"
-                    android:text="Samsung"
-                    android:textColor="@color/white"
-
-                    />
-
-
-                <TextView
-                    android:id="@+id/textViewPrice"
-                    style="@style/LightText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-
-                    android:layout_marginTop="3dp"
-                    android:text="южнокорейская группа компаний, один из крупнейших чеболей, основанный в 1938 году."
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:id="@+id/txtDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fake_tenge"
-
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-
+            android:text="Оценить" />
     </LinearLayout>
 
 
+
 </LinearLayout>
-
-
-
-
-
-

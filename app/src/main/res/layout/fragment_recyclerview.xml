@@ -7,22 +7,88 @@
     tools:context=".MainActivity">
 
 
-
     <ProgressBar
         android:id="@+id/progressBar"
-        android:visibility="gone"
+
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#eee" />
+        android:visibility="gone" />
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_below="@+id/progressBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar" />
 
+
+    <LinearLayout
+        android:id="@+id/hintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:orientation="vertical"
+
+        android:visibility="gone">
+
+        <TextView
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="ВЫ НЕ ПОДПИСАНЫ НИ НА КАКИЕ КОМПАНИИ." />
+
+        <TextView
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginTop="10dp"
+            android:text="Отсканируйте  QR-код!"
+            android:textColor="@color/textAccentColor" />
+
+        <TextView
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:text="на экране админстратора!"
+            android:textColor="@color/textAccentColor" />
+
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+
+
+            android:fitsSystemWindows="true"
+
+            android:scaleType="centerCrop"
+            android:src="@drawable/qr_img"
+
+            />
+
+        <Button
+            android:id="@+id/qr_code"
+            style="@style/SmallText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+
+            android:background="@color/green"
+            android:text="Сканировать qr code"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

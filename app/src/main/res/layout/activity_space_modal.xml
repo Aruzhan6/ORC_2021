@@ -33,7 +33,7 @@
         android:textSize="22dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:text=" Вы успешно создали объект!" />
+        android:text="Спасибо , ваш заказ принят!" />
 
 
 
@@ -47,7 +47,7 @@
         android:textSize="17dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:text="Объект в обработке и появится в поиске как только модераторы проверят все данные" />
+        android:text="В течении 30 минут с вами свяжеться наш диспетчер." />
 
 
     <LinearLayout
@@ -76,7 +76,7 @@
 
                 android:background="@drawable/bg_btn_modal"
                 android:layout_height="wrap_content"
-                android:text="Перейти в Мои заявки" />
+                android:text="Спасибо, понятно" />
         </RelativeLayout>
 
 

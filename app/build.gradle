@@ -1,5 +1,30 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+
+
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/'}
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.11.2'
+    }
+}
+
+repositories {
+    maven { url 'https://maven.google.com' }
+    mavenCentral()
+}
+
+
+apply plugin: 'com.android.application'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -14,6 +39,17 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            manifestPlaceholders = [onesignal_app_id               : "ad60e93a-8324-48f3-9c04-584006fc4bf9",
+                                    // Project number pulled from dashboard, local value is ignored.
+                                    onesignal_google_project_number: "REMOTE"]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            manifestPlaceholders = [onesignal_app_id               : "ad60e93a-8324-48f3-9c04-584006fc4bf9",
+                                    // Project number pulled from dashboard, local value is ignored.
+                                    onesignal_google_project_number: "REMOTE"]
+            ext.enableCrashlytics = false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -26,8 +62,13 @@ android {
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':calendarmeirlen')
+    implementation project(':custom_checkbox')
+
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -66,5 +107,34 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha04'
+    implementation 'com.github.chuross:expandable-layout:1.0.5'
 
+    implementation 'joda-time:joda-time:2.9.9'
+
+    implementation 'com.joanfuentes:HintCase:1.0.4'
+    implementation 'com.joanfuentes:HintCaseAssets:1.0.4'
+
+    implementation "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.0.5"
+    implementation 'me.zhanghai.android.materialratingbar:library:1.2.0'
+
+
+    //Google play services
+
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation "com.google.android.gms:play-services-location:${googleVersion}"
+    implementation "com.google.android.gms:play-services-places:${googleVersion}"
+    implementation "com.google.android.gms:play-services-maps:${googleVersion}"
+    implementation 'com.google.maps.android:android-maps-utils:0.4+'
+    implementation 'com.google.firebase:firebase-messaging:17.3.3'
+    implementation 'com.onesignal:OneSignal:3.10.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'ru.tinkoff.decoro:decoro:1.2.0'
+    implementation 'com.justkiddingbaby:vercodeedittext:1.0.4'
+    implementation  "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation  'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.3'
 }
+
+apply plugin: 'com.google.gms.google-services'

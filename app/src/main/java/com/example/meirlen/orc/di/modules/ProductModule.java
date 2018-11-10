@@ -1,17 +1,10 @@
 package com.example.meirlen.orc.di.modules;
 
-import com.example.meirlen.orc.di.scopes.CategoryScope;
 import com.example.meirlen.orc.di.scopes.ProductScope;
-import com.example.meirlen.orc.interactor.CategoryInteractor;
 import com.example.meirlen.orc.interactor.ProductInteractor;
-import com.example.meirlen.orc.interactor.impl.CategoryInteractorImpl;
 import com.example.meirlen.orc.interactor.impl.ProductInteractorImpl;
-import com.example.meirlen.orc.model.Product;
-import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.presenter.ProductPresenter;
-import com.example.meirlen.orc.presenter.impl.CategoryPresenterImpl;
 import com.example.meirlen.orc.presenter.impl.PoductPresenterImpl;
-import com.example.meirlen.orc.rest.CategoryApi;
 import com.example.meirlen.orc.rest.ProductApi;
 
 import dagger.Module;

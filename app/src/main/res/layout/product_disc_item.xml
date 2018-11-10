@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_item"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/product_img"
+                android:layout_width="80sp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/imgViewFav"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="top"
+                android:layout_marginTop="-10dp"
+                android:adjustViewBounds="true"
+
+                android:background="@drawable/placeholder_good"
+                android:scaleType="centerCrop" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/product_name"
+            style="@style/MediumText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:ellipsize="end"
+            android:fontFamily="@font/sofia"
+            android:maxLines="1"
+            android:text="Порошок"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/product_price"
+            style="@style/MediumText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_img"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5dp"
+
+
+            android:fontFamily="@font/sofia_light"
+            android:text="@string/fake_tenge2"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

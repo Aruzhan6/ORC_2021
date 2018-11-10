@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class ChildCategoriesFragment extends Fragment implements CategoryView,OnCategoryClickListener {
+public class ChildCategoriesFragment extends Fragment implements CategoryView, OnCategoryClickListener {
 
+    private static final String TAG = "ChildCategoriesFragment";
 
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
@@ -47,6 +49,8 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
 
     private CategoryAdapter adapter;
     List<Category> list = new ArrayList<>();
+
+    private int pos=0;
 
 
     public static ChildCategoriesFragment newInstance() {
@@ -78,23 +82,22 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
         categoryPresenter.setView(this);
         assert getArguments() != null;
         categoryPresenter.getCategoriesById(getArguments().getString(ChildCategoryActivity.EXTRA_ID_PARENT_CATEGORY));
-
         return rootView;
     }
 
-
     @Override
     public void getCategories(List<Category> categories) {
-        list.addAll(categories);
-        adapter.notifyDataSetChanged();
-
+        if (categories.size() > 0) {
+            list.clear();
+            list.addAll(categories);
+            adapter.notifyDataSetChanged();
+        } else {
+        }
     }
-
     @Override
     public void getCardCount(String count) {
 
     }
-
 
     @Override
     public void successLocalDb(String message) {
@@ -103,7 +106,7 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
 
     @Override
     public void showLoading() {
-        progressBar.setVisibility(View.VISIBLE);
+       // progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -114,6 +117,9 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
     @Override
     public void loadingFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+         Log.d(TAG,message);
+
+
     }
 
     @Override
@@ -127,20 +133,16 @@ public class ChildCategoriesFragment extends Fragment implements CategoryView,On
     }
 
     private void init() {
-
-        adapter = new CategoryAdapter(this,list, getActivity());
+        adapter = new CategoryAdapter(this, list, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
-
     }
-
 
     @Override
     public void onItemClick(int pos) {
-        Intent intent = new Intent(getContext(), ProductListActivity.class);
-        startActivity(intent);
+        this.pos = pos;
+        categoryPresenter.getCategoriesById(String.valueOf(list.get(pos).getCategoryId()));
     }
 }

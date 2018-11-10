@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1062095315855",
+    "firebase_url": "https://workapp-73093.firebaseio.com",
+    "project_id": "workapp-73093",
+    "storage_bucket": "workapp-73093.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062095315855:android:c3ea9b0603fee19d",
+        "android_client_info": {
+          "package_name": "com.example.meirlen.orc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062095315855-05hahaanin89naiffvht9al84khu7vsf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUrkUd8gR0E9rGsqnHxSpgmslRbXP7aVY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

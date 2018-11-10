@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_block"
+        android:visibility="gone"
+        android:paddingLeft="20sp"
+        android:layout_marginBottom="10sp"
+
+        android:paddingRight="20sp"
+        android:orientation="vertical"
+
+        >
+        <kz.pillowz.app.ui.BoldTextView
+            android:id="@+id/textView"
+            android:visibility="gone"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дата и время"
+            android:layout_marginBottom="10sp"
+
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/time"
+
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <kz.pillowz.app.ui.LightTextView
+                android:id="@+id/firstDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:maxWidth="250dp"
+                android:singleLine="true"
+                android:text="@string/first_day_selected"
+                android:textAlignment="textStart"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                />
+
+            <kz.pillowz.app.ui.LightTextView
+                android:id="@+id/first_day_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="right"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_weight="1"
+
+                android:maxWidth="250dp"
+                android:singleLine="true"
+                android:text="@string/day_month_year"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerChooseVisit"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/main_block" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/bottom"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="30dp">
+
+        <kz.pillowz.app.ui.PillMediumButton
+            android:id="@+id/createButton"
+            style="@style/ButtonRealtor"
+
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:text="Готово"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

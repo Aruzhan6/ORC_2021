@@ -22,6 +22,10 @@ public class Category {
     @Expose
     private String categoryName;
 
+    @SerializedName("category_icon")
+    @Expose
+    private String categoryIcon;
+
     @SerializedName("category_parent_id")
     @Expose
     private String categoryParentId;
@@ -78,5 +82,13 @@ public class Category {
 
     public void setFields(List<Field> fields) {
         this.fields = fields;
+    }
+
+    public String getCategoryIcon() {
+        return categoryIcon;
+    }
+
+    public void setCategoryIcon(String categoryIcon) {
+        this.categoryIcon = categoryIcon;
     }
 }

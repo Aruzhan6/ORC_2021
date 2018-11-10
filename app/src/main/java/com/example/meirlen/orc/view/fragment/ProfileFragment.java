@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +25,17 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
-import com.example.meirlen.orc.helper.Constans;
+import com.example.meirlen.orc.basket.BasketManager;
 import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.model.signup.ConfirmResponse;
 import com.example.meirlen.orc.presenter.SignUpPresenter;
 import com.example.meirlen.orc.view.SignUpView;
 import com.example.meirlen.orc.view.activity.AboutActivity;
+import com.example.meirlen.orc.view.activity.DecoderActivity;
 import com.example.meirlen.orc.view.activity.SignInActivity;
+import com.github.chuross.library.ExpandableLayout;
+
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -38,6 +43,8 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.example.meirlen.orc.helper.Constans.WHATSAPP_URL;
 
 
 public class ProfileFragment extends Fragment implements SignUpView {
@@ -64,11 +71,30 @@ public class ProfileFragment extends Fragment implements SignUpView {
 
     @BindViews({R.id.i1, R.id.i2, R.id.i3, R.id.i6, R.id.i7, R.id.i8, R.id.i9, R.id.i10, R.id.i16, R.id.i11, R.id.i12, R.id.i13})
     ImageView[] imageViews;
+    @BindView(R.id.layout_expandable)
+    ExpandableLayout expandableLayout;
+    @BindView(R.id.ic_arrow_1)
+    ImageView icArrow1;
+    @BindView(R.id.layout_expandable2)
+    ExpandableLayout expandableLayout2;
+    @BindView(R.id.ic_arrow_2)
+    ImageView icArrow2;
 
-    private int[] SETTINGS_ICONS_MENU ={R.drawable.s1,R.drawable.s2,R.drawable.s3,R.drawable.s4,
-            R.drawable.s5,R.drawable.s3,R.drawable.s7,R.drawable.s8,R.drawable.s9,R.drawable.s10,R.drawable.s11, R.drawable.s12};
+    @BindView(R.id.layout_expandable3)
+    ExpandableLayout expandableLayout3;
+    @BindView(R.id.ic_arrow_3)
+    ImageView icArrow3;
+    @BindView(R.id.layout_expandable4)
+    ExpandableLayout expandableLayout4;
+    @BindView(R.id.ic_arrow_4)
+    ImageView icArrow4;
+
+    private int[] SETTINGS_ICONS_MENU = {R.drawable.s1, R.drawable.s2, R.drawable.s3, R.drawable.s4,
+            R.drawable.s5, R.drawable.s3, R.drawable.s7, R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11, R.drawable.s12};
 
 
+    @Inject
+    BasketManager basketManager;
 
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
@@ -149,6 +175,49 @@ public class ProfileFragment extends Fragment implements SignUpView {
 
     }
 
+    @OnClick(R.id.layout_1)
+    public void open_1() {
+        if (expandableLayout.isExpanded()) {
+            expandableLayout.collapse();
+            icArrow1.animate().rotation(90).start();
+        } else {
+            expandableLayout.expand();
+            icArrow1.animate().rotation(270).start();
+        }
+    }
+
+    @OnClick(R.id.layout_2)
+    public void open_2() {
+        if (expandableLayout2.isExpanded()) {
+            expandableLayout2.collapse();
+            icArrow2.animate().rotation(90).start();
+        } else {
+            expandableLayout2.expand();
+            icArrow2.animate().rotation(270).start();
+        }
+    }
+
+    @OnClick(R.id.layout_3)
+    public void open_3() {
+        if (expandableLayout3.isExpanded()) {
+            expandableLayout3.collapse();
+            icArrow3.animate().rotation(90).start();
+        } else {
+            expandableLayout3.expand();
+            icArrow3.animate().rotation(270).start();
+        }
+    }
+
+    @OnClick(R.id.layout_4)
+    public void open_4() {
+        if (expandableLayout4.isExpanded()) {
+            expandableLayout4.collapse();
+            icArrow4.animate().rotation(90).start();
+        } else {
+            expandableLayout4.expand();
+            icArrow4.animate().rotation(270).start();
+        }
+    }
 
     @OnClick(R.id.estimate)
     public void estimate() {
@@ -194,10 +263,16 @@ public class ProfileFragment extends Fragment implements SignUpView {
         getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
 
     }
+    @OnClick(R.id.qr_code)
+    public void qrApp() {
+        Intent i = new Intent(getContext(), DecoderActivity.class);
+        startActivity(i);
+        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
 
+    }
     @OnClick(R.id.whatsapp)
     public void whatsapp() {
-        Uri uri = Uri.parse("https://chat.whatsapp.com/FYUSmXtYc3BBUgpzwJNuVd");
+        Uri uri = Uri.parse(WHATSAPP_URL);
         Intent i = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(Intent.createChooser(i, ""));
 
@@ -205,10 +280,31 @@ public class ProfileFragment extends Fragment implements SignUpView {
 
     @OnClick(R.id.exit)
     public void exitApp() {
-         Intent i = new Intent(getContext(),SignInActivity.class);
-         startActivity(i);
-         getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+        String message = "Выйти из аккаунта?";
+        String button1String = "Ok";
+        String button2String = "Отменить";
+
+        AlertDialog.Builder ad = new AlertDialog.Builder(Objects.requireNonNull(getContext()));
+        ad.setMessage(message); // сообщение
+        ad.setPositiveButton(button1String, (dialog, arg1) -> {
+
+            sessionManager.setAccessToken(null);
+            basketManager.disconnect();
+
+
+            Intent i = new Intent(getContext(), SignInActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+
+        });
+        ad.setNegativeButton(button2String, (dialog, arg1) -> {
+
+        });
+
+        ad.show();
     }
+
 
     @OnClick(R.id.call_centre)
     public void onCallCentre() {

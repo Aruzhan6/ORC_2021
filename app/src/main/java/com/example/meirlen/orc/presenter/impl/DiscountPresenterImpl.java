@@ -5,6 +5,7 @@ import com.example.meirlen.orc.api.NetworkResponse;
 import com.example.meirlen.orc.interactor.DiscountInteractor;
 import com.example.meirlen.orc.interactor.OrderInteractor;
 import com.example.meirlen.orc.model.Category;
+import com.example.meirlen.orc.model.DiscontResponse;
 import com.example.meirlen.orc.model.discount.Discount;
 import com.example.meirlen.orc.presenter.DiscountPresenter;
 import com.example.meirlen.orc.presenter.OrderPresenter;
@@ -37,11 +38,11 @@ public class DiscountPresenterImpl implements DiscountPresenter {
         getMessagesDisposable = interactor.getList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe((APIResponse<List<Discount>> apiResponse) -> {
+                .subscribe((APIResponse<DiscontResponse> apiResponse) -> {
                     pView.hideLoading();
                     if (apiResponse.getIsSuccess() && apiResponse.getStatus() == NetworkResponse.CODE_OK) {
                         if (this.isViewAttached()) {
-                            pView.getList(apiResponse.getData());
+                            pView.getList(apiResponse.getData().getDiscounts());
                         }
                     } else {
                         if (this.isViewAttached()) {
@@ -79,7 +80,6 @@ public class DiscountPresenterImpl implements DiscountPresenter {
 
     @Override
     public void destroy() {
-        this.pView = null;
 
     }
 

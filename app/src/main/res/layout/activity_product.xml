@@ -42,7 +42,7 @@
                     android:id="@+id/txt_trash_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_red"
+                    android:background="@drawable/border_trash_text"
                     android:paddingBottom="2dp"
                     android:paddingLeft="6dp"
                     android:paddingRight="6dp"

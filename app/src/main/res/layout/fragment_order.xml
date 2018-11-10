@@ -1,10 +1,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/main_layout"
         android:layout_height="wrap_content">
 
 
@@ -65,11 +68,21 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="*"
                     android:textColor="@android:color/holo_red_light" />
-
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/myLocationButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorGray"
+                    app:srcCompat="@drawable/ic_coordinate_black"
+                    tools:ignore="VectorDrawableCompat"
+                 />
 
             </LinearLayout>
 
@@ -140,92 +153,6 @@
                         android:layout_margin="10dp"
                         android:background="@null"
 
-                        android:ems="10"
-                        android:hint=""
-
-                        android:inputType="textPersonName" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-
-                        android:background="#F1F1F1" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/LightText"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Корпус"
-                        android:textColor="@color/colorHint" />
-
-                    <EditText
-                        android:id="@+id/e3"
-
-                        style="@style/LightText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:background="@null"
-                        android:ems="10"
-                        android:hint=""
-
-                        android:inputType="textPersonName" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-
-                        android:background="#F1F1F1" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/LightText"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Строения"
-                        android:textColor="@color/colorHint" />
-
-                    <EditText
-                        android:id="@+id/e4"
-
-                        style="@style/LightText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:background="@null"
                         android:ems="10"
                         android:hint=""
 
@@ -514,7 +441,7 @@
 
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/checkBox"
 
                 style="@style/LightText"
                 android:layout_width="match_parent"
@@ -548,7 +475,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:text="5 товаров нв сумму :"
+                    android:text="5 товаров на сумму :"
                     android:textColor="@color/colorHint" />
 
                 <TextView
@@ -600,7 +527,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:text="400,00 Т"
+                    android:text="Бесплатно"
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
                     android:textSize="18dp" />

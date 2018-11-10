@@ -6,6 +6,7 @@ import com.example.meirlen.orc.interactor.BasketInteractor;
 import com.example.meirlen.orc.interactor.ProductInteractor;
 import com.example.meirlen.orc.model.CardResponse;
 import com.example.meirlen.orc.model.ProductResponse;
+import com.example.meirlen.orc.model.Review;
 import com.example.meirlen.orc.model.basket.BasketResponse;
 import com.example.meirlen.orc.model.history.HistoryResponse;
 import com.example.meirlen.orc.model.request.CartRequest;
@@ -44,7 +45,30 @@ public class BasketInteractorImpl implements BasketInteractor {
     }
 
     @Override
-    public Observable<APIResponse<HistoryResponse>> getHistory(String token) {
-        return restApi.getHistory(token);
+    public Observable<APIResponse> addReview(String id, String token, Review review) {
+        return restApi.addReview(id,token,review);
     }
+
+
+    @Override
+    public Observable<APIResponse<HistoryResponse>> getHistory(int page, String token) {
+        return restApi.getHistory(page,token);
+    }
+
+    @Override
+    public Observable<APIResponse> delete(String id, String token) {
+        return restApi.delete(id,token);
+    }
+
+    @Override
+    public Observable<APIResponse> deleteCard(String id, String token) {
+        return restApi.deleteCard(id,token);
+    }
+
+    @Override
+    public Observable<APIResponse> clearCards(String token) {
+        return restApi.clearCards(token);
+    }
+
+
 }

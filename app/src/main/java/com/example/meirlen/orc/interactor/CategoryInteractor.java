@@ -22,6 +22,7 @@ public interface CategoryInteractor {
     Flowable<List<Field>> getFieldById(String id);
     Flowable<List<SearchValue>> getFieldValueById(String id);
     Completable insertCategories(List<Category> categories);
+    Completable updateSearchValue(SearchValue searchValue);
 
 
 }

@@ -14,6 +14,6 @@ public interface FieldPresenter extends BasePresenter<FieldView> {
 
     void getFields(String id);
     void getFieldValues(String id);
-
+    void updateSearchValue(SearchValue searchValue);
 
 }

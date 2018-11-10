@@ -1,6 +1,7 @@
 package com.example.meirlen.orc.helper;
 
 
+import android.content.ClipData;
 import android.util.Log;
 
 import com.example.meirlen.orc.AppDatabase;
@@ -53,6 +54,18 @@ public class DataGenerator {
                                     Log.d(TAG, throwable.getMessage());
                                 }));
         }
+
+        for (int i = 0; i < categories.size(); i++) {
+            for (int j = 0; j < categories.get(i).getChildren().size(); j++) {
+                Category item = categories.get(i);
+                if (item.getChildren().size() > 0) {
+                    generateChildCategory(item.getChildren());
+                }
+            }
+
+        }
+
+
     }
 
     private void generateFields(List<Category> categories) {
@@ -73,6 +86,7 @@ public class DataGenerator {
         }
 
     }
+
     private void generateValueFields(List<Field> fields) {
         if (dataBase == null)
             return;
@@ -90,6 +104,7 @@ public class DataGenerator {
         }
 
     }
+
     private Completable updateChildCategories(final List<Category> childCategories) {
         return Completable.fromAction(() -> {
             dataBase.categoryDao().insert(childCategories);

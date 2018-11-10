@@ -15,6 +15,10 @@ public class SignupRequest {
     @Expose
     private String name;
 
+    @SerializedName("key")
+    @Expose
+    private String key;
+
     public String getPhone() {
         return phone;
     }
@@ -39,4 +43,11 @@ public class SignupRequest {
         this.name = name;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

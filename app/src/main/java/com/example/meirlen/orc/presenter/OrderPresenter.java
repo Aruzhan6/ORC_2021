@@ -7,7 +7,7 @@ import com.example.meirlen.orc.view.OrderView;
 
 public interface OrderPresenter extends BasePresenter<OrderView> {
 
-    void sendOrder(String token, String lat , String lng);
+    void sendOrder(String token, String lat , String lng,String address);
 
 
 }

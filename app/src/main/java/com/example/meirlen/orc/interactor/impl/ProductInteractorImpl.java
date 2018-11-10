@@ -4,6 +4,7 @@ import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.interactor.ProductInteractor;
 import com.example.meirlen.orc.model.CardResponse;
+import com.example.meirlen.orc.model.DetailResponse;
 import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.ProductResponse;
 import com.example.meirlen.orc.model.request.CartRequest;
@@ -32,6 +33,21 @@ public class ProductInteractorImpl implements ProductInteractor {
     @Override
     public Observable<APIResponse<ProductResponse>> getList(String token, Filter filter) {
         return restApi.getProducts(token, filter);
+    }
+
+    @Override
+    public Observable<APIResponse<ProductResponse>> getCategoryId(String id, String token, Filter filter) {
+        return restApi.getProductsById(id,token, filter);
+    }
+
+    @Override
+    public Observable<APIResponse<DetailResponse>> getProductById(String id, String token) {
+        return restApi.getById(id,token);
+    }
+
+    @Override
+    public Observable<APIResponse<ProductResponse>> getProducerById(String id, String token, Filter filter) {
+        return restApi.getProducerProducts(id,token, filter);
     }
 
     @Override

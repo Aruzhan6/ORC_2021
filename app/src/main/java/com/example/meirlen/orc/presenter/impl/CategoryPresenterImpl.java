@@ -170,7 +170,6 @@ public class CategoryPresenterImpl implements CategoryPresenter {
 
     @Override
     public void destroy() {
-        this.categoryView = null;
 
     }
 

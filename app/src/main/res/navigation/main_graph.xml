@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph"
+    app:startDestination="@id/discountFragment">
+
+    <fragment
+        android:id="@+id/discountFragment"
+        android:name="com.example.meirlen.orc.view.fragment.DiscountFragment"
+        android:label="DiscountFragment" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.meirlen.orc.view.fragment.CategoriesFragment"
+        android:label="CategoriesFragment" />
+</navigation>

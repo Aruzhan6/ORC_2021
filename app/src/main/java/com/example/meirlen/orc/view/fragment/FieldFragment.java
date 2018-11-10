@@ -7,26 +7,34 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.FilterFactory;
+import com.example.meirlen.orc.helper.SessionManager;
 import com.example.meirlen.orc.interfaces.OnFieldItemSelectedListener;
 import com.example.meirlen.orc.interfaces.OnValueClearIListener;
 import com.example.meirlen.orc.model.Field;
 import com.example.meirlen.orc.model.SearchValue;
+import com.example.meirlen.orc.model.filter.Price;
+import com.example.meirlen.orc.model.request.Filter;
 import com.example.meirlen.orc.presenter.FieldPresenter;
 import com.example.meirlen.orc.view.FieldView;
-import com.example.meirlen.orc.view.activity.ProductListActivity;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -35,21 +43,34 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static com.example.meirlen.orc.view.activity.ProductListActivity.EXTRA_FILTER;
+import static com.example.meirlen.orc.view.activity.ProductListActivity.EXTRA_ID_CATEGORY;
+
 
 public class FieldFragment extends Fragment implements FieldView, OnValueClearIListener {
 
 
+    private static final String TAG = "FieldFragment";
+
     @Inject
     FieldPresenter presenter;
 
+    @Inject
+    Gson gson;
 
     List<Field> list = new ArrayList<>();
 
 
-    @BindView(R.id.mainFieldLayoutSearch)
-    LinearLayout mainFieldLayout;
     @BindView(R.id.acceptButton)
     Button acceptButton;
+
+
+    @BindView(R.id.includeWordsEditText)
+    EditText edDescWord;
+    @BindView(R.id.fromEditText)
+    EditText fromEditText;
+    @BindView(R.id.toEditText)
+    EditText toEditText;
 
     private String fieldType;
     private String fieldName;
@@ -58,7 +79,13 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     private Unbinder unbinder;
 
 
-    private boolean isCategoryField;
+    @BindView(R.id.mainFieldLayoutSearch)
+    LinearLayout mainFieldLayout;
+
+    @Inject
+    SessionManager sessionManager;
+
+    private boolean isCategoryField = true;
 
     public static FieldFragment newInstance() {
         return new FieldFragment();
@@ -83,12 +110,13 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
         View rootView = inflater.inflate(R.layout.fragment_filter, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         App.getInstance().createFieldComponent().inject(this);
+        initLocalDate();
         presenter.setView(this);
         init();
 
+
         return rootView;
     }
-
 
     @Override
     public void showLoading() {
@@ -115,7 +143,7 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     }
 
     private void init() {
-        presenter.getFields("5");
+        presenter.getFields(Objects.requireNonNull(getActivity()).getIntent().getStringExtra(EXTRA_ID_CATEGORY));
     }
 
 
@@ -191,6 +219,8 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     }
 
     public void drawFieldsValue(List<SearchValue> searchFields) {
+
+        mainFieldLayout.removeAllViews();
         acceptButton.setText(R.string.apply_filter);
         isCategoryField = false;
 
@@ -200,6 +230,24 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
             switch (fieldType) {
                 case "MULTIPLE_SELECT":
                     child = getLayoutInflater().inflate(R.layout.item_checkbox, null);
+
+                    CheckBox checkBox = child.findViewById(R.id.checkBox);
+                    checkBox.setChecked(searchValue.isSelectable());
+
+
+                    checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                        if (isChecked)
+                            searchValue.setSelectable(true);
+
+                        else {
+                            searchValue.setSelectable(false);
+                        }
+                        presenter.updateSearchValue(searchValue);
+
+                    });
+                    //
+
+
                     break;
                 case "STRING":
                     child = getLayoutInflater().inflate(R.layout.item_string_field, null);
@@ -219,6 +267,11 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
 
     }
 
+    private void initLocalDate() {
+        fromEditText.setText(sessionManager.getFrom());
+        toEditText.setText(sessionManager.getTo());
+        edDescWord.setText(sessionManager.getKeyWord());
+    }
 
     @Override
     public void onValueClear() {
@@ -228,10 +281,29 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
 
     @OnClick(R.id.acceptButton)
     public void onViewClicked() {
+        int from;
+        int to;
         if (isCategoryField) {
-            Intent intent = new Intent(getContext(), ProductListActivity.class);
-            startActivity(intent);
-            getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+            Filter filter = FilterFactory.createFilter();
+            Price price = new Price();
+            if (!fromEditText.getText().toString().equals("")) {
+                from = Integer.parseInt(fromEditText.getText().toString());
+                sessionManager.setFrom(String.valueOf(from));
+                price.setMin(from);
+            }
+            if (!toEditText.getText().toString().equals("")) {
+                to = Integer.parseInt(toEditText.getText().toString());
+                sessionManager.setTo(String.valueOf(to));
+                price.setMax(to);
+            }
+            filter.setPrice(price);
+            Intent returnIntent = new Intent();
+            sessionManager.setKeyWord(edDescWord.getText().toString());
+            filter.setDescription(edDescWord.getText().toString());
+            String myJson = gson.toJson(filter);
+            returnIntent.putExtra(EXTRA_FILTER, myJson);
+            getActivity().setResult(Activity.RESULT_OK, returnIntent);
+            getActivity().finish();
         } else {
             init();
 
@@ -243,6 +315,8 @@ public class FieldFragment extends Fragment implements FieldView, OnValueClearIL
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        Log.d(TAG, "onDestroyView: Presenter has killed");
         unbinder.unbind();
+        presenter.destroy();
     }
 }

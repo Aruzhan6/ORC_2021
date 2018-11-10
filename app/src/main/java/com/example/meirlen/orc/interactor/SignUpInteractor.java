@@ -13,7 +13,7 @@ import io.reactivex.Observable;
 
 public interface SignUpInteractor {
 
-    Observable<APIResponse> signIn(String number);
+    Observable<APIResponse> signIn(String number,String apiKey);
     Observable<APIResponse> signUp(String number,String name,String city_id);
     Observable<APIResponse<ConfirmResponse>> confirm(String sms, String number);
     Observable<APIResponse<ConfirmResponse>> get_profile(String token);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_right"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="2sp">
+
+
+    <TextView
+        style="@style/SmallText"
+        android:id="@+id/textView"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2sp"
+        android:text="@string/status1"
+        android:textColor="@color/white" />
+
+
+    <com.example.custom_checkbox.SmoothCheckBox
+        android:id="@+id/scb1"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:color_checked="@color/colorAccent"
+        app:color_tick="@color/white"
+        app:color_unchecked="#1A000000"
+        app:color_unchecked_stroke="#1A000000" />
+</LinearLayout>

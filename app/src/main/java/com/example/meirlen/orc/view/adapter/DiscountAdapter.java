@@ -9,18 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.meirlen.orc.R;
+import com.example.meirlen.orc.helper.Constans;
 import com.example.meirlen.orc.helper.ImageLoader;
 import com.example.meirlen.orc.interfaces.ItemClickListener;
+import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.discount.Discount;
+import com.example.meirlen.orc.view.activity.DetailActivity;
 import com.example.meirlen.orc.view.activity.ProductListActivity;
+import com.google.gson.Gson;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.meirlen.orc.view.activity.ProductListActivity.EXTRA_DISCOUNY_PRODUCTS;
+import static com.example.meirlen.orc.view.activity.ProductListActivity.EXTRA_NAME_CATEGORY;
 
 
 public class DiscountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -30,6 +43,7 @@ public class DiscountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int TYPE_SALE = 1;
     private static final int TYPE_POPULAR = 2;
     private Activity c;
+
 
     public DiscountAdapter(Activity c) {
         this.c = c;
@@ -49,21 +63,61 @@ public class DiscountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
         return null;
     }
+
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
-        final Discount object = mList.get(position);
-        if (object != null) {
-            switch (object.getDiscountType()) {
+        final Discount discount = mList.get(position);
+        if (discount != null) {
+            switch (discount.getDiscountType()) {
                 case TYPE_SALE:
-                    ImageLoader.getInstance().load(c, object.getDiscountImage(), ((FirstHolder) holder).imageView);
+                    ImageLoader.getInstance().load(c, discount.getDiscountImage(), ((FirstHolder) holder).imageView);
                     break;
                 case TYPE_POPULAR:
                     ImageLoader.getInstance().load(c, "http://kanzler-style.ru/upload/resize_cache/iblock/429/270_500_1/4291076be668eb7d8d2659942f1fe5df.jpg", ((FirstHolder) holder).imageView);
                     break;
             }
+
+            LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            ((FirstHolder) holder).linearLayoutItems.removeAllViews();
+            for (int i = 0; i < discount.getRandom_products().size(); i++) {
+                assert inflater != null;
+                View child = inflater.inflate(R.layout.product_disc_item, null);
+                Product product = discount.getRandom_products().get(i);
+                ImageView imageView = child.findViewById(R.id.product_img);
+                TextView listText = child.findViewById(R.id.product_name);
+                TextView product_price = child.findViewById(R.id.product_price);
+                product_price.setText(String.valueOf(product.getProductPrice()) + c.getString(R.string.tenge));
+                listText.setText(product.getProductName());
+
+
+
+
+                if (product.getImages() != null && product.getImages().size() > 0) {
+                    ImageLoader.getInstance().load(c, Constans.BASE_IMAGE_URL + product.getImages().get(0).getImagePath(), imageView);
+                }
+
+                ((FirstHolder) holder).linearLayoutItems.addView(child);
+                child.setOnClickListener(v -> {
+                    Intent intent = DetailActivity.detailProductIntent(c, product);
+                    c.startActivity(intent);
+
+                });
+
+            }
+
+            ((FirstHolder) holder).txtTitle.setText(discount.getDiscountName());
             ((FirstHolder) holder).setItemClickListener(pos -> {
-                Intent intent = new Intent(c, ProductListActivity.class);
-                c.startActivity(intent);
+                if (discount.getRandom_products() != null && discount.getRandom_products().size() > 0) {
+                    Gson gson = new Gson();
+                    String myJson = gson.toJson(discount);
+                    Intent intent = new Intent(c, ProductListActivity.class);
+                    intent.putExtra(EXTRA_DISCOUNY_PRODUCTS, myJson);
+                    intent.putExtra(EXTRA_NAME_CATEGORY, discount.getDiscountName());
+
+                    c.startActivity(intent);
+                } else {
+                    Toast.makeText(c, R.string.empty_cat, Toast.LENGTH_SHORT).show();
+                }
             });
         }
     }
@@ -88,8 +142,13 @@ public class DiscountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public static class FirstHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.imageView)
-        ImageView imageView;
+        RoundedImageView imageView;
+        @BindView(R.id.txtTitle)
+        TextView txtTitle;
         ItemClickListener itemClickListener;
+
+        @BindView(R.id.linearLayoutItems)
+        LinearLayout linearLayoutItems;
 
         FirstHolder(View itemView, Context c) {
             super(itemView);

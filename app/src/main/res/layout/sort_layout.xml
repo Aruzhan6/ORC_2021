@@ -28,6 +28,7 @@
 
         <TextView
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:text="@string/sortByDateInc"
             android:background="@drawable/rectangle_border"
@@ -81,94 +82,9 @@
             android:padding="5dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortByRateInc"
-            android:background="@drawable/rectangle_border"
-            android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:id="@+id/tvSortRaitingInc"
-            android:layout_weight="1"
-            android:padding="5dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortByRateDec"
-            android:background="@drawable/rectangle_border"
-            android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:id="@+id/tvSortRaitingDec"
-            android:layout_weight="1"
-            android:padding="5dp"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortByAreaInc"
-            android:background="@drawable/rectangle_border"
-            android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:id="@+id/tvSortAreaInc"
-            android:layout_weight="1"
-            android:padding="5dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortByAreDec"
-            android:background="@drawable/rectangle_border"
-            android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:id="@+id/tvSortAreaDec"
-            android:layout_weight="1"
-            android:padding="5dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortByAddNear"
-            android:background="@drawable/rectangle_border"
-            android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:id="@+id/tvSortLocationNear"
-            android:layout_weight="1"
-            android:padding="5dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortByAddFar"
-            android:background="@drawable/rectangle_border"
-            android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:id="@+id/tvSortLocationFar"
-            android:layout_weight="1"
-            android:padding="5dp"/>
-    </LinearLayout>
 
 
 </LinearLayout>

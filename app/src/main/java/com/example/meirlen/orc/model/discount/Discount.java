@@ -1,136 +1,64 @@
 package com.example.meirlen.orc.model.discount;
 
+import com.example.meirlen.orc.model.Product;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Discount {
+import java.util.List;
 
-    @SerializedName("product_id")
-    @Expose
-    private Integer productId;
-    @SerializedName("product_category_id")
-    @Expose
-    private String productCategoryId;
-    @SerializedName("product_producer_id")
-    @Expose
-    private Integer productProducerId;
-    @SerializedName("product_name")
-    @Expose
-    private String productName;
-    @SerializedName("product_description")
-    @Expose
-    private String productDescription;
-    @SerializedName("product_price")
-    @Expose
-    private Integer productPrice;
-    @SerializedName("product_discount_id")
-    @Expose
-    private Object productDiscountId;
-    @SerializedName("sold_num")
-    @Expose
-    private String soldNum;
+public class Discount {
     @SerializedName("discount_id")
     @Expose
-    private Object discountId;
-    @SerializedName("discount_percent")
-    @Expose
-    private Object discountPercent;
+    private Integer discountId;
     @SerializedName("discount_name")
     @Expose
-    private Object discountName;
+    private String discountName;
+    @SerializedName("discount_percent")
+    @Expose
+    private Integer discountPercent;
     @SerializedName("discount_type")
     @Expose
     private Integer discountType;
     @SerializedName("discount_image")
     @Expose
     private String discountImage;
+    @SerializedName("discount_producer_id")
+    @Expose
+    private Object discountProducerId;
+    @SerializedName("discount_image_desktop")
+    @Expose
+    private String discountImageDesktop;
+    @SerializedName("orderIndex")
+    @Expose
+    private String orderIndex;
 
-    public Integer getProductId() {
-        return productId;
-    }
+    @SerializedName("randomProducts")
+    @Expose
+    private List<Product> randomProducts;
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
 
-    public String getProductCategoryId() {
-        return productCategoryId;
-    }
-
-    public void setProductCategoryId(String productCategoryId) {
-        this.productCategoryId = productCategoryId;
-    }
-
-    public Integer getProductProducerId() {
-        return productProducerId;
-    }
-
-    public void setProductProducerId(Integer productProducerId) {
-        this.productProducerId = productProducerId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductDescription() {
-        return productDescription;
-    }
-
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
-    }
-
-    public Integer getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(Integer productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public Object getProductDiscountId() {
-        return productDiscountId;
-    }
-
-    public void setProductDiscountId(Object productDiscountId) {
-        this.productDiscountId = productDiscountId;
-    }
-
-    public String getSoldNum() {
-        return soldNum;
-    }
-
-    public void setSoldNum(String soldNum) {
-        this.soldNum = soldNum;
-    }
-
-    public Object getDiscountId() {
+    public Integer getDiscountId() {
         return discountId;
     }
 
-    public void setDiscountId(Object discountId) {
+    public void setDiscountId(Integer discountId) {
         this.discountId = discountId;
     }
 
-    public Object getDiscountPercent() {
-        return discountPercent;
-    }
-
-    public void setDiscountPercent(Object discountPercent) {
-        this.discountPercent = discountPercent;
-    }
-
-    public Object getDiscountName() {
+    public String getDiscountName() {
         return discountName;
     }
 
-    public void setDiscountName(Object discountName) {
+    public void setDiscountName(String discountName) {
         this.discountName = discountName;
+    }
+
+    public Integer getDiscountPercent() {
+        return discountPercent;
+    }
+
+    public void setDiscountPercent(Integer discountPercent) {
+        this.discountPercent = discountPercent;
     }
 
     public Integer getDiscountType() {
@@ -149,4 +77,36 @@ public class Discount {
         this.discountImage = discountImage;
     }
 
+    public Object getDiscountProducerId() {
+        return discountProducerId;
+    }
+
+    public void setDiscountProducerId(Object discountProducerId) {
+        this.discountProducerId = discountProducerId;
+    }
+
+    public String getDiscountImageDesktop() {
+        return discountImageDesktop;
+    }
+
+    public void setDiscountImageDesktop(String discountImageDesktop) {
+        this.discountImageDesktop = discountImageDesktop;
+    }
+
+    public String getOrderIndex() {
+        return orderIndex;
+    }
+
+    public void setOrderIndex(String orderIndex) {
+        this.orderIndex = orderIndex;
+    }
+
+
+    public List<Product> getRandom_products() {
+        return randomProducts;
+    }
+
+    public void setRandom_products(List<Product> randomProducts) {
+        this.randomProducts = randomProducts;
+    }
 }

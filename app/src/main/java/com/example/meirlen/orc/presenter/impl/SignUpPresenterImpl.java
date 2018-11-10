@@ -4,22 +4,13 @@ import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.api.NetworkResponse;
 import com.example.meirlen.orc.interactor.SignUpInteractor;
 
-import com.example.meirlen.orc.model.Category;
-import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.signup.ConfirmResponse;
-import com.example.meirlen.orc.model.signup.SignupRequest;
-import com.example.meirlen.orc.presenter.CategoryPresenter;
 import com.example.meirlen.orc.presenter.SignUpPresenter;
 import com.example.meirlen.orc.view.SignUpView;
-import com.example.meirlen.orc.view.fragment.ConfirmFragment;
 
-
-import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
 import io.reactivex.schedulers.Schedulers;
 
 
@@ -61,10 +52,10 @@ public class SignUpPresenterImpl implements SignUpPresenter {
     }
 
     @Override
-    public void signIn(String number) {
+    public void signIn(String number, String apiKey) {
         mViews.showLoading();
 
-        getMessagesDisposable = interactor.signIn(number)
+        getMessagesDisposable = interactor.signIn(number, apiKey)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe((APIResponse apiResponse) -> {
@@ -163,8 +154,6 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void destroy() {
-        this.mViews = null;
-
     }
 
 

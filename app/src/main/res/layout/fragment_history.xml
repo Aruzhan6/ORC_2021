@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/mainLayout"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtDate"
+            style="@style/BoldText"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:fontFamily="@font/sofia"
+
+            android:text="@string/date"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0.5sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginLeft="5sp"
+            android:background="@color/colorLine" />
+
+        <TextView
+            style="@style/BoldText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:fontFamily="@font/sofia"
+
+            android:text="@string/orders"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80sp"
+        android:orientation="vertical"
+
+        android:visibility="gone">
+
+        <TextView
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="ЗДЕСЬ ПОКА НИЧЕГО НЕТ" />
+
+        <TextView
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginTop="20dp"
+            android:text="Совершите ваш первый заказ!"
+            android:textColor="@color/textAccentColor" />
+
+        <TextView
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:text="В этом разделе вы сможете отслеживать !"
+            android:textColor="@color/textAccentColor" />
+
+        <TextView
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:text="статус всех заказов и следить за тем,"
+            android:textColor="@color/textAccentColor" />
+
+        <TextView
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:text="как комплектуеться ваш заказ."
+            android:textColor="@color/textAccentColor" />
+
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="200dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+
+
+            android:fitsSystemWindows="true"
+
+            android:scaleType="centerCrop"
+            android:src="@drawable/hint_image"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/infoLayout">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

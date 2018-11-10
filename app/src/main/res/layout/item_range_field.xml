@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
+
     <TextView
         style="@style/LightText"
 
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Размеры"
+        android:text="Интервал цен"
         android:textColor="@color/colorBlack"
         android:textSize="16sp" />
     <LinearLayout
@@ -46,7 +47,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/allEditText"
+            android:id="@+id/toEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.3"

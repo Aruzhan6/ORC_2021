@@ -38,8 +38,10 @@ public class ImageLoader {
         Glide.with(context)
                 .load(url)
                 .apply(new RequestOptions()
-                        .override(widthPx, heightPx)
-                        .placeholder(R.drawable.placeholder))
+                                .override(widthPx, heightPx)
+                        // .placeholder(R.drawable.placeholder))
+
+                )
                 .into(imageView);
     }
 
@@ -47,7 +49,8 @@ public class ImageLoader {
         Glide.with(context)
                 .load(url)
                 .apply(new RequestOptions()
-                        .placeholder(R.drawable.placeholder))
+                        //.placeholder(R.drawable.placeholder))
+                )
                 .into(imageView);
     }
 

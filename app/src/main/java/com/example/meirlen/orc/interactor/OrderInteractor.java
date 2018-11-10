@@ -12,7 +12,7 @@ import io.reactivex.Observable;
 
 public interface OrderInteractor {
 
-    Observable<APIResponse> sendOrder(String token, String lat , String lng);
+    Observable<APIResponse> sendOrder(String token, String lat , String lng, String address);
 
 
 }

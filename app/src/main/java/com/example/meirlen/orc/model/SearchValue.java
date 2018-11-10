@@ -25,6 +25,8 @@ public class SearchValue {
     @Expose
     private String value;
 
+    private boolean selectable=false;
+
     public Integer getValueId() {
         return valueId;
     }
@@ -57,4 +59,11 @@ public class SearchValue {
         this.value = value;
     }
 
+    public boolean isSelectable() {
+        return selectable;
+    }
+
+    public void setSelectable(boolean selectable) {
+        this.selectable = selectable;
+    }
 }

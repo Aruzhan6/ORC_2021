@@ -1,5 +1,6 @@
 package com.example.meirlen.orc.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
@@ -9,20 +10,23 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meirlen.orc.App;
 import com.example.meirlen.orc.R;
 import com.example.meirlen.orc.helper.SessionManager;
-
 import com.example.meirlen.orc.model.discount.Discount;
-
 import com.example.meirlen.orc.presenter.DiscountPresenter;
 import com.example.meirlen.orc.view.DiscountView;
+import com.example.meirlen.orc.view.activity.SearchActivity;
 import com.example.meirlen.orc.view.adapter.DiscountAdapter;
 
 import java.util.ArrayList;
@@ -32,6 +36,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class DiscountFragment extends Fragment implements DiscountView {
@@ -50,6 +55,9 @@ public class DiscountFragment extends Fragment implements DiscountView {
     @Inject
     SessionManager sessionManager;
 
+
+    @BindView(R.id.editText13)
+    EditText editText;
 
     private DiscountAdapter adapter;
     List<Discount> list = new ArrayList<>();
@@ -78,7 +86,7 @@ public class DiscountFragment extends Fragment implements DiscountView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_discount, container, false);
         ButterKnife.bind(this, rootView);
         App.getInstance().createDiscountComponent().inject(this);
 
@@ -88,6 +96,13 @@ public class DiscountFragment extends Fragment implements DiscountView {
         presenter.setView(this);
         presenter.getList();
 
+
+        editText.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                searchInit();
+            }
+            return false;
+        });
         return rootView;
     }
 
@@ -119,14 +134,16 @@ public class DiscountFragment extends Fragment implements DiscountView {
 
     private void init() {
         adapter = new DiscountAdapter(getActivity());
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        /*GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override public int getSpanSize(int position) {
+            @Override
+            public int getSpanSize(int position) {
                 return (position < 4) ? 2 : 1;
             }
-        });
-
-        recyclerView.setLayoutManager(gridLayoutManager);
+        });*/
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
     }
@@ -139,5 +156,21 @@ public class DiscountFragment extends Fragment implements DiscountView {
 
     }
 
+
+    @OnClick(R.id.imageView23)
+    public void onViewClicked() {
+        searchInit();
+    }
+
+    private void searchInit() {
+
+        Intent intent = new Intent(getContext(), SearchActivity.class);
+        if (editText.getText().toString().trim().length() > 0) {
+            intent.putExtra(SearchActivity.EXTRA_SEARCH_KEY, editText.getText().toString().trim());
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), "Пустое поле", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }

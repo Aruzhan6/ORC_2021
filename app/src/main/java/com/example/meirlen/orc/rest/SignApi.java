@@ -3,14 +3,9 @@ package com.example.meirlen.orc.rest;
 
 
 import com.example.meirlen.orc.api.APIResponse;
-import com.example.meirlen.orc.model.Category;
-import com.example.meirlen.orc.model.request.Filter;
 import com.example.meirlen.orc.model.signup.ConfirmRequest;
 import com.example.meirlen.orc.model.signup.ConfirmResponse;
 import com.example.meirlen.orc.model.signup.SignupRequest;
-import com.example.meirlen.orc.view.fragment.ConfirmFragment;
-
-import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;

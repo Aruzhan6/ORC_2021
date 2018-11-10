@@ -4,12 +4,10 @@ import android.util.Log;
 
 import com.example.meirlen.orc.model.filter.BooleanType;
 import com.example.meirlen.orc.model.filter.MultipleSelect;
-import com.example.meirlen.orc.model.filter.RangeInt;
+import com.example.meirlen.orc.model.filter.range.RangeInt;
 import com.example.meirlen.orc.model.filter.StringType;
 import com.example.meirlen.orc.model.request.Filter;
 import com.google.gson.Gson;
-
-import java.security.Key;
 
 public class FilterFactory {
 
@@ -42,4 +40,5 @@ public class FilterFactory {
 
         return filter;
     }
+
 }

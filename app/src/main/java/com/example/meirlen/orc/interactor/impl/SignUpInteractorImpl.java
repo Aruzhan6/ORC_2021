@@ -32,9 +32,10 @@ public class SignUpInteractorImpl implements SignUpInteractor {
 
 
     @Override
-    public Observable<APIResponse> signIn(String number) {
+    public Observable<APIResponse> signIn(String number, String apiKey) {
         SignupRequest signupRequest = new SignupRequest();
         signupRequest.setPhone(number);
+        signupRequest.setKey(apiKey);
 
         return restApi.signin(signupRequest);
     }

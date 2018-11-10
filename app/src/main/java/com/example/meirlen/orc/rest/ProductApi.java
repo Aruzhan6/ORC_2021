@@ -3,6 +3,7 @@ package com.example.meirlen.orc.rest;
 
 import com.example.meirlen.orc.api.APIResponse;
 import com.example.meirlen.orc.model.CardResponse;
+import com.example.meirlen.orc.model.DetailResponse;
 import com.example.meirlen.orc.model.Product;
 import com.example.meirlen.orc.model.ProductResponse;
 import com.example.meirlen.orc.model.request.CartRequest;
@@ -16,6 +17,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ProductApi {
 
@@ -25,8 +28,23 @@ public interface ProductApi {
     Observable<APIResponse<ProductResponse>> getProducts(@Header("Token") String token, @Body Filter filter);
 
     @Headers("Content-Type: application/json")
+    @POST(ApiMethods.PRODUCTS_GET_BY_ID_CATEGORY)
+    Observable<APIResponse<ProductResponse>> getProductsById(@Path("id") String id,@Header("Token") String token, @Body Filter filter);
+
+
+    @Headers("Content-Type: application/json")
+    @GET(ApiMethods.PRODUCT_GET_BY_ID)
+    Observable<APIResponse<DetailResponse>> getById( @Path("id") String id,@Header("Token") String token);
+
+
+    @Headers("Content-Type: application/json")
+    @POST(ApiMethods.PRODUCT_GET_BY_PRODUCER)
+    Observable<APIResponse<ProductResponse>> getProducerProducts(@Query("producer") String id_producer, @Header("Token") String token,@Body Filter filter);
+    //@Query("address") String address
+    @Headers("Content-Type: application/json")
     @GET(ApiMethods.PRODUCT_GET_FAV)
     Observable<APIResponse<ProductResponse>> getFavourities(@Header("Token") String token);
+
 
     @Headers("Content-Type: application/json")
     @POST(ApiMethods.CART_ADD)

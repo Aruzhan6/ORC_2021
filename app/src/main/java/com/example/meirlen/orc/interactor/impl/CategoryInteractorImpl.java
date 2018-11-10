@@ -40,7 +40,7 @@ public class CategoryInteractorImpl implements CategoryInteractor {
 
     @Override
     public Observable<APIResponse<List<Category>>> getMessages(String authToken) {
-        return categoryApi.getChat(authToken);
+        return categoryApi.getCategories(authToken);
     }
 
     @Override
@@ -60,8 +60,9 @@ public class CategoryInteractorImpl implements CategoryInteractor {
 
     @Override
     public Flowable<List<Field>> getFieldById(String id) {
-        return appDatabase.fieldDao().getAll();
+        return appDatabase.fieldDao().getById(id);
     }
+
     @Override
     public Flowable<List<SearchValue>> getFieldValueById(String id) {
         return appDatabase.fieldValueDao().getById(id);
@@ -71,6 +72,11 @@ public class CategoryInteractorImpl implements CategoryInteractor {
     public Completable insertCategories(List<Category> categories) {
         dataGenerator.generateChildCategory(categories);
         return Completable.fromAction(() -> appDatabase.categoryDao().insert(categories));
+    }
+
+    @Override
+    public Completable updateSearchValue(SearchValue searchValue) {
+        return Completable.fromAction(() -> appDatabase.fieldValueDao().update(searchValue));
     }
 
 

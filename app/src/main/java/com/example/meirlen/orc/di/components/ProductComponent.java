@@ -8,6 +8,7 @@ import com.example.meirlen.orc.interactor.ProductInteractor;
 import com.example.meirlen.orc.interactor.impl.CategoryInteractorImpl;
 import com.example.meirlen.orc.interactor.impl.ProductInteractorImpl;
 import com.example.meirlen.orc.model.Product;
+import com.example.meirlen.orc.view.activity.ProductListActivity;
 import com.example.meirlen.orc.view.fragment.CategoriesFragment;
 import com.example.meirlen.orc.view.fragment.ChildCategoriesFragment;
 import com.example.meirlen.orc.view.fragment.ProductFragment;
@@ -26,6 +27,7 @@ public interface ProductComponent {
     }
 
     ProductInteractorImpl inject(ProductInteractorImpl interactor);
+    ProductListActivity inject(ProductListActivity activity);
     ProductFragment inject(ProductFragment fragment);
 
 }

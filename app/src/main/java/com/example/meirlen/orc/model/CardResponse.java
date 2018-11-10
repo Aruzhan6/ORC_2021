@@ -1,5 +1,6 @@
 package com.example.meirlen.orc.model;
 
+import com.example.meirlen.orc.model.discount.Discount;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +8,7 @@ public class CardResponse {
 
     @SerializedName("cart_id")
     @Expose
-    private Integer cartId;
+    private String cartId;
     @SerializedName("cart_user_id")
     @Expose
     private String cartUserId;
@@ -25,16 +26,28 @@ public class CardResponse {
     private Integer cartCount;
     @SerializedName("total_price")
     @Expose
-    private Integer totalPrice;
+    private Double totalPrice;
     @SerializedName("product")
     @Expose
     private Product product;
 
-    public Integer getCartId() {
+    @SerializedName("discount")
+    @Expose
+    private Discount discount;
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getCartId() {
         return cartId;
     }
 
-    public void setCartId(Integer cartId) {
+    public void setCartId(String cartId) {
         this.cartId = cartId;
     }
 
@@ -78,13 +91,7 @@ public class CardResponse {
         this.cartCount = cartCount;
     }
 
-    public Integer getTotalPrice() {
-        return totalPrice;
-    }
 
-    public void setTotalPrice(Integer totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 
     public Product getProduct() {
         return product;
@@ -94,4 +101,11 @@ public class CardResponse {
         this.product = product;
     }
 
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
 }

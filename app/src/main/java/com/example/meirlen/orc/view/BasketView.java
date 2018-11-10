@@ -1,19 +1,25 @@
 package com.example.meirlen.orc.view;
 
 import com.example.meirlen.orc.model.CardResponse;
-import com.example.meirlen.orc.model.basket.Basket;
-import com.example.meirlen.orc.model.history.History;
+import com.example.meirlen.orc.model.Product;
+import com.example.meirlen.orc.model.history.HistoryResponse;
 
 import java.util.List;
 
 
 public interface BasketView extends LoadingView {
 
-    void getList(List<Basket> products);
+    void getList(List<Product> products, int total);
 
-    void getHistory(List<History> histories);
+    void getHistory(HistoryResponse histories);
 
     void addCartResponse(CardResponse response);
+
+    void clearCardsResponse();
+
+    void deleteResponse();
+
+    void deleteCardResponse();
 
     void showItemLoading();
 

@@ -13,26 +13,26 @@ public class HistoryResponse {
     @SerializedName("data")
     @Expose
     private List<History> data = null;
-    @SerializedName("from")
+
+    @SerializedName("total")
     @Expose
-    private Integer from;
+    private Integer total;
+
+
     @SerializedName("last_page")
     @Expose
     private Integer lastPage;
 
+
+    @SerializedName("from")
+    @Expose
+    private Integer from;
+
+
     @SerializedName("path")
     @Expose
     private String path;
-    @SerializedName("per_page")
-    @Expose
-    private Integer perPage;
-    @SerializedName("prev_page_url")
 
-    @Expose
-    private Integer to;
-    @SerializedName("total")
-    @Expose
-    private Integer total;
 
     public Integer getCurrentPage() {
         return currentPage;
@@ -75,22 +75,6 @@ public class HistoryResponse {
         this.path = path;
     }
 
-    public Integer getPerPage() {
-        return perPage;
-    }
-
-    public void setPerPage(Integer perPage) {
-        this.perPage = perPage;
-    }
-
-
-    public Integer getTo() {
-        return to;
-    }
-
-    public void setTo(Integer to) {
-        this.to = to;
-    }
 
     public Integer getTotal() {
         return total;

@@ -12,6 +12,11 @@ public class OrderRequest {
     @Expose
     private String lng;
 
+    @SerializedName("information")
+    @Expose
+    private String information;
+
+
     public String getLat() {
         return lat;
     }
@@ -28,4 +33,12 @@ public class OrderRequest {
         this.lng = lng;
     }
 
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
 }

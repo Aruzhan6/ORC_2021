@@ -1,11 +1,16 @@
 package com.example.meirlen.orc.model;
 
+import android.arch.persistence.room.Ignore;
+
+import java.io.Serializable;
 import java.util.List;
 
+import com.example.meirlen.orc.model.discount.Discount;
+import com.example.meirlen.orc.model.filter.FieldValues;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Product {
+public class Product implements Serializable {
 
     @SerializedName("product_id")
     @Expose
@@ -16,6 +21,13 @@ public class Product {
     @SerializedName("product_producer_id")
     @Expose
     private Integer productProducerId;
+    @SerializedName("total_price")
+    @Expose
+    private Double total_price;
+
+    @SerializedName("discount")
+    @Expose
+    private Discount discount;
     @SerializedName("product_name")
     @Expose
     private String productName;
@@ -46,7 +58,40 @@ public class Product {
 
     @SerializedName("isFavourite")
     @Expose
-    private Boolean isFavourite;
+    private Boolean isFavourite = false;
+
+    @SerializedName("product_weight")
+    @Expose
+    private String productWeight;
+
+
+    @SerializedName("product_size")
+    @Expose
+    private String productSize;
+
+    @SerializedName("images")
+    @Expose
+    private List<ProductImage> images = null;
+
+
+    @SerializedName("producer")
+    @Expose
+    private Producer producer = null;
+
+
+    @SerializedName("fields_and_values")
+    @Expose
+    private List<FieldValues> fields_and_values = null;
+
+
+
+    public Double getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(Double total_price) {
+        this.total_price = total_price;
+    }
 
     public Integer getProductId() {
         return productId;
@@ -151,5 +196,56 @@ public class Product {
 
     public void setFavourite(Boolean favourite) {
         isFavourite = favourite;
+    }
+
+    public List<ProductImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ProductImage> images) {
+        this.images = images;
+    }
+
+    public String getProductWeight() {
+        return productWeight;
+    }
+
+    public void setProductWeight(String productWeight) {
+        this.productWeight = productWeight;
+    }
+
+    public String getProductSize() {
+        return productSize;
+    }
+
+    public void setProductSize(String productSize) {
+        this.productSize = productSize;
+    }
+
+    public Producer getProducer() {
+        return producer;
+    }
+
+    public void setProducer(Producer producer) {
+        this.producer = producer;
+    }
+
+
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
+
+    public List<FieldValues> getFields_and_values() {
+        return fields_and_values;
+    }
+
+    public void setFields_and_values(List<FieldValues> fields_and_values) {
+        this.fields_and_values = fields_and_values;
     }
 }

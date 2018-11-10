@@ -1,0 +1,396 @@
+[
+  {
+    "name": "AndroidSkills",
+    "desc": "",
+    "descData": null,
+    "closed": false,
+    "idOrganization": "597f19aae7fd34559383df04",
+    "limits": null,
+    "pinned": null,
+    "invitations": null,
+    "shortLink": "Eg7s9ALr",
+    "powerUps": [],
+    "dateLastActivity": "2018-09-07T06:15:15.564Z",
+    "idTags": [],
+    "datePluginDisable": null,
+    "creationMethod": null,
+    "id": "59ec59cc894311470b420ce1",
+    "invited": false,
+    "starred": false,
+    "url": "https://trello.com/b/Eg7s9ALr/androidskills",
+    "prefs": {
+      "permissionLevel": "public",
+      "voting": "disabled",
+      "comments": "members",
+      "invitations": "members",
+      "selfJoin": true,
+      "cardCovers": true,
+      "cardAging": "regular",
+      "calendarFeedEnabled": false,
+      "background": "blue",
+      "backgroundImage": null,
+      "backgroundImageScaled": null,
+      "backgroundTile": false,
+      "backgroundBrightness": "dark",
+      "backgroundColor": "#0079BF",
+      "backgroundBottomColor": "#0079BF",
+      "backgroundTopColor": "#0079BF",
+      "canBePublic": true,
+      "canBeOrg": true,
+      "canBePrivate": true,
+      "canInvite": true
+    },
+    "subscribed": false,
+    "labelNames": {
+      "green": "",
+      "yellow": "",
+      "orange": "",
+      "red": "",
+      "purple": "",
+      "blue": "",
+      "sky": "",
+      "lime": "",
+      "pink": "",
+      "black": ""
+    },
+    "dateLastView": "2018-09-07T06:20:16.456Z",
+    "shortUrl": "https://trello.com/b/Eg7s9ALr",
+    "memberships": [
+      {
+        "id": "59ec59cc894311470b420ce2",
+        "idMember": "57613a5b45531826ba64b7ac",
+        "memberType": "admin",
+        "unconfirmed": false,
+        "deactivated": false
+      }
+    ]
+  },
+  {
+    "name": "CitySalon",
+    "desc": "",
+    "descData": null,
+    "closed": true,
+    "idOrganization": null,
+    "limits": null,
+    "pinned": null,
+    "invitations": null,
+    "shortLink": "6TGGkALV",
+    "powerUps": [],
+    "dateLastActivity": "2017-12-01T21:13:26.336Z",
+    "idTags": [],
+    "datePluginDisable": null,
+    "creationMethod": null,
+    "id": "5a205cb2199082f625b6ceeb",
+    "invited": false,
+    "starred": false,
+    "url": "https://trello.com/b/6TGGkALV/citysalon",
+    "prefs": {
+      "permissionLevel": "private",
+      "voting": "disabled",
+      "comments": "members",
+      "invitations": "members",
+      "selfJoin": false,
+      "cardCovers": true,
+      "cardAging": "regular",
+      "calendarFeedEnabled": false,
+      "background": "blue",
+      "backgroundImage": null,
+      "backgroundImageScaled": null,
+      "backgroundTile": false,
+      "backgroundBrightness": "dark",
+      "backgroundColor": "#0079BF",
+      "backgroundBottomColor": "#0079BF",
+      "backgroundTopColor": "#0079BF",
+      "canBePublic": true,
+      "canBeOrg": true,
+      "canBePrivate": true,
+      "canInvite": true
+    },
+    "subscribed": false,
+    "labelNames": {
+      "green": "",
+      "yellow": "",
+      "orange": "",
+      "red": "",
+      "purple": "",
+      "blue": "",
+      "sky": "",
+      "lime": "",
+      "pink": "",
+      "black": ""
+    },
+    "dateLastView": "2018-09-05T08:55:36.435Z",
+    "shortUrl": "https://trello.com/b/6TGGkALV",
+    "memberships": [
+      {
+        "id": "5a205cb2199082f625b6ceec",
+        "idMember": "57613a5b45531826ba64b7ac",
+        "memberType": "admin",
+        "unconfirmed": false,
+        "deactivated": false
+      }
+    ]
+  },
+  {
+    "name": "Client Trello",
+    "desc": "",
+    "descData": null,
+    "closed": false,
+    "idOrganization": null,
+    "limits": null,
+    "pinned": null,
+    "invitations": null,
+    "shortLink": "RrEf27Bf",
+    "powerUps": [],
+    "dateLastActivity": "2018-09-04T13:21:44.168Z",
+    "idTags": [],
+    "datePluginDisable": null,
+    "creationMethod": null,
+    "id": "5b8e8469752f1d361f265854",
+    "invited": false,
+    "starred": false,
+    "url": "https://trello.com/b/RrEf27Bf/client-trello",
+    "prefs": {
+      "permissionLevel": "private",
+      "voting": "disabled",
+      "comments": "members",
+      "invitations": "members",
+      "selfJoin": false,
+      "cardCovers": true,
+      "cardAging": "regular",
+      "calendarFeedEnabled": false,
+      "background": "blue",
+      "backgroundImage": null,
+      "backgroundImageScaled": null,
+      "backgroundTile": false,
+      "backgroundBrightness": "dark",
+      "backgroundColor": "#0079BF",
+      "backgroundBottomColor": "#0079BF",
+      "backgroundTopColor": "#0079BF",
+      "canBePublic": true,
+      "canBeOrg": true,
+      "canBePrivate": true,
+      "canInvite": true
+    },
+    "subscribed": false,
+    "labelNames": {
+      "green": "",
+      "yellow": "",
+      "orange": "",
+      "red": "",
+      "purple": "",
+      "blue": "",
+      "sky": "",
+      "lime": "",
+      "pink": "",
+      "black": ""
+    },
+    "dateLastView": "2018-09-05T09:00:02.423Z",
+    "shortUrl": "https://trello.com/b/RrEf27Bf",
+    "memberships": [
+      {
+        "id": "5b8e8469752f1d361f265855",
+        "idMember": "57613a5b45531826ba64b7ac",
+        "memberType": "admin",
+        "unconfirmed": false,
+        "deactivated": false
+      }
+    ]
+  },
+  {
+    "name": "English Galaxy",
+    "desc": "",
+    "descData": null,
+    "closed": true,
+    "idOrganization": null,
+    "limits": null,
+    "pinned": null,
+    "invitations": null,
+    "shortLink": "sQNh3vxE",
+    "powerUps": [],
+    "dateLastActivity": "2018-07-08T11:34:51.036Z",
+    "idTags": [],
+    "datePluginDisable": null,
+    "creationMethod": null,
+    "id": "59da1fd0244c02acdaecec0a",
+    "invited": false,
+    "starred": true,
+    "url": "https://trello.com/b/sQNh3vxE/english-galaxy",
+    "prefs": {
+      "permissionLevel": "private",
+      "voting": "disabled",
+      "comments": "members",
+      "invitations": "members",
+      "selfJoin": false,
+      "cardCovers": true,
+      "cardAging": "regular",
+      "calendarFeedEnabled": false,
+      "background": "blue",
+      "backgroundImage": null,
+      "backgroundImageScaled": null,
+      "backgroundTile": false,
+      "backgroundBrightness": "dark",
+      "backgroundColor": "#0079BF",
+      "backgroundBottomColor": "#0079BF",
+      "backgroundTopColor": "#0079BF",
+      "canBePublic": true,
+      "canBeOrg": true,
+      "canBePrivate": true,
+      "canInvite": true
+    },
+    "subscribed": false,
+    "labelNames": {
+      "green": "",
+      "yellow": "",
+      "orange": "",
+      "red": "",
+      "purple": "",
+      "blue": "",
+      "sky": "",
+      "lime": "",
+      "pink": "",
+      "black": ""
+    },
+    "dateLastView": "2018-09-05T08:48:19.070Z",
+    "shortUrl": "https://trello.com/b/sQNh3vxE",
+    "memberships": [
+      {
+        "id": "59da1fd0244c02acdaecec0b",
+        "idMember": "57613a5b45531826ba64b7ac",
+        "memberType": "admin",
+        "unconfirmed": false,
+        "deactivated": false
+      }
+    ]
+  },
+  {
+    "name": "ОРЦ",
+    "desc": "",
+    "descData": null,
+    "closed": false,
+    "idOrganization": "5b333662fc0d48853f18a9ad",
+    "limits": null,
+    "pinned": null,
+    "invitations": null,
+    "shortLink": "T1telWsw",
+    "powerUps": [],
+    "dateLastActivity": "2018-09-04T11:09:51.760Z",
+    "idTags": [],
+    "datePluginDisable": null,
+    "creationMethod": null,
+    "id": "5b3336fb9d6d1c9efe0fee73",
+    "invited": false,
+    "starred": false,
+    "url": "https://trello.com/b/T1telWsw/%D0%BE%D1%80%D1%86",
+    "prefs": {
+      "permissionLevel": "private",
+      "voting": "disabled",
+      "comments": "members",
+      "invitations": "members",
+      "selfJoin": false,
+      "cardCovers": true,
+      "cardAging": "regular",
+      "calendarFeedEnabled": false,
+      "background": "5b327599c00173a97e3fe2c4",
+      "backgroundImage": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2560x1707/a3adf8659e3524b8a66140a06a06e7e3/photo-1529963108132-431ad048abf2",
+      "backgroundImageScaled": [
+        {
+          "width": 140,
+          "height": 93,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/140x93/af636a9e232ae8770aab5b12433c5970/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 256,
+          "height": 171,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/256x171/705b7bf62569f409afe28fb5927ee3dc/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 480,
+          "height": 320,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/a690eb05ee867d5c21d9ce01bab0205e/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 960,
+          "height": 640,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/960x640/06b332e6500cddfd1ffe1ea091c1cff3/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 1024,
+          "height": 683,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1024x683/be993ccdaa52d5fcd849e5f2a5f0c983/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 2048,
+          "height": 1366,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2048x1366/a53575c08bd200550d9bf41d8478e55c/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 1280,
+          "height": 854,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x854/06d305694cb6a5f88e203e09b3eb89fe/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1920x1280/2b97958407a37750614bcef8b089a24c/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 2400,
+          "height": 1600,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2400x1600/85d946d091b18cdf5ca5a689ee4464ca/photo-1529963108132-431ad048abf2.jpg"
+        },
+        {
+          "width": 2560,
+          "height": 1707,
+          "url": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2560x1707/a3adf8659e3524b8a66140a06a06e7e3/photo-1529963108132-431ad048abf2"
+        }
+      ],
+      "backgroundTile": false,
+      "backgroundBrightness": "dark",
+      "backgroundBottomColor": "#1d252a",
+      "backgroundTopColor": "#b3b2bb",
+      "canBePublic": true,
+      "canBeOrg": true,
+      "canBePrivate": true,
+      "canInvite": true
+    },
+    "subscribed": false,
+    "labelNames": {
+      "green": "",
+      "yellow": "текущая",
+      "orange": "",
+      "red": "Срочная",
+      "purple": "",
+      "blue": "",
+      "sky": "",
+      "lime": "",
+      "pink": "",
+      "black": ""
+    },
+    "dateLastView": "2018-09-05T08:57:32.100Z",
+    "shortUrl": "https://trello.com/b/T1telWsw",
+    "memberships": [
+      {
+        "id": "5b3336fb9d6d1c9efe0fee74",
+        "idMember": "57613a5b45531826ba64b7ac",
+        "memberType": "admin",
+        "unconfirmed": false,
+        "deactivated": false
+      },
+      {
+        "id": "5b3337bd418c84d0698d2d6a",
+        "idMember": "5ab675b4cc94b451d47b5f18",
+        "memberType": "normal",
+        "unconfirmed": false,
+        "deactivated": false
+      },
+      {
+        "id": "5b3337bfce83e9122ead1ae7",
+        "idMember": "59e84edeb625018133084b15",
+        "memberType": "normal",
+        "unconfirmed": false,
+        "deactivated": false
+      }
+    ]
+  }
+]

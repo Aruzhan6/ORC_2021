@@ -1,12 +1,11 @@
 package com.example.meirlen.orc.di.components;
 
 import com.example.meirlen.orc.di.modules.SignUpModule;
-import com.example.meirlen.orc.di.scopes.CategoryScope;
 import com.example.meirlen.orc.di.scopes.SignUpScope;
 import com.example.meirlen.orc.interactor.impl.SignUpInteractorImpl;
 import com.example.meirlen.orc.view.fragment.ProfileFragment;
 import com.example.meirlen.orc.view.fragment.SignInFragment;
-import com.example.meirlen.orc.view.fragment.ConfirmFragment;
+import com.example.meirlen.orc.view.fragment.SmSFragment;
 import com.example.meirlen.orc.view.fragment.SignUpFragment;
 
 import dagger.Subcomponent;
@@ -24,7 +23,7 @@ public interface SignUpComponent {
     }
 
 
-    ConfirmFragment inject(ConfirmFragment fragment);
+    SmSFragment inject(SmSFragment fragment);
 
     SignInFragment inject(SignInFragment fragment);
 
