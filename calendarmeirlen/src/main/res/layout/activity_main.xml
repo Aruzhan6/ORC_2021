@@ -45,7 +45,7 @@
                         android:background="@android:color/white"
                         android:orientation="vertical">
 
-                        <com.example.calendarmeirlen.components.CustomizableCalendar
+                        <com.pixel.calendarmeirlen.components.CustomizableCalendar
                             android:id="@+id/view_month"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
 
                 </android.support.design.widget.CoordinatorLayout>
 
-                <com.example.calendarmeirlen.components.MyToolbar
+                <com.pixel.calendarmeirlen.components.MyToolbar
                     android:id="@+id/main_page_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -95,7 +95,7 @@
                         android:src="@drawable/ic_add"
                         />
 
-                </com.example.calendarmeirlen.components.MyToolbar>
+                </com.pixel.calendarmeirlen.components.MyToolbar>
 
 
 

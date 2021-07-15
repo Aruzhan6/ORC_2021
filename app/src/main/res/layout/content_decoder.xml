@@ -15,7 +15,7 @@
       android:layout_alignParentTop="true"
       />
 
-  <com.example.meirlen.orc.view.activity.PointsOverlayView
+  <com.pixel.meirlen.orc.view.activity.PointsOverlayView
       android:id="@+id/points_overlay_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

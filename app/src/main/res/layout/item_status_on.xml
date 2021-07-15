@@ -18,7 +18,7 @@
         android:textColor="@color/white" />
 
 
-    <com.example.custom_checkbox.SmoothCheckBox
+    <com.pixel.custom_checkbox.SmoothCheckBox
         android:id="@+id/scb1"
         android:layout_width="22dp"
         android:layout_height="22dp"

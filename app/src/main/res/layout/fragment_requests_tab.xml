@@ -21,15 +21,13 @@
         >
 
 
-        <com.example.meirlen.orc.view.custom.CustomTabLayout
+        <com.pixel.meirlen.orc.view.custom.CustomTabLayout
             android:id="@+id/tabs"
             style="@style/tabLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:countTextBackground="@drawable/default_badged_count_bg"
-            app:countTextColor="#ffffff"
-            app:countTextSize="14sp"
+
             app:tabIndicatorHeight="2dp"
             app:tabSelectedTextColor="@color/colorTextPrimary"
             app:tabTextColor="@color/colorTextPrimary" />
@@ -38,7 +36,7 @@
     </FrameLayout>
 
 
-    <com.example.meirlen.orc.view.custom.NonSwipeableViewPager
+    <com.pixel.meirlen.orc.view.custom.NonSwipeableViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

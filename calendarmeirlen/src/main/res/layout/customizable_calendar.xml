@@ -4,26 +4,26 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.example.calendarmeirlen.components.HeaderView
+    <com.pixel.calendarmeirlen.components.HeaderView
         android:id="@android:id/primary"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.example.calendarmeirlen.components.SubView
+    <com.pixel.calendarmeirlen.components.SubView
         android:id="@android:id/text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        />
 
-    <com.example.calendarmeirlen.components.WeekDaysView
+    <com.pixel.calendarmeirlen.components.WeekDaysView
         android:id="@android:id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"/>
 
-    <com.example.calendarmeirlen.components.CalendarRecyclerView
+    <com.pixel.calendarmeirlen.components.CalendarRecyclerView
         android:id="@android:id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
