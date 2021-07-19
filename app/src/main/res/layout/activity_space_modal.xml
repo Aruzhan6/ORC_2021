@@ -47,7 +47,7 @@
         android:textSize="17dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:text="В течении 30 минут с вами свяжеться наш диспетчер." />
+        android:text="В течении 30 минут с вами свяжется наш диспетчер." />
 
 
     <LinearLayout

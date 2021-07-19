@@ -1,17 +1,22 @@
 package com.pixel.meirlen.orc.view.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -99,6 +104,11 @@ public class SmSFragment extends Fragment implements SignUpView {
         infoTV.append(" +"+number);
         presenter.setView(this);
         startDown();
+
+        verificationCodeEditText.requestFocus();
+        InputMethodManager imm = (InputMethodManager)getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
 
         verificationCodeEditText.setOnVerificationCodeChangedListener(new VerificationCodeEditText
                 .OnVerificationCodeChangedListener() {
