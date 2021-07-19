@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.joanfuentes:HintCaseAssets-1.0.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/HintCaseAssets-1.0.4.aar/b274b6685641733fbb19196cd35bd1a0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/HintCaseAssets-1.0.4.aar/b274b6685641733fbb19196cd35bd1a0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.joanfuentes/HintCaseAssets/1.0.4/7d783938e9aa646bf3269816af18a146ef82d36d/HintCaseAssets-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
