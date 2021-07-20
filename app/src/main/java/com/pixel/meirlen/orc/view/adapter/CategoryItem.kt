@@ -47,7 +47,7 @@ class CategoryItem(context: Context) : ConstraintLayout(context) {
         if (category.children != null) {
             setChildCategories(category.children, linearLayoutItems)
         }
-        btnExpand.setOnClickListener {
+        setOnClickListener {
             expand(this)
         }
     }
@@ -77,17 +77,11 @@ class CategoryItem(context: Context) : ConstraintLayout(context) {
         if (view.expandableLayout.isExpanded) {
             view.expandableLayout.collapse()
             view.btnExpand.animate().rotation(90f).start()
-            if (mutable) {
-                view.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
-                view.titleText.setTextColor(ContextCompat.getColor(context, R.color.black))
-            }
+
         } else {
             view.expandableLayout.expand()
             view.btnExpand.animate().rotation(270f).start()
-            if (mutable) {
-                view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                view.titleText.setTextColor(ContextCompat.getColor(context, R.color.white))
-            }
+
         }
     }
 
