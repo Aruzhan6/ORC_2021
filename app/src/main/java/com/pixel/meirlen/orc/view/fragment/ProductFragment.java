@@ -152,14 +152,16 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
         return rootView;
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
-        if (GlobalState.product_update) {
+         {
             if (viewType == FAVOURITE) {
                 initPresenter();
-                GlobalState.product_update = false;
+
             }
+
 
         }
     }
