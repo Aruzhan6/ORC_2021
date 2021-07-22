@@ -73,16 +73,16 @@
                     android:layout_marginTop="8dp"
                     android:text="*"
                     android:textColor="@android:color/holo_red_light" />
+
                 <ImageView
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
                     android:id="@+id/myLocationButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
                     android:tint="@color/colorGray"
                     app:srcCompat="@drawable/ic_coordinate_black"
-                    tools:ignore="VectorDrawableCompat"
-                 />
+                    tools:ignore="VectorDrawableCompat" />
 
             </LinearLayout>
 

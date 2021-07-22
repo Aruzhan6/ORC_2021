@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,7 +7,6 @@
     android:layout_height="wrap_content"
     android:id="@+id/clientSortingBottomShet"
     android:background="@color/white"
-
     android:orientation="vertical">
 
     <TextView
@@ -28,21 +28,21 @@
 
         <TextView
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:text="@string/sortByDateInc"
-            android:background="@drawable/rectangle_border"
             android:layout_margin="10dp"
             android:textAlignment="center"
             android:textSize="12dp"
+            android:background="@drawable/bg_btn_order_selector"
             android:id="@+id/tvSortDateInc"
             android:layout_weight="1"
             android:padding="5dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sortByDateDec"
-            android:background="@drawable/rectangle_border"
+            android:background="@drawable/bg_btn_order_selector"
             android:layout_margin="10dp"
             android:textAlignment="center"
             android:textSize="12dp"
@@ -62,18 +62,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sortByPriceInc"
-            android:background="@drawable/rectangle_border"
+            android:background="@drawable/bg_btn_order_selector"
             android:layout_margin="10dp"
             android:textAlignment="center"
             android:textSize="12dp"
             android:id="@+id/tvSortPriceInc"
             android:layout_weight="1"
             android:padding="5dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sortByPriceDec"
-            android:background="@drawable/rectangle_border"
+            android:background="@drawable/bg_btn_order_selector"
             android:layout_margin="10dp"
             android:textAlignment="center"
             android:textSize="12dp"
