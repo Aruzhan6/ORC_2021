@@ -36,7 +36,8 @@
             android:background="@drawable/bg_btn_order_selector"
             android:id="@+id/tvSortDateInc"
             android:layout_weight="1"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:onClick="onMyButtonClick"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -48,7 +49,9 @@
             android:textSize="12dp"
             android:id="@+id/tvSortDateDec"
             android:layout_weight="1"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:onClick="onMyButtonClick"
+            />
     </LinearLayout>
 
 
@@ -68,7 +71,8 @@
             android:textSize="12dp"
             android:id="@+id/tvSortPriceInc"
             android:layout_weight="1"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:onClick="onMyButtonClick"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -80,7 +84,8 @@
             android:textSize="12dp"
             android:id="@+id/tvSortPriceDec"
             android:layout_weight="1"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:onClick="onMyButtonClick"/>
     </LinearLayout>
 
 

@@ -1,6 +1,7 @@
 package com.pixel.meirlen.orc.view.fragment;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -249,7 +250,7 @@ public class OrderFragment extends Fragment implements OrderView {
             }
         }
         else {
-            Toast.makeText(getActivity(), "Вы должны принять наше пользовательское сообщени", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Вы должны принять наше пользовательское сообщение", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -494,6 +495,8 @@ public class OrderFragment extends Fragment implements OrderView {
         }
 //        return strAdd;
     }
+
+    //shouldShowRequestPermissionRationale(@NonNull Activity activity, @NonNull String permission)
 
 
 

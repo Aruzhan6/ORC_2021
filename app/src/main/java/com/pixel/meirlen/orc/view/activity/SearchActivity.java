@@ -1,6 +1,5 @@
 package com.pixel.meirlen.orc.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.inputmethod.EditorInfo;
@@ -10,9 +9,7 @@ import android.widget.Toast;
 import com.pixel.meirlen.orc.R;
 import com.pixel.meirlen.orc.base.BaseFragmentManagerActivity;
 import com.pixel.meirlen.orc.helper.ProductViewEnum;
-import com.pixel.meirlen.orc.interfaces.FavouriteMethodCaller;
 import com.pixel.meirlen.orc.interfaces.OnSearchListener;
-import com.pixel.meirlen.orc.model.SearchValue;
 import com.pixel.meirlen.orc.view.fragment.ProductFragment;
 
 import java.util.Objects;

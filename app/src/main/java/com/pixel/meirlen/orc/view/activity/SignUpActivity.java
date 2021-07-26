@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 
 import com.pixel.meirlen.orc.R;
 import com.pixel.meirlen.orc.base.BaseFragmentManagerActivity;
-import com.pixel.meirlen.orc.view.fragment.ProductFragment;
 import com.pixel.meirlen.orc.view.fragment.SignUpFragment;
 
 

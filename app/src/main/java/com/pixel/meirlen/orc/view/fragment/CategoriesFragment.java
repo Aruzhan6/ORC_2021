@@ -164,6 +164,7 @@ public class CategoriesFragment extends Fragment implements CategoryView, OnCate
     }
 
 
+
     @Override
     public void onItemClick(int pos) {
         Intent intent = new Intent(getContext(), ChildCategoryActivity.class);

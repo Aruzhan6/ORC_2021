@@ -2,11 +2,13 @@ package com.pixel.meirlen.orc.view.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -61,7 +63,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.pixel.meirlen.orc.helper.Constans.FAV_CHANGE;
 import static com.pixel.meirlen.orc.helper.Constans.RQ_FILTER;
 import static com.pixel.meirlen.orc.helper.Constans.RQ_UPDATE;
 import static com.pixel.meirlen.orc.helper.ProductViewEnum.*;
@@ -114,6 +115,8 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
     private int itemPos;
     int SORT_DATE = 0, SORT_PRICE = 1;
+    int SORT_TYPE;
+    boolean SORT_VALUE;
 
     private String id;
 
@@ -156,7 +159,7 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
     @Override
     public void onResume() {
         super.onResume();
-         {
+        {
             if (viewType == FAVOURITE) {
                 initPresenter();
 
@@ -387,6 +390,25 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
         TextView tvSortDateDec = listeners.findViewById(R.id.tvSortDateDec);
         TextView tvSortPriceInc = listeners.findViewById(R.id.tvSortPriceInc);
         TextView tvSortPriceDec = listeners.findViewById(R.id.tvSortPriceDec);
+//
+
+
+        if (SORT_DATE == SORT_TYPE && SORT_VALUE ) {
+            tvSortDateInc.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+        }
+
+        if (SORT_DATE == SORT_TYPE && !SORT_VALUE) {
+            tvSortDateDec.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+        }
+
+        if (SORT_PRICE == SORT_TYPE && SORT_VALUE) {
+            tvSortPriceInc.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+        }
+
+        if (SORT_PRICE == SORT_TYPE && !SORT_VALUE) {
+            tvSortPriceDec.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+        }
+
         tvSortDateInc.setOnClickListener(v -> sortItems(SORT_DATE, true));
         tvSortDateDec.setOnClickListener(v -> sortItems(SORT_DATE, false));
         tvSortPriceInc.setOnClickListener(v -> sortItems(SORT_PRICE, true));
@@ -398,11 +420,15 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
             Filter filter = FilterFactory.createFilter();
             filter.setDirectionup_newness(sortValue);
             presenter.getListById(getActivity().getIntent().getStringExtra(EXTRA_ID_CATEGORY), sessionManager.getAccessToken(), filter);
+            SORT_TYPE = sortType;
+            SORT_VALUE = sortValue;
         }
         if (SORT_PRICE == sortType) {
             Filter filter = FilterFactory.createFilter();
             filter.setDirectionup_price(sortValue);
             presenter.getListById(getActivity().getIntent().getStringExtra(EXTRA_ID_CATEGORY), sessionManager.getAccessToken(), filter);
+            SORT_TYPE = sortType;
+            SORT_VALUE = sortValue;
         }
         if (dialog != null)
             dialog.cancel();

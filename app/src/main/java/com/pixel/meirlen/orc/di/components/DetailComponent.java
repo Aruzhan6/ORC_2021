@@ -2,9 +2,7 @@ package com.pixel.meirlen.orc.di.components;
 
 import com.pixel.meirlen.orc.di.modules.ProductModule;
 import com.pixel.meirlen.orc.di.scopes.ProductScope;
-import com.pixel.meirlen.orc.interactor.impl.ProductInteractorImpl;
 import com.pixel.meirlen.orc.view.fragment.DetailFragment;
-import com.pixel.meirlen.orc.view.fragment.ProductFragment;
 
 import dagger.Subcomponent;
 
