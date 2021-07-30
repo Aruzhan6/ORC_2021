@@ -16,7 +16,7 @@
         android:layout_gravity="center_vertical"
 
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/placeholder_good" />
+        app:srcCompat="@drawable/placeholder_img" />
 
 
     <LinearLayout
