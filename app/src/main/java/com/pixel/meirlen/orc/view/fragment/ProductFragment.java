@@ -395,18 +395,22 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
         if (SORT_DATE == SORT_TYPE && SORT_VALUE ) {
             tvSortDateInc.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+            tvSortDateInc.setTextColor(getResources().getColor(R.color.white));
         }
 
         if (SORT_DATE == SORT_TYPE && !SORT_VALUE) {
             tvSortDateDec.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+            tvSortDateDec.setTextColor(getResources().getColor(R.color.white));
         }
 
         if (SORT_PRICE == SORT_TYPE && SORT_VALUE) {
-            tvSortPriceInc.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+            tvSortPriceInc.setBackground(ContextCompat.getDrawable(getContext(),  R.drawable.rectangle_blue));
+            tvSortPriceInc.setTextColor(getResources().getColor(R.color.white));
         }
 
         if (SORT_PRICE == SORT_TYPE && !SORT_VALUE) {
             tvSortPriceDec.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rectangle_blue));
+            tvSortPriceDec.setTextColor(getResources().getColor(R.color.white));
         }
 
         tvSortDateInc.setOnClickListener(v -> sortItems(SORT_DATE, true));
