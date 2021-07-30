@@ -78,6 +78,7 @@ public class ProductFragment extends Fragment implements ProductView, OnAddCardL
 
     public static final String EXTRA_UPDATE_PRODUCT = "extra:upd";
 
+
     BottomSheetDialog dialog;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;

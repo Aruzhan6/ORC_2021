@@ -53,7 +53,7 @@ public class ApiMethods {
 
     public static final String CART_COUNT = "/api/v1/cart/count";
 
-    public static final String QR_GET = "/api/v1/my/suppliers";
+    public static final String QR_GET = "/api/v1/admin/user/companies";
 
 
 
