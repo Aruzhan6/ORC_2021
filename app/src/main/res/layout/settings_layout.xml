@@ -249,29 +249,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/SmallText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:layout_weight="1"
 
-                    android:padding="10dp"
-                    android:text="Уведомления"
-                    android:textColor="@color/contentColor"
-                    android:textSize="14dp" />
-
-                <ImageView
-                    android:id="@+id/ic_arrow_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="20dp"
-                    android:padding="5dp"
-
-                    android:src="@drawable/arrow_left"
-                    android:tint="@color/contentColor" />
 
             </LinearLayout>
 
@@ -311,40 +290,10 @@
                             android:src="@drawable/ic_settings"
                             android:tint="@color/colorHint" />
 
-                        <TextView
-                            android:id="@+id/textView6"
-                            style="@style/SmallText"
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:layout_toEndOf="@+id/i6"
-                            android:layout_toRightOf="@+id/i6"
-                            android:text="@string/settings_4"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="16dp" />
 
-                        <TextView
-                            android:id="@+id/textView66"
-                            style="@style/SmallText"
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/textView6"
-                            android:layout_marginBottom="10dp"
-                            android:layout_toEndOf="@+id/i6"
-                            android:layout_toRightOf="@+id/i6"
-                            android:text="Пуш включен"
-                            android:textColor="@color/colorHint" />
 
-                        <Switch
-                            android:id="@+id/switch2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="" />
 
 
                     </RelativeLayout>
@@ -372,40 +321,10 @@
                             android:src="@drawable/ic_settings"
                             android:tint="@color/colorHint" />
 
-                        <TextView
-                            android:id="@+id/textView7"
-                            style="@style/SmallText"
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:layout_toEndOf="@+id/i7"
-                            android:layout_toRightOf="@+id/i7"
-                            android:text="@string/settings_5"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="16dp" />
 
-                        <TextView
-                            android:id="@+id/textView77"
-                            style="@style/SmallText"
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/textView7"
-                            android:layout_marginBottom="10dp"
-                            android:layout_toEndOf="@+id/i7"
-                            android:layout_toRightOf="@+id/i7"
-                            android:text="Пуш включен"
-                            android:textColor="@color/colorHint" />
 
-                        <Switch
-                            android:id="@+id/switch7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="" />
 
 
                     </RelativeLayout>

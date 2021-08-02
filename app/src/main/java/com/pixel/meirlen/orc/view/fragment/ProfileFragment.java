@@ -77,8 +77,7 @@ public class ProfileFragment extends Fragment implements SignUpView {
     ImageView icArrow1;
     @BindView(R.id.layout_expandable2)
     ExpandableLayout expandableLayout2;
-    @BindView(R.id.ic_arrow_2)
-    ImageView icArrow2;
+
 
     @BindView(R.id.layout_expandable3)
     ExpandableLayout expandableLayout3;
@@ -186,16 +185,7 @@ public class ProfileFragment extends Fragment implements SignUpView {
         }
     }
 
-    @OnClick(R.id.layout_2)
-    public void open_2() {
-        if (expandableLayout2.isExpanded()) {
-            expandableLayout2.collapse();
-            icArrow2.animate().rotation(90).start();
-        } else {
-            expandableLayout2.expand();
-            icArrow2.animate().rotation(270).start();
-        }
-    }
+
 
     @OnClick(R.id.layout_3)
     public void open_3() {
